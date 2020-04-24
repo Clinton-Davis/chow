@@ -1,10 +1,16 @@
 from flask import Flask
 import os
+from flask_pymongo import PyMongo
+from bson.objectid import ObjectId
+from os import path
+if path.exists("env.py"):
+  import env 
+
 
 app = Flask(__name__)
 
-
-
+app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
+app.config["MONGO_DBNAME"] = "chowdown"
 
 
 @app.route('/')
