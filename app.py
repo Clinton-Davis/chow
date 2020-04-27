@@ -21,10 +21,16 @@ def get_recipe():
   #This looks for all the recips in the recipein chowdown.recipes
     return render_template("recipes.html",recipes=mongo.db.recipes.find())
   
-@app.route('/addrecipes')
-def add_recipe():
-    #This opens the addrecipe form in addrecipe
-    return render_template(addrecipes.html)
+@app.route('/add_recipe')
+def add__recipe():
+  return render_template('add_recipe.html')
+
+@app.route('/insert_recipe', methods=['POST'])
+def inset_recipe():
+    recipe = mongo.db.recipes
+    recipe.insert_one(request.form.to_dict())
+    return redirect(url_for('get_recipe'))
+    
 
 if __name__ == "__main__":
     app.run(host=os.environ.get('IP'),

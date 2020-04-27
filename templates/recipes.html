@@ -9,14 +9,17 @@
     <h5 class="card-title">{{recipe.recipe_name}}</h5>
     <h6 class="card-title">By:{{recipe.nick_name}}</h6>
     <p class="card-text">{{recipe.descrition}}</p>
-    
+
     <span class="card-text">Category:{{recipe.category}}</span>
     <span class="card-text">Dairy Free:{{recipe.dairy_free}}</span>
-    </div>
-    <a href="#" class="btn btn-primary">Lets Chow!</a>
+    <p class="card-text">{{recipe.Ingredients}}</p>
+    <p class="card-text">{{recipe.cooking_method}}</p>
+
   </div>
+  <a href="#" class="btn btn-primary">Lets Chow!</a>
+</div>
 </div>
 
-        {% endfor %}
+{% endfor %}
 
 {% endblock %}
