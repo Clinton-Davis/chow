@@ -16,10 +16,18 @@ mongo = PyMongo(app)
 
 
 @app.route('/')
-@app.route('/get_recipe')
-def get_recipe():
+@app.route('/all_recipe')
+def all_recipe():
   #This looks for all the recips in the recipein chowdown.recipes
-    return render_template("recipes.html",recipes=mongo.db.recipes.find())
+    return render_template("all_recipes.html",recipes=mongo.db.recipes.find())
+  
+ 
+@app.route('/recipe/<recipe_id>')
+def recipe(recipe_id):
+  recipe = mongo.db.recipe.find_one({'_id': ObjectId(recipe_id)})  
+  return render_template('recipe.html', recipe=recipe)
+  
+  
   
 @app.route('/add_recipe')
 def add__recipe():
@@ -29,7 +37,7 @@ def add__recipe():
 def inset_recipe():
     recipe = mongo.db.recipes
     recipe.insert_one(request.form.to_dict())
-    return redirect(url_for('get_recipe'))
+    return redirect(url_for('all_recipe'))
     
 
 if __name__ == "__main__":
