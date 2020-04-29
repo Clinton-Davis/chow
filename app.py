@@ -35,40 +35,53 @@ def recipe(recipe_id):
   recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})  
   return render_template('recipe.html', recipe=recipe)
   
-#Registor here and after successfull reg go to all_recipe
+""" Reg: checks to see if a post is bing made 
+    check to see if a user already exists
+    hashes a password
+    inserts data in users.db 
+    redirects to home(all_recipe) or back to reg if user exists"""
 @app.route('/reg', methods=['POST', 'GET'])
 def reg():
     if request.method == 'POST':
-     #check to see if email exists
-       users = mongo.db.users
+      #check to see if email exists
+       users = mongo.db.users 
        existing_user = users.find_one({'name': request.form['username']})
-       
+       #If user dont NOT exist then insert username and password
        if existing_user is None:
          pw_hash = bcrypt.generate_password_hash(request.form['userpassword']).decode('utf-8')
          users.insert({'name' : request.form['username'], 'password' : pw_hash})
+         #make session name the same as username
          session['username'] = request.form['username']
+         #redirect to home page with user login in.
          return redirect(url_for('all_recipe'))
-       
+       #if user already exists, try another and redirect back to reg
        return 'That name already exists, try another' + render_template('reg.html')
     return render_template('reg.html') 
      
-     
-         
-
-      
-  #if not redirect to insert reg
-  #if true redirect to login
   
 
-@app.route('/login')
+@app.route('/login', methods=['POST'])
 def login():
-  return render_template('login.html')
+  users = mongo.db.users
+  login_user = users.find_one({'name': request.form['username']})
+  
+  if login_user:
+    if bcrypt.check_password_hash(pw_hash,(request.form['userpassword']) ).decode('utf-8') == login_user['userpassword'].decode('utf-8'):
+      session['username'] = request.form['username']
+      return redirect(url_for('all_recipe'))
+  return 'Invalid username'
+    
+  
+  
+  
   
 @app.route('/add_recipe')
 def add__recipe():
   #check to see if login in
+  if 'username' in session:
+    return render_template('add_recipe.html')
   #if not redirect to login
-  return render_template('add_recipe.html')
+  return render_template('/login.html')
 
 
 @app.route('/insert_recipe', methods=['POST'])
