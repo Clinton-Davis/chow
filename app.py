@@ -24,7 +24,7 @@ def all_recipe():
  
 @app.route('/recipe/<recipe_id>')
 def recipe(recipe_id):
-  recipe = mongo.db.recipe.find_one({'_id': ObjectId(recipe_id)})  
+  recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})  
   return render_template('recipe.html', recipe=recipe)
   
   

@@ -16,9 +16,9 @@
     <p class="card-text">{{recipe.cooking_method}}</p>
     -->
   </div>
-  <a href="#" class="btn btn-primary">Lets Chow!</a>
+  <a href="{{ url_for('recipe', recipe_id=recipe._id ) }}" class="btn btn-primary">Lets Chow!</a>
 </div>
-</div>
+
 
 {% endfor %}
 
