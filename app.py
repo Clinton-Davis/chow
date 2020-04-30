@@ -22,7 +22,7 @@ mongo = PyMongo(app)
 @app.route('/all_recipe')
 def all_recipe():
   if 'username' in session:
-    return 'Hi ' + session['username'] + render_template("all_recipes.html",recipes=mongo.db.recipes.find())
+    return ' Hi ' + session['username'] + render_template("all_recipes.html",recipes=mongo.db.recipes.find())
   
   #This looks for all the recips in the recipein chowdown.recipes
   return render_template("all_recipes.html",recipes=mongo.db.recipes.find())
@@ -40,36 +40,62 @@ def recipe(recipe_id):
     hashes a password
     inserts data in users.db 
     redirects to home(all_recipe) or back to reg if user exists"""
-@app.route('/reg', methods=['POST', 'GET'])
-def reg():
+@app.route('/register', methods=['POST', 'GET'])
+def register():
     if request.method == 'POST':
-      #check to see if email exists
        users = mongo.db.users 
-       existing_user = users.find_one({'name': request.form['username']})
-       #If user dont NOT exist then insert username and password
+       existing_user = users.find_one({'username': request.form['username']})
+       password = request.form['userPassword']
+       username = request.form['username']
+       
+       if password == '' or username == '':
+         error = 'Please fill in Username and Password'
+         return render_template('register.html', error=error)
+       
+       
        if existing_user is None:
-         pw_hash = bcrypt.generate_password_hash(request.form['userpassword']).decode('utf-8')
-         users.insert({'name' : request.form['username'], 'password' : pw_hash})
-         #make session name the same as username
+         users.insert({
+           'username' : request.form['username'].lower(), 
+           'email': request.form['userEmail'],
+           'password' : request.form['userPassword']
+           })
          session['username'] = request.form['username']
-         #redirect to home page with user login in.
          return redirect(url_for('all_recipe'))
-       #if user already exists, try another and redirect back to reg
+      
        return 'That name already exists, try another' + render_template('reg.html')
-    return render_template('reg.html') 
+    return render_template('register.html') 
      
   
 
-@app.route('/login', methods=['POST'])
+@app.route('/login', methods=['POST','GET'])
 def login():
-  users = mongo.db.users
-  login_user = users.find_one({'name': request.form['username']})
+  if request.method == 'POST':
+        userEmail = request.form['userEmail']
+        username = request.form['username']
+        login_user = mongo.db.user.find_one({'email': userEmail})
+        session['username'] = username
+        return redirect(url_for('all_recipes' ))
+  else:
+    return 'Invalid username email'
   
-  if login_user:
-    if bcrypt.check_password_hash(pw_hash,(request.form['userpassword']) ).decode('utf-8') == login_user['userpassword'].decode('utf-8'):
-      session['username'] = request.form['username']
-      return redirect(url_for('all_recipe'))
-  return 'Invalid username'
+  return redirect(url_for(reg))
+        
+      
+        
+        
+        
+        
+       
+        
+        
+        
+        
+          
+        
+  
+
+
+   
     
   
   
