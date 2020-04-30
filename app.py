@@ -54,20 +54,39 @@ def register():
       
        return 'That email already exists, Check the spelling' 
     return render_template('register.html') 
-     
 
-@app.route('/login', methods=['POST','GET'])
+
+@app.route('/login_page')
+def login_page():
+  return render_template('login_page.html')
+
+
+@app.route('/login', methods=['POST'])
 def login():
-  if request.method == 'POST':
-        userEmail = request.form['userEmail']
-        username = request.form['username']
-        login_user = mongo.db.user.find_one({'email': userEmail})
-        session['username'] = username
-        return redirect(url_for('all_recipes' ))
+  user = mongo.db.users
+  login_user = user.find_one({'name': request.form['username']})
+  
+  if login_user:
+      if bcrypt.checkpw(request.form['userPassword'].encode('utf-8'), 
+                        login_user['password']):
+        session['username'] = request.form['username']
+        return redirect(url_for('all_recipe'))
+  return 'Invalid username or password' +  render_template('login_page.html')
+  
+  
+  
+  
+  
+#  if request.method == 'POST':
+#       userEmail = request.form['userEmail']
+#        username = request.form['username']
+#        login_user = mongo.db.user.find_one({'email': userEmail})
+#        session['username'] = username
+#        return redirect(url_for('all_recipes' ))
   
     
   
-  return redirect(url_for('register'))
+  
         
       
         
