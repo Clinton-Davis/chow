@@ -63,9 +63,8 @@ def login_page():
 
 @app.route('/login', methods=['POST'])
 def login():
-  user = mongo.db.users
-  login_user = user.find_one({'name': request.form['username']})
-  
+  users = mongo.db.users
+  login_user = users.find_one({'email': request.form['userEmail']})
   if login_user:
       if bcrypt.checkpw(request.form['userPassword'].encode('utf-8'), 
                         login_user['password']):
