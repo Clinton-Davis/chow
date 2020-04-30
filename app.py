@@ -61,7 +61,7 @@ def login_page():
   return render_template('login_page.html')
 
 
-@app.route('/login', methods=['POST'])
+@app.route('/login', methods=['POST','GET'])
 def login():
   users = mongo.db.users
   login_user = users.find_one({'email': request.form['userEmail']})
@@ -73,46 +73,13 @@ def login():
   return 'Invalid username or password' +  render_template('login_page.html')
   
   
-  
-  
-  
-#  if request.method == 'POST':
-#       userEmail = request.form['userEmail']
-#        username = request.form['username']
-#        login_user = mongo.db.user.find_one({'email': userEmail})
-#        session['username'] = username
-#        return redirect(url_for('all_recipes' ))
-  
-    
-  
-  
-        
-      
-        
-        
-        
-        
-       
-        
-        
-        
-        
-          
-        
-  
-
-
-   
-    
-  
-  
-  
-  
 @app.route('/add_recipe')
-def add__recipe():
+def add_recipe():
   #check to see if login in
-  #if not redirect to login
+  
   return render_template('add_recipe.html')
+  #if not redirect to login
+
 
 
 @app.route('/insert_recipe', methods=['POST'])
