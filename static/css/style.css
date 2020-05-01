@@ -7,14 +7,28 @@
     --hpf: "Baloo+Bhaina"sans-serif;
     /* Coloured back ground */
     --cbg: rgb(232, 217, 201);
+    /* Off white */
+    --white: rgb(254, 254, 254);
+    /* Fruit Image*/
+    --fruit: url(../images/andy-chilton-0JFveX0c778-unsplash.jpg);
+    /* Wooden Bords image */
+    --wood: url(../images/luca-ruegg-agcTGM582Uo-unsplash.jpg);
 }
 
 body {
     font-family: var(--bf);
+    background-image: var(--fruit);
+    background-position: center;
+    background-size: cover;
 
 }
 
 /* Heading Font */
 .hf {
     font-family: var(--hf);
+}
+
+/*Genral*/
+.jumbotron {
+    background-color: var(--cbg);
 }
