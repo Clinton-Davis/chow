@@ -22,7 +22,7 @@ mongo = PyMongo(app)
 @app.route('/all_recipe')
 def all_recipe():
   if 'username' in session:
-    return  render_template("all_recipes.html", session_name='username', recipes=mongo.db.recipes.find())
+    return  render_template("all_recipes.html", session_name=session['username'], recipes=mongo.db.recipes.find())
   
   #This looks for all the recips in the recipein chowdown.recipes
   return render_template("all_recipes.html",recipes=mongo.db.recipes.find())
@@ -50,6 +50,7 @@ def register():
             'password' : hashpass
             })
             session['username'] = request.form['username']
+            flash('You have be successfull registered and are login In')
             return redirect(url_for('all_recipe'))
       
        return 'That email already exists, Check the spelling' 
@@ -69,6 +70,7 @@ def login():
       if bcrypt.checkpw(request.form['userPassword'].encode('utf-8'), 
                         login_user['password']):
         session['username'] = request.form['username']
+        flash('You are now Logged In')
         return redirect(url_for('all_recipe'))
   return 'Invalid username or password' +  render_template('login_page.html')
   
@@ -76,8 +78,10 @@ def login():
 @app.route('/add_recipe')
 def add_recipe():
   #check to see if login in
+    if 'username' in session:
+       return  render_template("add_recipe.html", session_name=session['username'])
   
-  return render_template('add_recipe.html')
+    return redirect(url_for('login_page'))
   #if not redirect to login
 
 
