@@ -12,9 +12,10 @@
     /* Off white */
     --white: rgb(254, 254, 254);
     /* Fruit Image*/
-    --fruit: url(../images/andy-chilton-0JFveX0c778-unsplash.jpg);
+    --fruit: url(../images/overexposed-andy-chilton.jpg);
     /* Wooden Bords image */
-    --wood: url(../images/luca-ruegg-agcTGM582Uo-unsplash.jpg);
+    --wood: url(../images/wood-blackleveup-luca-ruegg.jpg);
+    --dwood: url(../images/wood-blackleveup-luca-ruegg.jpg);
     /* Box Shadow*/
     --shd: 0px 5px 5px 0px rgba(0, 0, 0, 0.5);
     /* Font Size 1.5rem*/
@@ -55,6 +56,10 @@ body {
 /*Genral*/
 .jumbotron {
     background-color: var(--cbg);
+    padding: 2rem 2rem;
+    width: 80%;
+    margin: 1em auto auto auto;
+    border-radius: 20px;
 }
 
 .hotpoint {
@@ -89,4 +94,17 @@ body {
     -webkit-box-shadow: 0px 4px 7px 2px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0px 4px 7px 2px rgba(0, 0, 0, 0.5);
     box-shadow: 0px 4px 7px 2px rgba(0, 0, 0, 0.5);
+}
+
+/*-=-=-=-=-=--=-=About-=-=-=-=-*/
+#P-chow {
+    font-size: 1.3rem;
+}
+
+/* -=-=-=--=-=-=-FOOTER=-=-=-=--=-*/
+
+.footer {
+    background-image: var(--wood);
+    background-position: center;
+    background-size: cover;
 }
