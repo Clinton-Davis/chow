@@ -1,0 +1,20 @@
+:root {
+    /*Heading Font*/
+    --hf: "Lobster", sans-serif;
+    /* Body Font */
+    --bf: "Montserrat", sans-serif;
+    /* HotPoint Font */
+    --hpf: "Baloo+Bhaina"sans-serif;
+    /* Coloured back ground */
+    --cbg: rgb(232, 217, 201);
+}
+
+body {
+    font-family: var(--bf);
+
+}
+
+/* Heading Font */
+.hf {
+    font-family: var(--hf);
+}

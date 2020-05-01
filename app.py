@@ -28,7 +28,9 @@ def all_recipe():
   return render_template("all_recipes.html",recipes=mongo.db.recipes.find())
   
     
-  
+@app.route('/about')
+def about():
+  return render_template('about.html')
  
 @app.route('/recipe/<recipe_id>')
 def recipe(recipe_id):
