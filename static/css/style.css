@@ -9,13 +9,15 @@
     --hpf: "Baloo Bhaina 2", sans-serif;
     /* Coloured back ground */
     --cbg: rgb(232, 217, 201);
+    /* Off Black Border*/
+    --obb: 1px rgba(39, 39, 39, 0.842) solid;
     /* Off white */
     --white: rgb(254, 254, 254);
     /* Fruit Image*/
     --fruit: url(../images/overexposed-andy-chilton.jpg);
     /* Wooden Bords image */
     --wood: url(../images/wood-blackleveup-luca-ruegg.jpg);
-    --dwood: url(../images/wood-blackleveup-luca-ruegg.jpg);
+    --dwood: url(../images/wood-Dark-luca-ruegg.jpg);
     /* Box Shadow*/
     --shd: 0px 5px 5px 0px rgba(0, 0, 0, 0.5);
     /* Font Size 1.5rem*/
@@ -27,6 +29,16 @@ body {
     background-image: var(--fruit);
     background-position: center;
     background-size: cover;
+}
+
+a {
+    color: var(--white);
+}
+
+a:focus,
+a:hover {
+    color: rgb(232, 217, 201);
+    text-shadow: 1px 1px darkgray;
 }
 
 /* Font Size 1.5rem*/
@@ -58,8 +70,9 @@ body {
     background-color: var(--cbg);
     padding: 2rem 2rem;
     width: 80%;
-    margin: 1em auto auto auto;
+    margin: 1em auto 1em auto;
     border-radius: 20px;
+    border: var(--obb)
 }
 
 .hotpoint {
@@ -76,14 +89,19 @@ body {
     box-shadow: var(--shd);
 }
 
+.navbar-toggler-icon {
+
+    background-color: rgba(255, 255, 255, 0.925);
+    border-radius: 8px;
+}
+
 .navbar {
-    background-image: var(--wood);
+    background-image: var(--dwood);
     background-position: center;
     background-size: cover;
     position: relative;
     display: -ms-flexbox;
     display: flex;
-
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     -ms-flex-align: center;
@@ -96,6 +114,17 @@ body {
     box-shadow: 0px 4px 7px 2px rgba(0, 0, 0, 0.5);
 }
 
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgb(232, 217, 201);
+}
+
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover {
+    color: rgb(232, 217, 201);
+    text-shadow: 1px 1px darkgray;
+}
+
 /*-=-=-=-=-=--=-=About-=-=-=-=-*/
 #P-chow {
     font-size: 1.3rem;
@@ -104,7 +133,58 @@ body {
 /* -=-=-=--=-=-=-FOOTER=-=-=-=--=-*/
 
 .footer {
-    background-image: var(--wood);
+    background-image: var(--dwood);
     background-position: center;
     background-size: cover;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: 10vh;
+    -webkit-box-shadow: 0px -4px 7px 2px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px -4px 7px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px -4px 7px 2px rgba(0, 0, 0, 0.5);
+}
+
+.feet {
+    color: var(--white);
+    margin: 1em 0px 0.2em 0px;
+}
+
+.copyRight {
+    margin-top: -1.52em;
+    margin-bottom: 2em;
+    padding-left: 9px;
+}
+
+#sign {}
+
+/* BG on web page desinger*/
+.feet-bg {
+    font-weight: 600;
+    margin-top: 0em;
+    background-image: linear-gradient(-45deg,
+            rgb(27, 240, 8),
+            rgb(250, 95, 95),
+            rgb(94, 102, 241));
+    color: transparent;
+
+    background-size: 800%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: foot-animation 6s ease-in-out infinite alternate;
+    -webkit-animation: foot-animation 6s ease-in-out infinite alternate;
+}
+
+@keyframes foot-animation {
+    0% {
+        background-position: left;
+    }
+
+    50% {
+        background-position: right;
+    }
+
+    100% {
+        background-position: left;
+    }
 }

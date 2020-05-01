@@ -50,12 +50,22 @@
 
   <!--FOOTER-->
   <footer class="footer">
-    <div class="feet">CopyRight© 2020</div>
-    <div class="feet">Contact Us</div>
+    <div class="feet ">
+      <span id="navHead" class="hf fs">Chow</span><span class="bf w">by</span><span class="hotpoint w">HotPoint</span>
+      <h6 class="copyRight">CopyRight© 2020</h6>
+    </div>
+    <div class="feet">
+      <ul>
+        <li><a href="{{url_for('all_recipe')}}">Home</a></li>
+        <li><a href="{{url_for('about')}}">About</a></li>
+        <li><a href="{{url_for('add_recipe')}}">Add Recipe</a></li>
+        <li><a href="#">Login</a></li>
+      </ul>
+    </div>
     <div class="feet">
       <div class="feet">Web Design:</div>
       <div class="feet feet-bg">
-        <a href="https://github.com/Clinton-Davis" class="feet-bg" target="_blank">Clinton Davis</a>
+        <a id="sign" href="https://github.com/Clinton-Davis" class="feet-bg" target="_blank">Clinton Davis</a>
       </div>
     </div>
   </footer>
