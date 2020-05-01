@@ -41,6 +41,10 @@ a:hover {
     text-shadow: 1px 1px darkgray;
 }
 
+.negMar {
+    margin-top: -1em;
+}
+
 /* Font Size 1.5rem*/
 .fs {
     font-size: var(--fs);
