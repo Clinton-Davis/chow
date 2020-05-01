@@ -22,7 +22,7 @@ mongo = PyMongo(app)
 @app.route('/all_recipe')
 def all_recipe():
   if 'username' in session:
-    return ' Hi ' + session['username'] + render_template("all_recipes.html",recipes=mongo.db.recipes.find())
+    return  render_template("all_recipes.html", session_name='username', recipes=mongo.db.recipes.find())
   
   #This looks for all the recips in the recipein chowdown.recipes
   return render_template("all_recipes.html",recipes=mongo.db.recipes.find())
