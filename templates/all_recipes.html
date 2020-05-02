@@ -1,25 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
-<h6 class="loggedIn">{{session_name}}</h6>
-{% for recipe in recipes %}
+<div class="container recipeContainer">
+  {% for recipe in recipes %}
 
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">{{recipe.recipe_name}}</h5>
-    <h6 class="card-title">By:{{recipe.nick_name}}</h6>
-    <p class="card-text">{{recipe.descrition}}</p>
+  <div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{recipe.recipe_name}}</h5>
+      <h6 class="card-title">By:{{recipe.nick_name}}</h6>
+      <p class="card-text">{{recipe.descrition}}</p>
 
-    <span class="card-text">Category:{{recipe.category}}</span>
-    <span class="card-text">Dairy Free:{{recipe.dairy_free}}</span>
-    <!--<p class="card-text">{{recipe.Ingredients}}</p>
+      <span class="card-text">Category:{{recipe.category}}</span>
+      <span class="card-text">Dairy Free:{{recipe.dairy_free}}</span>
+      <!--<p class="card-text">{{recipe.Ingredients}}</p>
     <p class="card-text">{{recipe.cooking_method}}</p>
     -->
+    </div>
+    <a href="{{ url_for('recipe', recipe_id=recipe._id ) }}" class="btn btn-primary">Lets Chow!</a>
   </div>
-  <a href="{{ url_for('recipe', recipe_id=recipe._id ) }}" class="btn btn-primary">Lets Chow!</a>
+
+
+  {% endfor %}
 </div>
-
-
-{% endfor %}
-
 {% endblock %}

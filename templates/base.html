@@ -19,12 +19,14 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="{{url_for('all_recipe')}}"><span id="navHead" class="hf fs">Chow</span><span
         class="bf w">by</span><span class="hotpoint w">HotPoint</span></a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav .ml-auto">
+
+      <ul class="navbar-nav .mr-auto">
         <li class="nav-item active">
           <a class="nav-link" href="{{url_for('all_recipe')}}">Home <span class="sr-only">(current)</span></a>
         </li>
@@ -38,9 +40,14 @@
           <a class="nav-link" href="{{url_for('about')}}">About</a>
         </li>
 
+
       </ul>
     </div>
+    {% block Head %}
+    <h6 class="loggedIn">{{session_name}}</h6>
+    {% endblock Head %}
   </nav>
+
 </header>
 
 <body>
