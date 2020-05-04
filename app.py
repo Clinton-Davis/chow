@@ -23,7 +23,8 @@ mongo = PyMongo(app)
 def all_recipe():
   if 'username' in session:
     return  render_template("all_recipes.html", session_name=session['username'], recipes=mongo.db.recipes.find())
-  
+    
+    
   #This looks for all the recips in the recipein chowdown.recipes
   return render_template("all_recipes.html",recipes=mongo.db.recipes.find())
   
@@ -95,6 +96,32 @@ def inset_recipe():
     return redirect(url_for('all_recipe'))
     
 
+
+@app.route('/delete_recipe/<recipe_id>')
+def delete_recipe(recipe_id):
+  
+  
+  if 'username' in session:
+    recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
+    
+    session['username'] = recipe['username']
+    recipe = mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
+    return redirect(url_for('login_page'))
+    
+  return redirect(url_for('login_page'))   
+    
+    
+
+@app.route('/edit_recipe/<recipe_id>')
+def edit_recipe(recipe_id):
+  edit = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
+  return render_template('edditrecipe.html', recipe=edit)  
+  
+  
+  
+  
+  
+  
 if __name__ == "__main__":
     app.run(host=os.environ.get('IP'),
             port=(os.environ.get('PORT')),

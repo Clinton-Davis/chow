@@ -5,7 +5,7 @@
     <img src="" class="card-img-top" alt="dish">
     <div class="card-body">
         <h5 class="card-title">{{recipe.recipe_name}}</h5>
-        <h6 class="card-title">By: {{recipe.nick_name}}</h6>
+        <h6 class="card-title">By: {{recipe.username}}</h6>
         <p class="card-text">{{recipe.descrition}}</p>
 
         <span class="card-text">Category: {{recipe.category}}</span>
@@ -16,7 +16,10 @@
         <p class="card-text">{{recipe.cooking_method}}</p>
 
     </div>
-    <a href="{{url_for('all_recipe')}}" class="btn btn-primary">Back Home</a>
+    <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn btn-primary"
+        style="width: 20%;">Edit/Delete</a>
+    <a href="{{url_for('all_recipe')}}" class="btn btn-primary" style="width: 20%;">Back Home</a>
+
 </div>
 
 {% endblock %}

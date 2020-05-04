@@ -3,25 +3,23 @@
 
 <div class="jumbotron" style="width: 80%; margin-left: auto; margin-right:auto;">
     <div class="">
-        <h1 class="text-center hf">Add Recipe</h1>
+        <h1 class="text-center hf">Edit Recipe</h1>
     </div>
 
     <div class="addrecipys">
         <form action="{{ url_for('inset_recipe') }}" method="POST">
             <div class="form-group">
 
-                <input hidden type="text" class="form-control" id="nickName" value="{{session_name}}" name="username"
-                    placeholder="Nick name or Username">
+                <input hidden type="text" class="form-control" id="username" value="{{session_name}}" name="username">
             </div>
             <div class="form-group">
                 <label for="inputAddress">Recipe Name:</label>
                 <input type="text" class="form-control" id="RecipeName" name="recipe_name"
-                    placeholder="What the dish called?">
+                    value="{{recipe.recipe_name}}">
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Dish descrition:</label>
-                <textarea class="form-control" id="descrition" name="descrition" rows="2"
-                    placeholder="Write a little somthing about your dish"></textarea>
+                <textarea class="form-control" id="descrition" name="descrition" rows="2" aria-valuetext=""></textarea>
             </div>
             <div class="form-group">
                 <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Categorys:</label>
@@ -35,7 +33,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label class="my-1 mr-2" for="cookingtime">Servings:</label>
+                <label class="my-1 mr-2" for="cookingtime">Cooking Time:</label>
                 <select class="custom-select my-1 mr-sm-2" name="category" id="cookingtime" name="cooking_time"
                     required>
                     <option value="" disabled selected>Servings:</option>
@@ -50,16 +48,19 @@
                     <option value="Alot">Alot</option>
                 </select>
             </div>
-            <div class="form-group">
-                <label for="inputAddress">Cooking Time:</label>
-                <input type="text" class="form-control" id="serves" placeholder="How long will it take to cook?">
-            </div>
-            <div class="custom-control custom-switch">
-                <input type="checkbox" name="dairy_free" class="custom-control-input" id="customSwitch1">
-                <label class="custom-control-label" for="customSwitch1">Dairy Free?</label>
-            </div>
 
-
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="dairy_free" id="exampleRadios1" value="Yes">
+                <label class="form-check-label" for="exampleRadios1">
+                    Dairy Free:
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="dairy_free" id="exampleRadios2" value="No" checked>
+                <label class="form-check-label" for="exampleRadios2">
+                    Not Dairy Free:
+                </label>
+            </div>
             <br>
             <div class="form-group custom-file">
                 <label class="custom-file-label" for="customFile">Upload Image:</label>
@@ -69,17 +70,17 @@
             <br>
 
             <div class="form-group">
-                <label for="exampleFormControlTextarea1">Ingreadence:</label>
-                <textarea class="form-control" id="ingredients" name="Ingredients" rows="4"
+                <label for="ingredients_edit">Ingreadence:</label>
+                <textarea class="form-control" id="ingredients_edit" name="Ingredients" rows="4"
                     placeholder="Type in like this: 5g Suger (Enter)"></textarea>
             </div>
             <div class="form-group">
-                <label for="exampleFormControlTextarea1">Cooking Method:</label>
-                <textarea class="form-control text-capitalize" id="cooking_method" name="cooking_method" rows="5"
-                    placeholder="Seperate each different instruction with a space inbetween."></textarea>
+                <label for="cooking_method">Cooking Method:</label>
+                <textarea class="form-control text-capitalize" id="cooking_method" name="cooking_method"
+                    rows="5"></textarea>
             </div>
             <div>
-                <button type="submit" class="btn btn-primary">Add Recipe</button>
+                <button type="submit" class="btn btn-primary">Done Editting</button>
             </div>
         </form>
     </div>

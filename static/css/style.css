@@ -40,6 +40,7 @@ a:hover {
   color: rgb(232, 217, 201);
   text-shadow: 1px 1px darkgray;
 }
+
 .loggedIn {
   color: var(--white);
   margin-left: auto;
@@ -47,13 +48,16 @@ a:hover {
   top: 1vh;
   right: 20px;
 }
+
 .negMar {
   margin-top: -1em;
 }
+
 .recipeContainer {
   display: flex;
   justify-content: space-evenly;
 }
+
 /* Font Size 1.5rem*/
 .fs {
   font-size: var(--fs);
@@ -106,16 +110,19 @@ a:hover {
   background-color: rgba(255, 255, 255, 0.925);
   border-radius: 8px;
 }
+
 @media (min-width: 992px) {
   .navbar-expand-lg .navbar-collapse {
     display: -ms-flexbox !important;
     display: flex !important;
     -ms-flex-preferred-size: auto;
     flex-basis: auto;
-    width: 100%;
+
     justify-content: flex-end;
+    padding-top: 30px;
   }
 }
+
 .navbar {
   background-image: var(--dwood);
   background-position: center;
@@ -181,12 +188,10 @@ a:hover {
 .feet-bg {
   font-weight: 600;
   margin-top: 0em;
-  background-image: linear-gradient(
-    -45deg,
-    rgb(27, 240, 8),
-    rgb(250, 95, 95),
-    rgb(94, 102, 241)
-  );
+  background-image: linear-gradient(-45deg,
+      rgb(27, 240, 8),
+      rgb(250, 95, 95),
+      rgb(94, 102, 241));
   color: transparent;
 
   background-size: 800%;
