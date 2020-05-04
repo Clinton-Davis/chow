@@ -99,14 +99,13 @@ def inset_recipe():
 
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
-  
-  
   if 'username' in session:
     recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
+    if session['username'] == recipe['username']:
+      recipe = mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
+      return redirect(url_for('all_recipe'))
+      
     
-    session['username'] = recipe['username']
-    recipe = mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
-    return redirect(url_for('all_recipe'))
     
   return redirect(url_for('login_page'))   
     
