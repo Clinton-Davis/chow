@@ -53,10 +53,10 @@ def register():
             'password' : hashpass
             })
             session['username'] = request.form['username']
-            flash('You have be successfull registered and are login In')
+            flash('You have be successfull registered and are login In', 'success')
             return redirect(url_for('all_recipe'))
       
-       return 'That email already exists, Check the spelling' 
+    flash('That email already exists, Check the spelling', 'warning')
     return render_template('register.html') 
 
 
@@ -73,9 +73,11 @@ def login():
       if bcrypt.checkpw(request.form['userPassword'].encode('utf-8'), 
                         login_user['password']):
         session['username'] = request.form['username']
-        flash('You are now Logged In')
+        flash('You are now Logged In', 'success')
         return redirect(url_for('all_recipe'))
-  return 'Invalid username or password' +  render_template('login_page.html')
+      
+  flash('That is an Inalid username or password', 'warning')
+  return render_template('login_page.html')
   
   
 @app.route('/add_recipe')
@@ -83,7 +85,8 @@ def add_recipe():
   #check to see if login in
     if 'username' in session:
        return  render_template("add_recipe.html", session_name=session['username'])
-  
+     
+    flash('You Need to be logged in to add a new recipe', 'warning')
     return redirect(url_for('login_page'))
   #if not redirect to login
 
@@ -93,6 +96,7 @@ def add_recipe():
 def inset_recipe():
     recipe = mongo.db.recipes
     recipe.insert_one(request.form.to_dict())
+    flash('You have successfully added your recipe', 'success')
     return redirect(url_for('all_recipe'))
     
 
@@ -104,7 +108,7 @@ def delete_recipe(recipe_id):
     if session['username'] == recipe['username']:
       recipe = mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
       return redirect(url_for('all_recipe'))
-
+  flash('Sorry! Not yours to Delete', 'danger')
   return redirect(url_for('login_page'))   
     
     
@@ -115,6 +119,7 @@ def edit_recipe(recipe_id):
         recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
         if session['username'] == recipe['username']:
          return render_template('edditrecipe.html', recipe=recipe)  
+  flash('Sorry! Not yours to Edit', 'danger')
   return redirect(url_for('login_page')) 
   
   
