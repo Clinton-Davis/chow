@@ -27,10 +27,7 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav .mr-auto">
-        <form class="form-inline my-2 my-sm-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search by Catogery" aria-label="Search">
-          <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-        </form>
+
         <li class="nav-item active">
           <a class="nav-link" href="{{url_for('all_recipe')}}">Home <span class="sr-only">(current)</span></a>
         </li>
@@ -43,6 +40,11 @@
         <li class="nav-item">
           <a class="nav-link" href="{{url_for('about')}}">About</a>
         </li>
+        <form class="form-inline my-2 my-sm-0">
+          <input class="form-control form-control-sm mr-sm-2" type="search" placeholder="Search by Catogery"
+            aria-label="Search">
+          <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+        </form>
 
 
 
@@ -85,12 +87,24 @@
       <span id="navHead" class="hf fs">Chow</span><span class="bf w">by</span><span class="hotpoint w">HotPoint</span>
       <h6 class="copyRight">CopyRight© 2020</h6>
     </div>
+    <form action="">
+      <div class="form-group">
+        <label for="loginEmail" class="w hf">Login</label>
+        <input type="email" class="form-control form-control-sm" name="userEmail" id="loginEmail" placeholder="Email"
+          aria-describedby="emailHelp">
+
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control form-control-sm" name="userPassword" id="footerpassword"
+          placeholder="Password">
+      </div>
+    </form>
     <div class="feet">
       <ul>
         <li><a href="{{url_for('all_recipe')}}">Home</a></li>
         <li><a href="{{url_for('about')}}">About</a></li>
         <li><a href="{{url_for('add_recipe')}}">Add Recipe</a></li>
-        <li><a href="#">Login</a></li>
+
       </ul>
     </div>
     <div class="feet">
