@@ -106,7 +106,7 @@ def delete_recipe(recipe_id):
     
     session['username'] = recipe['username']
     recipe = mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
-    return redirect(url_for('login_page'))
+    return redirect(url_for('all_recipe'))
     
   return redirect(url_for('login_page'))   
     
