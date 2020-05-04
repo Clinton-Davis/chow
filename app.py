@@ -104,18 +104,18 @@ def delete_recipe(recipe_id):
     if session['username'] == recipe['username']:
       recipe = mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
       return redirect(url_for('all_recipe'))
-      
-    
-    
+
   return redirect(url_for('login_page'))   
     
     
 
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
-  edit = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
-  return render_template('edditrecipe.html', recipe=edit)  
-  
+  if 'username' in session:
+        recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
+        if session['username'] == recipe['username']:
+         return render_template('edditrecipe.html', recipe=recipe)  
+  return redirect(url_for('login_page')) 
   
   
   
