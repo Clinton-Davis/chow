@@ -28,7 +28,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav .mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="{{url_for('all_recipe')}}">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="{{url_for('all_recipe')}}">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{url_for('about')}}">About</a>
@@ -43,13 +43,20 @@
           <a class="nav-link" href="{{url_for('login_page')}}">Login</a>
           {% endif %}
         </li>
-
-        <form class="form-inline my-2 my-sm-0">
-          <input class="form-control form-control-sm mr-sm-2" type="search" placeholder="Search by Catogery"
-            aria-label="Search" />
-          <button class="btn btn-outline-light my-2 btn-sm" type="submit">
-            Search
-          </button>
+        <form action="" method="POST">
+          <div class="input-group">
+            <select class="custom-select" id="categorySearch" name="cat_search">
+              <option value="" disabled selected>Category</option>
+              <option value="Veggie">Veggie</option>
+              <option value="Beef">Beef</option>
+              <option value="Pork">Pork</option>
+              <option value="Chicken">Chicken</option>
+              <option value="Lamb">Lamb</option>
+            </select>
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-outline-light btn-sm" type="button">Button</button>
+            </div>
+          </div>
         </form>
       </ul>
     </div>

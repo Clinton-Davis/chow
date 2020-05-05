@@ -7,7 +7,7 @@
     </div>
 
     <div class="addrecipys">
-        <form action="{{ url_for('inset_recipe') }}" method="POST">
+        <form action="{{ url_for('inset_recipe') }}" method="POST" enctype="multipart/form-data">
             <div class="form-group">
 
                 <input hidden type="text" class="form-control" id="nickName" value="{{session_name}}" name="username"
@@ -64,13 +64,13 @@
             <br>
             <div class="form-group custom-file">
                 <label class="custom-file-label" for="customFile">Upload Image:</label>
-                <input type="file" class="custom-file-input" id="customFile">
+                <input type="file" class="custom-file-input" id="customFile" name="dish_image">
             </div>
             <br>
             <br>
 
             <div class="form-group">
-                <label for="exampleFormControlTextarea1">Ingreadence:</label>
+                <label for="ingredients">Ingreadence:</label>
                 <textarea class="form-control" id="ingredients" name="ingredients" rows="4"
                     placeholder="Type in like this: 5g Suger (Enter)"></textarea>
             </div>

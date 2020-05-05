@@ -39,6 +39,11 @@ def recipe(recipe_id):
   return render_template('recipe.html', recipe=recipe)
   
 
+
+  
+
+
+
 @app.route('/register', methods=['POST', 'GET'])
 def register():
     if request.method == 'POST':
@@ -95,10 +100,14 @@ def add_recipe():
 
 @app.route('/insert_recipe', methods=['POST'])
 def inset_recipe():
-    recipe = mongo.db.recipes
-    recipe.insert_one(request.form.to_dict())
-    flash('You have successfully added your recipe', 'success')
-    return redirect(url_for('all_recipe'))
+  if 'dish_image' in request.files:
+      dish_image = request.files['dish_image']
+      mongo.save_file(dish_image.filename, dish_image)
+      recipe = mongo.db.recipes
+      recipe.insert_one(request.form.to_dict())
+    
+      flash('You have successfully added your recipe', 'success')
+      return redirect(url_for('all_recipe'))
     
 
 

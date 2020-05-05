@@ -23,7 +23,7 @@ def mongo_connect(url):
 conn = mongo_connect(MONGO_URI)
 
 coll = conn[DBS_NAME][COLLECTION_NAME]
+cur = coll.find()
+array = list(coll.find({'category': 'Beef'}))
 
-documents = coll.find()
-for doc in documents:
-    print(doc)
+print(array)
