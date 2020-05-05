@@ -127,7 +127,9 @@ def edit_recipe(recipe_id):
   
 @app.route('/logout')
 def logout():
-  return redirect(url_for('all_recipe'))
+   # remove the username from the session if it's there
+    session.pop('username', None)
+    return redirect(url_for('all_recipe'))
   
 if __name__ == "__main__":
     app.run(host=os.environ.get('IP'),

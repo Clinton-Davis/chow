@@ -86,10 +86,10 @@
     <form method="POST" action="{{ url_for('login') }}">
       <div class="form-group">
         <label for="loginEmail" class="w hf">Login</label>
+        <input type="text" class="form-control form-control-sm" name="username" id="usernameLogin"
+          placeholder="Username">
         <input type="email" class="form-control form-control-sm" name="userEmail" id="loginEmail" placeholder="Email"
           aria-describedby="emailHelp" />
-      </div>
-      <div class="form-group">
         <input type="password" class="form-control form-control-sm" name="userPassword" id="footerpassword"
           placeholder="Password" />
       </div>
