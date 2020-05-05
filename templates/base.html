@@ -1,18 +1,18 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
   <link
     href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600&family=Lobster&family=Montserrat:ital,wght@0,400;0,600;1,400&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css">
+    rel="stylesheet" />
+  <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
   <title>Chow</title>
 </head>
 <header>
@@ -27,84 +27,80 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav .mr-auto">
-
         <li class="nav-item active">
           <a class="nav-link" href="{{url_for('all_recipe')}}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('about')}}">About</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{url_for('add_recipe')}}">Add Recipe</a>
         </li>
         <li class="nav-item">
+          {% if session['logged_in'] == True %}
+          <a class="nav-link" href="{{url_for('logout')}}">Logout</a>
+          {% else %}
           <a class="nav-link" href="{{url_for('login_page')}}">Login</a>
+          {% endif %}
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url_for('about')}}">About</a>
-        </li>
+
         <form class="form-inline my-2 my-sm-0">
           <input class="form-control form-control-sm mr-sm-2" type="search" placeholder="Search by Catogery"
-            aria-label="Search">
-          <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+            aria-label="Search" />
+          <button class="btn btn-outline-light my-2 btn-sm" type="submit">
+            Search
+          </button>
         </form>
-
-
-
-
       </ul>
     </div>
+    <!--Puts the Logged in users name in header-->
     {% block Head %}
     <h6 class="loggedIn">{{session_name}}</h6>
     {% endblock Head %}
   </nav>
-
 </header>
 
-
 <body>
+  <!--Flashed messages in container to hold just below the nav bar-->
   <div class="container">
-
-    {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-
-    {% for category, message in messages %}
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %} {% for category, message in messages %}
     <div class="alert text-center alert-{{ category }} alert-dismissible fade show" role="alert">
       <span>{{ message }}</span>
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    {% endfor %}
-
-    {% endif %}
-    {% endwith %}
+    {% endfor %} {% endif %} {% endwith %}
   </div>
-
-  {% block content %}
-  {% endblock %}
+  <!--Body Content block-->
+  {% block content %} {% endblock %}
 
   <!--FOOTER-->
   <footer class="footer">
-    <div class="feet ">
+    <div class="feet">
       <span id="navHead" class="hf fs">Chow</span><span class="bf w">by</span><span class="hotpoint w">HotPoint</span>
       <h6 class="copyRight">CopyRight© 2020</h6>
     </div>
-    <form action="">
+    <!--Footer Login / uses same routes as login page-->
+    <form method="POST" action="{{ url_for('login') }}">
       <div class="form-group">
         <label for="loginEmail" class="w hf">Login</label>
         <input type="email" class="form-control form-control-sm" name="userEmail" id="loginEmail" placeholder="Email"
-          aria-describedby="emailHelp">
-
+          aria-describedby="emailHelp" />
       </div>
       <div class="form-group">
         <input type="password" class="form-control form-control-sm" name="userPassword" id="footerpassword"
-          placeholder="Password">
+          placeholder="Password" />
       </div>
+      <button type="submit" class="btn btn-outline-light btn-sm">Submit</button>
     </form>
     <div class="feet">
       <ul>
         <li><a href="{{url_for('all_recipe')}}">Home</a></li>
         <li><a href="{{url_for('about')}}">About</a></li>
         <li><a href="{{url_for('add_recipe')}}">Add Recipe</a></li>
-
+        <li><a href="{{url_for('logout')}}">Logout</a></li>
       </ul>
     </div>
     <div class="feet">

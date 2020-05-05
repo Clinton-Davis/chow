@@ -73,6 +73,7 @@ def login():
       if bcrypt.checkpw(request.form['userPassword'].encode('utf-8'), 
                         login_user['password']):
         session['username'] = request.form['username']
+        session['logged_in'] = True
         flash('You are now Logged In', 'success')
         return redirect(url_for('all_recipe'))
       
@@ -124,7 +125,9 @@ def edit_recipe(recipe_id):
   
   
   
-  
+@app.route('/logout')
+def logout():
+  return redirect(url_for('all_recipe'))
   
 if __name__ == "__main__":
     app.run(host=os.environ.get('IP'),
