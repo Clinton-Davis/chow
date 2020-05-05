@@ -163,6 +163,15 @@ a:hover {
   font-size: 1.3rem;
 }
 
+/* =-=-=-=-=-=---=-=-CARD-=--=--=--=*/
+.card-body {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  min-height: 25px;
+  padding: 1.25rem;
+  background-color: var(--cbg);
+}
+
 /* -=-=-=--=-=-=-FOOTER=-=-=-=--=-*/
 
 .footer {
