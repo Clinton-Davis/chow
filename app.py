@@ -39,9 +39,9 @@ def category():
   if 'username' in session:
     return  render_template("all_recipes.html", 
                             session_name=session['username'],
-                            recipes=mongo.db.recipes.find({'category': request.form.get ('category_serch')}))
+                            recipes=mongo.db.recipes.find({'category': request.form.get ('category_search')}))
   return  render_template("all_recipes.html", 
-                          recipes=recipes.find({'category': request.form.get ('category_serch')}))
+                          recipes=recipes.find({'category': request.form.get ('category_search')}))
     
     
 @app.route('/about')
@@ -121,6 +121,7 @@ def inset_recipe():
       dish_image = request.files['dish_image']
       mongo.save_file(dish_image.filename, dish_image)
       recipe = mongo.db.recipes
+      
       recipe.insert({
         'username' : request.form.get ('username'),
         'recipe_name' : request.form.get ('recipe_name'),
