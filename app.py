@@ -39,9 +39,9 @@ def category():
   if 'username' in session:
     return  render_template("all_recipes.html", 
                             session_name=session['username'],
-                            recipes=mongo.db.recipes.find({'category': request.form.get ('category')}))
+                            recipes=mongo.db.recipes.find({'category': request.form.get ('category_serch')}))
   return  render_template("all_recipes.html", 
-                          recipes=recipes.find({'category': request.form.get ('category')}))
+                          recipes=recipes.find({'category': request.form.get ('category_serch')}))
     
     
 @app.route('/about')

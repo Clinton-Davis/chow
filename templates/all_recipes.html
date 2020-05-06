@@ -4,7 +4,8 @@
   {% for recipe in recipes %}
 
   <div class="card" style="width: 18rem;">
-    <img src="{{url_for('file', filename=recipe['dish_image_name'])}}" class="card-img-top" alt="...">
+    <img src="{{url_for('file', filename=recipe['dish_image_name'])}}" style="height: 200px; width: auto;"
+      class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">{{recipe.recipe_name}}</h5>
       <h6 class="card-title">By:{{recipe.username}}</h6>
