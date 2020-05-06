@@ -21,12 +21,13 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/all_recipe')
 def all_recipe():
+  #If there is a user logged: Username is printed in the Nav
   if 'username' in session:
+    #Looks for all the recipes and puts them in category alphabetical order
     return  render_template("all_recipes.html", 
                             session_name=session['username'], 
-                            
                             recipes=mongo.db.recipes.find().sort('category', 1)) 
-  #This looks for all the recips in the recipein chowdown.recipes
+  #this does the same but with out the login username
   return render_template("all_recipes.html",
                          recipes=mongo.db.recipes.find().sort('category', 1))
   
@@ -36,10 +37,14 @@ def all_recipe():
 @app.route('/category', methods=['POST','GET'])   
 def category():
   recipes = mongo.db.recipes
+  #This makes sure a catergory is selected
+  if  request.form.get ('category_search') == None:
+    return redirect('all_recipe')
   if 'username' in session:
+    #This displays the categorys choisen by user
     return  render_template("all_recipes.html", 
                             session_name=session['username'],
-                            recipes=mongo.db.recipes.find({'category': request.form.get ('category_search')}))
+                            recipes=recipes.find({'category': request.form.get ('category_search')}))
   return  render_template("all_recipes.html", 
                           recipes=recipes.find({'category': request.form.get ('category_search')}))
     
@@ -48,20 +53,18 @@ def category():
 def about():
   return render_template('about.html')
  
+ #This sends the choise recipe to the recipe with a full list of details
 @app.route('/recipe/<recipe_id>')
 def recipe(recipe_id):
   recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})  
   return render_template('recipe.html', recipe=recipe)
   
 
-
-  
-
-
-
+#registering route
 @app.route('/register', methods=['POST', 'GET'])
 def register():
     if request.method == 'POST':
+      #Looking for existing users using there emails, emails are more uniue
        users = mongo.db.users 
        existing_email = users.find_one({'email': request.form['userEmail']})
       
@@ -69,11 +72,11 @@ def register():
             hashpass = bcrypt.hashpw(request.form['userPassword'].encode('utf-8'), bcrypt.gensalt())
             users.insert({
             'name' : request.form['username'].lower(), 
-            'email': request.form['userEmail'],
+            'email': request.form['userEmail'].lower(),
             'password' : hashpass
             })
             session['username'] = request.form['username']
-            flash('You have be successfull registered and are login In', 'success')
+            flash('Hello ' + session['username'] + ' You have be successfull registered and are login In', 'success')
             return redirect(url_for('all_recipe'))
       
     flash('That email already exists, Check the spelling', 'warning')
@@ -94,7 +97,7 @@ def login():
                         login_user['password']):
         session['username'] = request.form['username']
         session['logged_in'] = True
-        flash('You are now Logged In', 'success')
+        flash('Wellcome Back ' + session['username'] + ' You are now Logged In', 'success')
         return redirect(url_for('all_recipe'))
       
   flash('That is an Inalid username or password', 'warning')

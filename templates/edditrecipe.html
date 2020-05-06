@@ -25,7 +25,7 @@
             <div class="form-group">
                 <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Categorys:</label>
                 <select class="custom-select my-1 mr-sm-2" name="category" id="category" name="category" required>
-                    <option value="" disabled selected>Choose Category:</option>
+                    <option value="" disabled selected>{{recipe.category}}</option>
                     <option value="Veggie">Veggie</option>
                     <option value="Beef">Beef</option>
                     <option value="Pork">Pork</option>
@@ -36,7 +36,7 @@
             <div class="form-group">
                 <label class="my-1 mr-2" for="cookingtime">Servings:</label>
                 <select class="custom-select my-1 mr-sm-2" name="category" id="servings" name="servings" required>
-                    <option value="" disabled selected>Servings:</option>
+                    <option value="" disabled selected>{{recipe.servings}}</option>
                     <option value="1-2">1-2</option>
                     <option value="3-4">3-4</option>
                     <option value="5-6">5-6</option>

@@ -46,15 +46,17 @@
         <form action="{{url_for('category')}}" method="POST">
           <div class="input-group">
             <select class="custom-select" id="categorySearch" name="category_search">
-              <option value="" disabled selected>Category</option>
+              <option value="Beef" disabled selected>Category</option>
               <option value="Veggie">Veggie</option>
+              <option value="Fish">Fish</option>
               <option value="Beef">Beef</option>
               <option value="Pork">Pork</option>
               <option value="Chicken">Chicken</option>
               <option value="Lamb">Lamb</option>
             </select>
+
             <div class="input-group-append">
-              <button type="submit" class="btn btn-outline-light btn-sm" type="button">Button</button>
+              <button type="submit" class="btn btn-outline-light btn-sm" type="button">Select</button>
             </div>
           </div>
         </form>
@@ -107,7 +109,12 @@
         <li><a href="{{url_for('all_recipe')}}">Home</a></li>
         <li><a href="{{url_for('about')}}">About</a></li>
         <li><a href="{{url_for('add_recipe')}}">Add Recipe</a></li>
+        {% if session['logged_in'] == True %}
         <li><a href="{{url_for('logout')}}">Logout</a></li>
+        {% else %}
+        <li><a href="{{url_for('login_page')}}">Login</a></li>
+        {% endif %}
+
       </ul>
     </div>
     <div class="feet">
