@@ -7,11 +7,8 @@
     </div>
 
     <div class="addrecipys">
-        <form action="{{ url_for('inset_recipe') }}" method="POST">
-            <div class="form-group">
+        <form action="{{ url_for('insert_edit', recipe_id=recipe._id) }}" method="POST">
 
-                <input hidden type="text" class="form-control" id="username" value="{{session_name}}" name="username">
-            </div>
             <div class="form-group">
                 <label for="inputAddress">Recipe Name:</label>
                 <input type="text" class="form-control" id="RecipeName" name="recipe_name"

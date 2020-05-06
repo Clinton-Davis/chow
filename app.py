@@ -162,7 +162,24 @@ def edit_recipe(recipe_id):
   return redirect(url_for('login_page')) 
   
   
+@app.route('/insert_edit/<recipe_id>', methods=['POST'])
+def insert_edit(recipe_id):
+ 
+      recipe = mongo.db.recipes
+      recipe.update({'_id':ObjectId(recipe_id)},
+                { 
+                  'recipe_name' : request.form.get ('recipe_name'),
+                  'descrition': request.form.get ('descrition'),
+                  'category' : request.form.get ('category'),
+                  'dairy_free': request.form.get ('dairy_free'),
+                  'cooking_time': request.form.get ('cooking_time'),
+                  'ingredients': request.form.get ('ingredients'),
+                  'cooking_method': request.form.get ('cooking_method')})
+      flash('Edit Done', 'success')
+      return ' ok ' + redirect(url_for('all_recipe'))
   
+
+
 @app.route('/logout')
 def logout():
    # remove the username from the session if it's there
