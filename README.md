@@ -1,8 +1,8 @@
 # chow
+
 ##MS3
 
 https://quilljs.com/docs/quickstart/
-
 
 Features:
 Register
@@ -13,3 +13,6 @@ fonts
 family=Baloo+Bhaina+2:wght@500;600&
 family=Lobster&
 family=Montserrat:ital,wght@0,400;0,600;1,400
+
+media:
+Placeholder food image: Photo by Lily Banse on Unsplash

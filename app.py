@@ -121,7 +121,6 @@ def inset_recipe():
       dish_image = request.files['dish_image']
       mongo.save_file(dish_image.filename, dish_image)
       recipe = mongo.db.recipes
-      
       recipe.insert({
         'username' : request.form.get ('username'),
         'recipe_name' : request.form.get ('recipe_name'),
