@@ -9,7 +9,11 @@
         <p class="card-text">{{recipe.descrition}}</p>
 
         <span class="card-text">{{recipe.category}}</span>
-        <span class="card-text">{{recipe.dairy_free}}</span>
+        {% if recipe.dairy_free == none %}
+        <span class="card-text"></span>
+        {% else %}
+        <span class="card-text">Dairy Free</span>
+        {% endif %}
         <h5 class="card-text">Ingredients:</h5>
         <p class="card-text">{{recipe.Ingredients}}</p>
         <h5 class="card-text">How to Cook:</h5>
