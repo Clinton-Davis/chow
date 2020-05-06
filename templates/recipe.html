@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="card" style="width: 80%;">
-    <img src="" class="card-img-top" alt="dish">
+    <img src="{{url_for('file', filename=recipe['dish_image_name'])}}" class="card-img-top" alt="dish">
     <div class="card-body">
         <h5 class="card-title">{{recipe.recipe_name}}</h5>
         <h6 class="card-title">By: {{recipe.username}}</h6>

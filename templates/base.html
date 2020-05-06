@@ -43,7 +43,7 @@
           <a class="nav-link" href="{{url_for('login_page')}}">Login</a>
           {% endif %}
         </li>
-        <form action="" method="POST">
+        <form action="{{url_for('category')}}" method="POST">
           <div class="input-group">
             <select class="custom-select" id="categorySearch" name="cat_search">
               <option value="" disabled selected>Category</option>

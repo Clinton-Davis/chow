@@ -22,12 +22,27 @@ mongo = PyMongo(app)
 @app.route('/all_recipe')
 def all_recipe():
   if 'username' in session:
-    return  render_template("all_recipes.html", session_name=session['username'], recipes=mongo.db.recipes.find())
-    
-    
+    return  render_template("all_recipes.html", 
+                            session_name=session['username'], 
+                            
+                            recipes=mongo.db.recipes.find()) 
   #This looks for all the recips in the recipein chowdown.recipes
-  return render_template("all_recipes.html",recipes=mongo.db.recipes.find())
+  return render_template("all_recipes.html",
+                         recipes=mongo.db.recipes.find())
   
+
+  
+
+@app.route('/category', methods=['POST','GET'])   
+def category():
+  recipes = mongo.db.recipes
+  if 'username' in session:
+    return  render_template("all_recipes.html", 
+                            session_name=session['username'],
+                            recipes=mongo.db.recipes.find({'category': request.form.get ('category')}))
+  return  render_template("all_recipes.html", 
+                          recipes=recipes.find({'category': request.form.get ('category')}))
+    
     
 @app.route('/about')
 def about():
@@ -96,7 +111,9 @@ def add_recipe():
     return redirect(url_for('login_page'))
   #if not redirect to login
 
-
+@app.route('/file/<filename>')
+def file(filename):
+  return mongo.send_file(filename)
 
 @app.route('/insert_recipe', methods=['POST'])
 def inset_recipe():
@@ -104,7 +121,16 @@ def inset_recipe():
       dish_image = request.files['dish_image']
       mongo.save_file(dish_image.filename, dish_image)
       recipe = mongo.db.recipes
-      recipe.insert_one(request.form.to_dict())
+      recipe.insert({
+        'username' : request.form.get ('username'),
+        'recipe_name' : request.form.get ('recipe_name'),
+        'descrition': request.form.get ('descrition'),
+        'category' : request.form.get ('category'),
+        'dairy_free': request.form.get ('dairy_free'),
+        'cooking_time': request.form.get ('cooking_time'),
+        'ingredients': request.form.get ('ingredients'),
+        'cooking_method': request.form.get ('cooking_method'),
+        'dish_image_name': dish_image.filename})
     
       flash('You have successfully added your recipe', 'success')
       return redirect(url_for('all_recipe'))
