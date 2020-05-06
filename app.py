@@ -25,10 +25,10 @@ def all_recipe():
     return  render_template("all_recipes.html", 
                             session_name=session['username'], 
                             
-                            recipes=mongo.db.recipes.find()) 
+                            recipes=mongo.db.recipes.find().sort('category', 1)) 
   #This looks for all the recips in the recipein chowdown.recipes
   return render_template("all_recipes.html",
-                         recipes=mongo.db.recipes.find())
+                         recipes=mongo.db.recipes.find().sort('category', 1))
   
 
   
