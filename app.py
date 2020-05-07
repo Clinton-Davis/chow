@@ -106,6 +106,7 @@ def login():
   
 @app.route('/add_recipe')
 def add_recipe():
+  
   #check to see if login in
     if 'username' in session:
        return  render_template("add_recipe.html", session_name=session['username'])
@@ -114,37 +115,23 @@ def add_recipe():
     return redirect(url_for('login_page'))
   #if not redirect to login
 
-@app.route('/file/<filename>')
-def file(filename):
-  return mongo.send_file(filename)
 
 @app.route('/insert_recipe', methods=['POST'])
-def inset_recipe():
-  if 'dish_image' in request.files:
-      dish_image = request.files['dish_image']
-      mongo.save_file(dish_image.filename, dish_image)
-      recipe = mongo.db.recipes
-      recipe.insert({
-        'username' : request.form.get ('username'),
-        'recipe_name' : request.form.get ('recipe_name'),
-        'descrition': request.form.get ('descrition'),
-        'category' : request.form.get ('category'),
-        'dairy_free': request.form.get ('dairy_free'),
-        'cooking_time': request.form.get ('cooking_time'),
-        'ingredients': request.form.get ('ingredients'),
-        'cooking_method': request.form.get ('cooking_method'),
-        'dish_image_name': dish_image.filename})
-    
-      flash('You have successfully added your recipe', 'success')
-      return redirect(url_for('all_recipe'))
+def insert_recipe():
+    recipes = mongo.db.recipes
+    recipes.insert_one(request.form.to_dict())
+    flash('You have successfully added your recipe', 'success')
+    return redirect(url_for('all_recipe'))
     
 
 
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
-  if 'username' in session:
-    recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
-    if session['username'] == recipe['username']:
+  if  session['logged_in'] == True:
+   if 'username' in session:
+    recipes = mongo.db.recipes
+    recipes.find_one({'_id': ObjectId(recipe_id)})
+    if session['username'] == recipes['username']:
       recipe = mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
       return redirect(url_for('all_recipe'))
   flash('Sorry! Not yours to Delete', 'danger')
@@ -162,25 +149,7 @@ def edit_recipe(recipe_id):
   return redirect(url_for('login_page')) 
   
   
-@app.route('/insert_edit/<recipe_id>', methods=['POST'])
-def insert_edit(recipe_id):
-   if 'dish_image' in request.files:
-      dish_image = request.files['dish_image']
-      mongo.save_file(dish_image.filename, dish_image)
-      recipe = mongo.db.recipes
-      recipe.update({
-        'username' : request.form.get ('username'),
-        'recipe_name' : request.form.get ('recipe_name'),
-        'descrition': request.form.get ('descrition'),
-        'category' : request.form.get ('category'),
-        'dairy_free': request.form.get ('dairy_free'),
-        'cooking_time': request.form.get ('cooking_time'),
-        'ingredients': request.form.get ('ingredients'),
-        'cooking_method': request.form.get ('cooking_method'),
-        'dish_image_name': dish_image.filename})
-    
-      flash('You have successfully added your recipe', 'success')
-      return redirect(url_for('all_recipe'))
+   
  
   
 
