@@ -28,20 +28,18 @@ html {
   --fs: 1.5rem;
 }
 
+/*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=Genral*/
 body {
   min-height: 100vh;
   font-family: var(--bf);
   background-image: var(--fruit);
   background-position: center;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 /* Alt Picture*/
-#dish_image {
-  background-image: url(../images/chow-replacement.jpg);
-  background-position: center center;
-  background-size: cover;
-}
+
 
 a {
   color: var(--white);
@@ -53,23 +51,13 @@ a:hover {
   text-shadow: 1px 1px darkgray;
 }
 
-.loggedIn {
-  color: var(--white);
-  margin-left: auto;
-  position: absolute;
-  top: 1vh;
-  right: 20px;
-}
+
 
 .negMar {
   margin-top: -1em;
 }
 
-.recipeContainer {
-  display: flex;
-  justify-content: space-evenly;
-  min-height: 60vh;
-}
+
 
 /* Font Size 1.5rem*/
 .fs {
@@ -90,40 +78,11 @@ a:hover {
   font-family: var(--hf);
 }
 
-#navHead {
-  font-size: 5rem;
-  color: var(--white);
-}
 
-/*Genral*/
-.jumbotron {
-  background-color: var(--cbg);
-  padding: 2rem 2rem;
-  width: 80%;
-  margin: 1em auto 1em auto;
-  border-radius: 20px;
-  border: var(--obb);
-}
 
-.hotpoint {
-  font-family: var(--hpf);
-  font-weight: 500;
-}
 
-.btn-primary {
-  color: #fff;
-  background-image: var(--wood);
-  background-position: center;
-  background-size: contain;
-  border-color: black;
-  box-shadow: var(--shd);
-}
 
-.navbar-toggler-icon {
-  background-color: rgba(255, 255, 255, 0.925);
-  border-radius: 8px;
-}
-
+/* -=-=-=-=--=--=-=-=-=-=--=-NAVBAR*/
 @media (min-width: 992px) {
   .navbar-expand-lg .navbar-collapse {
     display: -ms-flexbox !important;
@@ -134,6 +93,16 @@ a:hover {
     justify-content: flex-end;
     padding-top: 30px;
   }
+}
+
+#navHead {
+  font-size: 5rem;
+  color: var(--white);
+}
+
+.hotpoint {
+  font-family: var(--hpf);
+  font-weight: 500;
 }
 
 .navbar {
@@ -165,19 +134,85 @@ a:hover {
   text-shadow: 1px 1px darkgray;
 }
 
+.navbar-toggler-icon {
+  background-color: rgba(255, 255, 255, 0.925);
+  border-radius: 8px;
+}
+
+.input-group>.custom-select {
+  max-width: 10em;
+}
+
+.loggedIn {
+  color: var(--white);
+  margin-left: auto;
+  position: absolute;
+  top: 1vh;
+  right: 20px;
+}
+
+/* -=-=-=---=-=--=-=-=-=-Main body Jumbos and cards */
+.jumbotron {
+  background-color: var(--cbg);
+  padding: 2rem 2rem;
+  width: 80%;
+  margin: 1em auto 1em auto;
+  border-radius: 20px;
+  border: var(--obb);
+}
+
+.recipeContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  min-height: 60vh;
+  margin-top: 2em;
+}
+
+.card {
+  margin-bottom: 1em;
+}
+
+.card-body {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  height: 15em;
+  overflow-y: scroll;
+  padding: 1.25rem;
+  background-color: var(--cbg);
+  border: 1px solid white;
+}
+
+/*Wood Btns*/
+.btn-primary {
+  color: #fff;
+  background-image: var(--wood);
+  background-position: center;
+  background-size: contain;
+  border-color: black;
+  box-shadow: var(--shd);
+  min-height: 2.5em;
+  border: 1px solid white;
+
+}
+
+/* Background image for non image recipes*/
+#dish_image {
+  background-image: url(../images/chow-replacement.jpg);
+  background-position: center center;
+  background-size: cover;
+}
+
+
+
+
 /*-=-=-=-=-=--=-=About-=-=-=-=-*/
 #P-chow {
   font-size: 1.3rem;
 }
 
-/* =-=-=-=-=-=---=-=-CARD-=--=--=--=*/
-.card-body {
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  min-height: 25px;
-  padding: 1.25rem;
-  background-color: var(--cbg);
-}
+
+
 
 /* -=-=-=--=-=-=-FOOTER=-=-=-=--=-*/
 
@@ -186,6 +221,7 @@ a:hover {
   background-position: center;
   background-size: cover;
   display: flex;
+  flex-direction: column;
   margin-top: auto;
   justify-content: space-around;
   align-items: center;
