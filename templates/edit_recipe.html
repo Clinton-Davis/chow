@@ -7,7 +7,7 @@
     </div>
 
     <div class="addrecipys">
-        <form action="{{ url_for('edit_recipe') }}" method="POST">
+        <form action="{{ url_for('update_recipe', recipe_id=recipe._id) }}" method="POST">
             <div class="form-group">
                 <label class="sr-only" for="username"></label>
                 <input type="text" class="form-control sr-only" id="username" value="{{session_name}}" name="username"
@@ -16,12 +16,12 @@
             <div class="form-group">
                 <label for="inputAddress">Recipe Name:</label>
                 <input type="text" class="form-control" id="RecipeName" name="recipe_name"
-                    placeholder="What the dish called?">
+                    value="{{recipe.recipe_name}}">
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Dish descrition:</label>
-                <textarea class="form-control" id="descrition" name="descrition" rows="2"
-                    placeholder="Write a little somthing about your dish"></textarea>
+                <textarea class="form-control" id="descrition" name="descrition"
+                    rows="2">{{recipe.descrition}}</textarea>
             </div>
             <div class="form-group">
                 <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Categorys:</label>
@@ -55,32 +55,41 @@
             <div class="form-group">
                 <label for="inputAddress">Cooking Time:</label>
                 <input type="text" class="form-control" name="cooking_time" id="cooking_time"
-                    placeholder="How long will it take to cook?">
+                    value="{{recipe.cooking_time}}">
             </div>
             <div class="custom-control custom-switch">
+
+                {% if recipe.dairy_free %}
+                <input type="checkbox" name="dairy_free" class="custom-control-input" value="Dairy Free"
+                    id="dairy_switch" checked>
+                {% else %}
                 <input type="checkbox" name="dairy_free" class="custom-control-input" value="Dairy Free"
                     id="dairy_switch">
+                {% endif %}
+
                 <label class="custom-control-label" for="dairy_switch">Dairy Free</label>
             </div>
             <br>
             <div class="form-group">
                 <label for="dish_image_uploader">Dish Image URL</label>
                 <input type="text" class="form-control" name="dish_image" id="dish_image_uploader"
-                    placeholder="To display an Image we need a Web URL (Link)" required>
+                    value="{{recipe.dish_image}}">
             </div>
             <br>
             <div class="form-group">
                 <label for="ingredients">Ingreadence:</label>
-                <textarea class="form-control" id="ingredients" name="ingredients" rows="4"
-                    placeholder="Type in like this: 5g Suger (Enter)"></textarea>
+                <textarea class="form-control" id="ingredients" name="ingredients" rows="4">
+                    {{recipe.ingredients}}
+                </textarea>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Cooking Method:</label>
-                <textarea class="form-control text-capitalize" id="cooking_method" name="cooking_method" rows="5"
-                    placeholder="Seperate each different instruction with a space inbetween."></textarea>
+                <textarea class="form-control text-capitalize" id="cooking_method" name="cooking_method" rows="5">
+                {{recipe.cooking_method}}
+                </textarea>
             </div>
             <div>
-                <button type="submit" class="btn btn-primary">Add Recipe</button>
+                <button type="submit" class="btn btn-primary">Edit Done</button>
             </div>
         </form>
     </div>

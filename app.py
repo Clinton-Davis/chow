@@ -56,8 +56,9 @@ def about():
  #This sends the choise recipe to the recipe with a full list of details
 @app.route('/recipe/<recipe_id>')
 def recipe(recipe_id):
-  recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})  
-  return render_template('recipe.html', recipe=recipe)
+  if 'username' in session:
+   recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})  
+  return render_template('recipe.html',session_name=session['username'], recipe=recipe)
   
 
 #registering route
@@ -144,9 +145,29 @@ def edit_recipe(recipe_id):
   if 'username' in session:
         recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
         if session['username'] == recipe['username']:
-         return render_template('edditrecipe.html', recipe=recipe)  
+         return render_template('edit_recipe.html',session_name=session['username'], recipe=recipe)  
   flash('Sorry! Not yours to Edit', 'danger')
   return redirect(url_for('login_page')) 
+
+
+@app.route('/update_recipe/<recipe_id>', methods=['POST'])
+def update_recipe(recipe_id):
+  if 'username' in session:
+   recipes = mongo.db.recipes
+   recipes.update({'_id': ObjectId(recipe_id)},
+                {'username' : request.form.get('username'),
+                 'recipe_name' : request.form.get('recipe_name'),
+                 'descrition' : request.form.get('descrition'),
+                 'category': request.form.get('category'),
+                 'servings' : request.form.get('servings'),
+                 'cooking_time' : request.form.get('cooking_time'),
+                 'dairy_free' : request.form.get('dairy_free'),
+                 'dish_image' : request.form.get('dish_image'),
+                 'ingredients' : request.form.get('ingredients'),
+                 'cooking_method' : request.form.get('cooking_method'),})                    
+  
+   flash(' You have Successfully Updated Your Recipe', 'success')
+   return redirect(url_for('all_recipe', recipe=recipe))
   
   
    

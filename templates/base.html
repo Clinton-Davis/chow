@@ -92,9 +92,9 @@
       <h6 class="copyRight">CopyRight© 2020</h6>
     </div>
     <!--Footer Login / uses same routes as login page-->
-    <form method="POST" action="{{ url_for('login') }}">
+    <form method="POST" class="footer-form" action="{{ url_for('login') }}">
       <div class="form-group">
-        <label for="loginEmail" class="w hf">Login</label>
+        <label id="footer-log-lable" for="loginEmail" class="w hf">Login</label>
         <input type="text" class="form-control form-control-sm" name="username" id="usernameLogin"
           placeholder="Username">
         <input type="email" class="form-control form-control-sm" name="userEmail" id="loginEmail" placeholder="Email"
@@ -102,7 +102,7 @@
         <input type="password" class="form-control form-control-sm" name="userPassword" id="footerpassword"
           placeholder="Password" />
       </div>
-      <button type="submit" class="btn btn-outline-light btn-sm">Submit</button>
+      <button id="footer-log-btn" type="submit" class="btn btn-outline-light btn-sm">Login</button>
     </form>
     <div class="feet">
       <ul>

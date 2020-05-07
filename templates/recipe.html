@@ -6,9 +6,12 @@
     <div class="card-body">
         <h5 class="card-title">{{recipe.recipe_name}}</h5>
         <h6 class="card-title">By: {{recipe.username}}</h6>
+        <span class="card-text">{{recipe.category}}</span>
+        <span class="card-text">{{recipe.cooking_time}}</span>
+
         <p class="card-text">{{recipe.descrition}}</p>
 
-        <span class="card-text">{{recipe.category}}</span>
+
         {% if recipe.dairy_free == none %}
         <span class="card-text"></span>
         {% else %}
