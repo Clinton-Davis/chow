@@ -10,8 +10,7 @@
         <form action="{{ url_for('insert_recipe') }}" method="POST">
             <div class="form-group">
                 <label class="sr-only" for="username"></label>
-                <input type="text" class="form-control sr-only" id="username" value="{{session_name}}" name="username"
-                    placeholder="Nick name or Username">
+                <input type="text" class="form-control sr-only" id="username" value="{{session_name}}" name="username">
             </div>
             <div class="form-group">
                 <label for="inputAddress">Recipe Name:</label>
@@ -19,9 +18,14 @@
                     placeholder="What the dish called?">
             </div>
             <div class="form-group">
+                <label for="chef">Chefs Name</label>
+                <input type="text" class="form-control" id="chef" name="chef"
+                    placeholder="How is the owner of the recipe" required>
+            </div>
+            <div class="form-group">
                 <label for="exampleFormControlTextarea1">Dish descrition:</label>
-                <textarea class="form-control" id="descrition" name="descrition" rows="2"
-                    placeholder="Write a little somthing about your dish"></textarea>
+                <textarea class="form-control" id="descrition" name="descrition" rows="2" maxlength="150"
+                    placeholder="Write a little somthing about your dish  (Max 150 Charaters)"></textarea>
             </div>
             <div class="form-group">
                 <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Categorys:</label>

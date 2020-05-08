@@ -9,17 +9,24 @@
       alt="{{recipe.recipe_name}}">
     <div class="card-body container">
       <div class="row">
-        <h5 class=" col card-title text-center hf">{{recipe.recipe_name}}</h5>
+        <h5 class=" col card-title text-center chf">{{recipe.recipe_name}}</h5>
       </div>
-
+      <hr>
+      <div class="row">
+        <div class="card-text chf col-6">Chef:</div>
+        <div class="card-text col-6 cpt">{{recipe.chef}}</div>
+      </div>
+      <hr>
       <div class="row">
         <div class="card-text chf col-6">Category:</div>
         <div class="card-text col-6">{{recipe.category}}</div>
       </div>
+      <hr>
       <div class="row">
         <div class="card-text chf col-6">Time:</div>
-        <div class="card-text col-6">{{recipe.cooking_time}}</div>
+        <div class="card-text col-6 cpt">{{recipe.cooking_time}}</div>
       </div>
+      <hr>
       <div class="row">
         <!--This make sure No dairy is not 'NONE'-->
         {% if recipe.dairy_free == none %}
@@ -28,15 +35,20 @@
         <div class="card-text chf text-center col-12">Dairy Free</div>
         {% endif %}
       </div>
+      <hr>
       <div class="row">
         <p class="card-text col-12">{{recipe.descrition}}</p>
-        <p class="card-title chf col-6">Posted by:</p>
-        <p class="card-title col-6">{{recipe.username}}</p>
       </div>
+      <hr>
+      <div class="row">
+        <p class="card-title chf col-6">Posted by:</p>
+        <p class="card-title col-6 cpt">{{recipe.username}}</p>
+      </div>
+      <hr>
     </div>
     <!--Card Container END-->
     <!--This link will take you to a recipe page with all the recipes details-->
-    <a href="{{ url_for('recipe', recipe_id=recipe._id ) }}" class="btn btn-primary hf">Lets Chow!</a>
+    <a href="{{ url_for('recipe', recipe_id=recipe._id ) }}" class="btn btn-primary chf">Lets Chow!</a>
   </div>
 
 

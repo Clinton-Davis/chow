@@ -56,9 +56,10 @@ def about():
  #This sends the choise recipe to the recipe with a full list of details
 @app.route('/recipe/<recipe_id>')
 def recipe(recipe_id):
+  recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})  
   if 'username' in session:
-   recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})  
-  return render_template('recipe.html',session_name=session['username'], recipe=recipe)
+    return render_template('recipe.html',session_name=session['username'], recipe=recipe)
+  return render_template('recipe.html', recipe=recipe)
   
 
 #registering route
@@ -154,6 +155,7 @@ def update_recipe(recipe_id):
    recipes = mongo.db.recipes
    recipes.update({'_id': ObjectId(recipe_id)},
                 {'username' : request.form.get('username'),
+                 'chef': request.form.get('chef'),
                  'recipe_name' : request.form.get('recipe_name'),
                  'descrition' : request.form.get('descrition'),
                  'category': request.form.get('category'),
