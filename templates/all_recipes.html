@@ -9,7 +9,7 @@
       alt="{{recipe.recipe_name}}">
     <div class="card-body container">
       <div class="row">
-        <h5 class=" col card-title text-center chf">{{recipe.recipe_name}}</h5>
+        <h5 class=" col card-title text-center cpt chf">{{recipe.recipe_name}}</h5>
       </div>
       <hr>
       <div class="row">
@@ -29,15 +29,16 @@
       <hr>
       <div class="row">
         <!--This make sure No dairy is not 'NONE'-->
+        <div class="card-text chf col-6">Dairy:</div>
         {% if recipe.dairy_free == none %}
-        <span class="card-text chf text-center col-12"> </span>
+        <span class="card-text col-6">Yes</span>
         {% else %}
-        <div class="card-text chf text-center col-12">Dairy Free</div>
+        <div class="card-text col-6">No</div>
         {% endif %}
       </div>
       <hr>
       <div class="row">
-        <p class="card-text col-12">{{recipe.descrition}}</p>
+        <p class="card-text text-center col-12">{{recipe.descrition}}</p>
       </div>
       <hr>
       <div class="row">
