@@ -107,11 +107,9 @@ def login():
   
 @app.route('/add_recipe')
 def add_recipe():
-  
   #check to see if login in
     if 'username' in session:
        return  render_template("add_recipe.html", session_name=session['username'])
-     
     flash('You Need to be logged in to add a new recipe', 'warning')
     return redirect(url_for('login_page'))
   #if not redirect to login
@@ -179,6 +177,7 @@ def update_recipe(recipe_id):
 def logout():
    # remove the username from the session if it's there
     session.pop('username', None)
+    session['logged_in'] = False
     return redirect(url_for('all_recipe'))
   
 if __name__ == "__main__":
