@@ -65,6 +65,7 @@
     </div>
     <!--Puts the Logged in users name in header-->
     {% block Head %}
+    {{ ckeditor.load(pkg_type="basic") }}
     <h6 class="loggedIn">{{session_name}}</h6>
     {% endblock Head %}
   </nav>

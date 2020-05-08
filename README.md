@@ -16,3 +16,6 @@ family=Montserrat:ital,wght@0,400;0,600;1,400
 
 media:
 Placeholder food image: Photo by Lily Banse on Unsplash
+
+BUGS
+Not Rendering html fix using the safe filter |

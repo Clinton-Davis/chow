@@ -2,6 +2,7 @@ from flask import Flask, redirect, render_template, flash, url_for, request, ses
 import os
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from flask_ckeditor import CKEditor
 from os import path
 import bcrypt
 if path.exists("env.py"):
@@ -16,7 +17,7 @@ app.config["MONGO_DBNAME"] = "chowdown"
 app.config["SECRET_KEY"] = os.urandom(24)
 
 mongo = PyMongo(app)
-
+CKEditor(app)
 
 @app.route('/')
 @app.route('/all_recipe')
