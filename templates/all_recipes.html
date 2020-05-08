@@ -7,9 +7,11 @@
   <div class="card" style="width: 18rem;">
     <img src="{{recipe.dish_image}}" id="dish_image" style="height: 200px; width: auto;" class="card-img-top"
       alt="{{recipe.recipe_name}}">
-    <div class="card-body">
-      <h5 class="card-title text-center">{{recipe.recipe_name}}</h5>
-      <h6 class="card-title">By: {{recipe.username}}</h6>
+    <div class="card-body container">
+      <div class="row">
+        <h5 class=" col card-title text-center hf">{{recipe.recipe_name}}</h5>
+      </div>
+
 
       <div class="card-text">{{recipe.category}}</div>
       <div class="card-text">{{recipe.cooking_time}}</div>
@@ -20,9 +22,10 @@
       <div class="card-text">Dairy Free</div>
       {% endif %}
       <p class="card-text">{{recipe.descrition}}</p>
+      <p class="card-title">{{recipe.username}}</p>
     </div>
     <!--This link will take you to a recipe page with all the recipes details-->
-    <a href="{{ url_for('recipe', recipe_id=recipe._id ) }}" class="btn btn-primary">Lets Chow!</a>
+    <a href="{{ url_for('recipe', recipe_id=recipe._id ) }}" class="btn btn-primary hf">Lets Chow!</a>
   </div>
 
 
