@@ -78,6 +78,11 @@ a:hover {
   font-family: var(--hf);
 }
 
+.chf {
+  font-family: var(--hf);
+  font-size: 1.25em;
+}
+
 
 
 
@@ -167,6 +172,10 @@ a:hover {
   justify-content: space-evenly;
   min-height: 60vh;
   margin-top: 2em;
+}
+
+.row {
+  align-items: baseline;
 }
 
 .card {
