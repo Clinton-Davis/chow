@@ -1,35 +1,58 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="card" style="width: 80%; height: 90vh;">
-    <img src="{{recipe.dish_image}}" id="recipe_page_image" style="height: 200px; width: auto;" class="card-img-top"
-        alt="dish">
-    <div class="card-body">
-        <h5 class="card-title">{{recipe.recipe_name}}</h5>
-        <h6 class="card-title">By: {{recipe.username}}</h6>
-        <span class="card-text">{{recipe.category}}</span>
-        <span class="card-text">{{recipe.cooking_time}}</span>
-
-        <p class="card-text">{{recipe.descrition}}</p>
-
-
-        {% if recipe.dairy_free == none %}
-        <span class="card-text"></span>
-        {% else %}
-        <span class="card-text">Dairy Free</span>
-        {% endif %}
+<div class="card" style="width: 18rem;">
+    <img src="{{recipe.dish_image}}" id="dish_image" style="height: 200px; width: auto;" class="card-img-top"
+        alt="{{recipe.recipe_name}}">
+    <div class="card-body container">
+        <div class="row">
+            <h5 class=" col card-title text-center cpt chf">{{recipe.recipe_name}}</h5>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="card-text chf col-6">Chef:</div>
+            <div class="card-text col-6 cpt">{{recipe.chef}}</div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="card-text chf col-6">Category:</div>
+            <div class="card-text col-6">{{recipe.category}}</div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="card-text chf col-6">Time:</div>
+            <div class="card-text col-6 cpt">{{recipe.cooking_time}}</div>
+        </div>
+        <hr>
+        <div class="row">
+            <!--This make sure No dairy is not 'NONE'-->
+            <div class="card-text chf col-6">Dairy:</div>
+            {% if recipe.dairy_free == none %}
+            <span class="card-text col-6">Yes</span>
+            {% else %}
+            <div class="card-text col-6">No</div>
+            {% endif %}
+        </div>
+        <hr>
+        <div class="row">
+            <p class="card-text text-center col-12">{{recipe.descrition}}</p>
+        </div>
         <h5 class="card-text">Ingredients:</h5>
         <p class="card-text">{{recipe.ingredients|safe}}</p>
         <h5 class="card-text">How to Cook:</h5>
         <p class="card-text">{{recipe.cooking_method|safe}}</p>
+        <h6 class="card-title">Posted By: {{recipe.username}}</h6>
     </div>
     <!--Sends you to a edit page for clicked recipe-->
-    <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn btn-primary" style="width: 20%;">Edit
-        Recipe</a>
-    <!--Sends you to a delete page for clicked recipe-->
-    <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="btn btn-primary" style="width: 20%;">Delete
-        Recipe</a>
-    <!--Sends you back to all_recipes-->
-    <a href="{{url_for('all_recipe')}}" class="btn btn-primary" style="width: 20%;">Back Home</a>
+    <div class="container">
+        <div class="row">
+            <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn btn-primary col-4">Edit
+                Recipe</a>
+            <!--Sends you to a delete page for clicked recipe-->
+            <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="btn btn-primary col-4">Delete Recipe</a>
+            <!--Sends you back to all_recipes-->
+            <a href="{{url_for('all_recipe')}}" class="btn btn-primary col-4">Back Home</a>
+        </div>
+    </div>
 </div>
 {% endblock %}
