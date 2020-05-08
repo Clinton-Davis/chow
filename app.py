@@ -116,7 +116,7 @@ def add_recipe():
     return redirect(url_for('login_page'))
   #if not redirect to login
 
-
+#Inserts New recipe
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
     recipes = mongo.db.recipes
@@ -128,10 +128,9 @@ def insert_recipe():
 
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
-  if  session['logged_in'] == True:
-   if 'username' in session:
-    recipes = mongo.db.recipes
-    recipes.find_one({'_id': ObjectId(recipe_id)})
+  #if  session['logged_in'] == True:
+  if 'username' in session:
+    recipes = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
     if session['username'] == recipes['username']:
       recipe = mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
       return redirect(url_for('all_recipe'))

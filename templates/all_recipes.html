@@ -14,26 +14,26 @@
       <hr>
       <div class="row">
         <div class="card-text chf col-6">Chef:</div>
-        <div class="card-text col-6 cpt">{{recipe.chef}}</div>
+        <div class="card-text chf col-6 cpt">{{recipe.chef}}</div>
       </div>
       <hr>
       <div class="row">
         <div class="card-text chf col-6">Category:</div>
-        <div class="card-text col-6">{{recipe.category}}</div>
+        <div class="card-text chf col-6">{{recipe.category}}</div>
       </div>
       <hr>
       <div class="row">
         <div class="card-text chf col-6">Time:</div>
-        <div class="card-text col-6 cpt">{{recipe.cooking_time}}</div>
+        <div class="card-text chf col-6 cpt">{{recipe.cooking_time}}</div>
       </div>
       <hr>
       <div class="row">
         <!--This make sure No dairy is not 'NONE'-->
-        <div class="card-text chf col-6">Dairy:</div>
+        <div class="card-text chf col-8">Is it Dairy Free:</div>
         {% if recipe.dairy_free == none %}
-        <span class="card-text col-6">Yes</span>
+        <span class="card-text hf col-4">"No"</span>
         {% else %}
-        <div class="card-text col-6">No</div>
+        <div class="card-text hf col-4">"Yes"</div>
         {% endif %}
       </div>
       <hr>
@@ -41,6 +41,12 @@
         <p class="card-text text-center col-12">{{recipe.descrition}}</p>
       </div>
       <hr>
+      <h5 class="card-text text-center chf">Ingredients:</h5>
+      <p class="card-text">{{recipe.ingredients|safe}}</p>
+      <hr>
+      <h5 class="card-text text-center chf">How to Cook it:</h5>
+      <p class="card-text">{{recipe.cooking_method|safe}}</p>
+
       <div class="row">
         <p class="card-title chf col-6">Posted by:</p>
         <p class="card-title col-6 cpt">{{recipe.username}}</p>
