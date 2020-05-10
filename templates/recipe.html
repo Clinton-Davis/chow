@@ -25,15 +25,11 @@
         </div>
         <hr>
         <div class="row">
-            <!--This make sure No dairy is not 'NONE'-->
-            <div class="card-text chf col-6">Dairy:</div>
-            {% if recipe.dairy_free == none %}
-            <span class="card-text col-6">Yes</span>
-            {% else %}
-            <div class="card-text col-6">No</div>
-            {% endif %}
+            <div class="card-text chf col-6"><span class="material-icons">
+                    timelapse
+                </span></div>
+            <div class="card-text col-6 cpt">{{recipe.servings}}</div>
         </div>
-        <hr>
         <div class="row">
             <p class="card-text text-center col-12">{{recipe.descrition}}</p>
         </div>
