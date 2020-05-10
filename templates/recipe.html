@@ -1,44 +1,61 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="card" style="width: 18rem;">
-    <img src="{{recipe.dish_image}}" id="dish_image" style="height: 200px; width: auto;" class="card-img-top"
-        alt="{{recipe.recipe_name}}">
-    <div class="card-body container">
-        <div class="row">
-            <h5 class=" col card-title text-center cpt chf">{{recipe.recipe_name}}</h5>
+<div class="jumbotron">
+    <div class="img_stats">
+        <img src="{{recipe.dish_image}}" id="recipe_dish_image" class=" card-img-top" alt="{{recipe.recipe_name}}">
+        <div class="container_stats">
+            <div class="row">
+                <h5 class="text-center col-12 cpt chf">{{recipe.recipe_name}}</h5>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="icon_space chf col-2"><span class="material-icons">
+                        restaurant
+                    </span></div>
+                <div class="col-10 text-center chf cpt">{{recipe.chef}}</div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="icon_space chf col-2 "><span class="material-icons">
+                        poll
+                    </span></div>
+                <div class="chf text-center col-10 ">{{recipe.category}}</div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="icon_space chf col-2 "><span class="material-icons">
+                        access_time
+                    </span></div>
+                <div class="col-10 text-center chf cpt">{{recipe.cooking_time}}</div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="icon_space chf col-2 "><span class="material-icons">
+                        timelapse
+                    </span></div>
+                <div class=" cpt chf col-10 text-center">{{recipe.servings}}</div>
+            </div>
         </div>
-        <hr>
-        <div class="row">
-            <div class="card-text chf col-6">Chef:</div>
-            <div class="card-text col-6 cpt">{{recipe.chef}}</div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="card-text chf col-6">Category:</div>
-            <div class="card-text col-6">{{recipe.category}}</div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="card-text chf col-6">Time:</div>
-            <div class="card-text col-6 cpt">{{recipe.cooking_time}}</div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="card-text chf col-6"><span class="material-icons">
-                    timelapse
-                </span></div>
-            <div class="card-text col-6 cpt">{{recipe.servings}}</div>
-        </div>
-        <div class="row">
-            <p class="card-text text-center col-12">{{recipe.descrition}}</p>
-        </div>
-        <h5 class="card-text">Ingredients:</h5>
-        <p class="card-text">{{recipe.ingredients|safe}}</p>
-        <h5 class="card-text">How to Cook:</h5>
-        <p class="card-text">{{recipe.cooking_method|safe}}</p>
-        <h6 class="card-title">Posted By: {{recipe.username}}</h6>
     </div>
+
+    <div class="row">
+        <p class="card-text text-center col-12">{{recipe.descrition}}</p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="instructions">
+                <h5 class="col-12 text-center">Ingredients:</h5>
+                <p class="col-6">{{recipe.ingredients|safe}}</p>
+            </div>
+            <div class="instructions">
+                <h5 class="col-12 text-center">How to Cook it:</h5>
+                <p class="col-6">{{recipe.cooking_method|safe}}</p>
+            </div>
+            <h6 class="">Posted By: {{recipe.username}}</h6>
+        </div>
+    </div>
+
     <!--Sends you to a edit page for clicked recipe-->
     <div class="container">
         <div class="row">

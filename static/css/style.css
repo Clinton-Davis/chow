@@ -201,6 +201,23 @@ hr {
   height: auto;
 }
 
+.img_stats {
+  display: flex;
+}
+
+#recipe_dish_image {
+  height: 200px;
+  width: auto;
+  margin-right: 1em;
+  border: 5px solid rgba(0, 0, 0, 0.6);
+}
+
+.container_stats {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
 /*Wood Btns*/
 .btn-primary {
   color: #fff;
