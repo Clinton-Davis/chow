@@ -219,6 +219,7 @@ hr {
 }
 
 
+
 #recipe_dish_image {
   height: 200px;
   min-width: 200px;
@@ -240,6 +241,10 @@ hr {
 
 @media (max-width: 540px) {
   .hero {
+    flex-direction: column;
+  }
+
+  .footer {
     flex-direction: column;
   }
 }

@@ -11,31 +11,40 @@
             <p id="dish-descrit" class="text-center">{{recipe.descrition}}</p>
         </div>
     </div>
+    <hr>
 
 
     <div class="container">
+        <div class="row no-gutters">
+            <div class="col-2 col-md-1"><span class="material-icons">restaurant</span>
+            </div>
+            <div class="col-4 col-md-2">{{recipe.chef}}
+            </div>
 
-        <hr>
-        <div class="row">
-            <div class=""><span class="material-icons">restaurant</span></div>
-            <div class="">{{recipe.chef}}</div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class=""><span class="material-icons">poll</span></div>
-            <div class="">{{recipe.category}}</div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class=""><span class="material-icons">access_time</span></div>
-            <div class="">{{recipe.cooking_time}}</div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class=""><span class="material-icons">timelapse</span></div>
-            <div class="">{{recipe.servings}}</div>
+            <hr>
+
+            <div class="col-2 col-md-1"><span class="material-icons">poll</span>
+            </div>
+            <div class="col-4 col-md-2">{{recipe.category}}
+            </div>
+
+            <hr>
+
+            <div class="col-2 col-md-1"><span class="material-icons">access_time</span>
+            </div>
+            <div class="col-4 col-md-2">{{recipe.cooking_time}}
+            </div>
+
+            <hr>
+
+            <div class="col-2 col-md-1"><span class="material-icons">timelapse</span>
+            </div>
+            <div class="col-4 col-md-2">{{recipe.servings}}
+            </div>
         </div>
     </div>
+    <br>
+    <br>
 
     <div class="container">
         <div class="row">
@@ -61,7 +70,10 @@
             <a href="{{url_for('all_recipe')}}" class="btn btn-primary col-4">Back Home</a>
         </div>
     </div>
+
 </div>
+
+
 
 
 <!--Sends you to a edit page for clicked recipe-->
