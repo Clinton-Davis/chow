@@ -51,6 +51,14 @@ a:hover {
   text-shadow: 1px 1px darkgray;
 }
 
+p {
+  max-width: 650px;
+}
+
+li {
+  max-width: 650px;
+}
+
 .cpt {
   text-transform: capitalize;
 }
@@ -205,17 +213,58 @@ hr {
   display: flex;
 }
 
+.img-container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
 #recipe_dish_image {
   height: 200px;
+  min-width: 200px;
   width: auto;
-  margin-right: 1em;
+  margin: 0.5em;
   border: 5px solid rgba(0, 0, 0, 0.6);
+}
+
+.hero {
+  display: flex;
+  justify-items: center;
+}
+
+.hero-sub {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width: 540px) {
+  .hero {
+    flex-direction: column;
+  }
+}
+
+.recipe-container {
+  background-color: var(--cbg);
+  margin: 1em auto 1em auto;
+  padding: 0.5em 1em;
+  border-radius: 20px;
 }
 
 .container_stats {
   display: flex;
   flex-direction: column;
   width: 50%;
+}
+
+.instructions {
+  max-width: 50%;
+  min-width: 50%;
+}
+
+#dish-descrit {
+  max-width: 650px;
+
 }
 
 /*Wood Btns*/
@@ -258,7 +307,7 @@ hr {
   background-position: center;
   background-size: cover;
   display: flex;
-  flex-direction: column;
+
   margin-top: auto;
   justify-content: space-around;
   align-items: center;
