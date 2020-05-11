@@ -100,7 +100,7 @@ def login():
                         login_user['password']):
         session['username'] = request.form['username']
         session['logged_in'] = True
-        flash('Wellcome Back ' + session['username'] + ' You are now Logged In', 'success')
+        flash('Welcome Back ' + session['username'] + ' You are now Logged In', 'success')
         return redirect(url_for('all_recipe'))
       
   flash('That is an Inalid username or password', 'warning')
@@ -121,7 +121,7 @@ def add_recipe():
 def insert_recipe():
     recipes = mongo.db.recipes
     recipes.insert_one(request.form.to_dict())
-    flash('You have successfully added your recipe', 'success')
+    flash('You have successfully added a recipe', 'success')
     return redirect(url_for('all_recipe'))
     
 
@@ -134,7 +134,7 @@ def delete_recipe(recipe_id):
     if session['username'] == recipes['username']:
       recipe = mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
       return redirect(url_for('all_recipe'))
-  flash('Sorry! Not yours to Delete', 'danger')
+  flash('Sorry! You have to Login first', 'danger')
   return redirect(url_for('login_page'))   
     
     

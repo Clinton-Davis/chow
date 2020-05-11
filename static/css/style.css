@@ -17,6 +17,8 @@ html {
   --obb: 1px rgba(39, 39, 39, 0.842) solid;
   /* Off white */
   --white: rgb(254, 254, 254);
+  /* Off Black*/
+  --offBlk: rgb(41, 41, 41);
   /* Fruit Image*/
   --fruit: url(../images/overexposed-andy-chilton.jpg);
   /* Wooden Bords image */
@@ -53,6 +55,7 @@ a:hover {
 
 p {
   max-width: 650px;
+  color: var(--offBlk);
 }
 
 li {
@@ -95,6 +98,15 @@ hr {
   font-size: 1.25em;
 }
 
+.bhf {
+  font-family: var(--hf);
+  font-size: 2.2em;
+}
+
+.dhf {
+  font-family: var(--hf);
+  font-size: 2em;
+}
 
 
 
@@ -205,6 +217,11 @@ hr {
   border: 2px solid rgba(0, 0, 0, 0.61);
 }
 
+#card-btn {
+  width: inherit;
+  margin: 0px;
+}
+
 #recipe_body {
   height: auto;
 }
@@ -282,6 +299,9 @@ hr {
   box-shadow: var(--shd);
   min-height: 2.5em;
   border: 1px solid rgba(0, 0, 0, 0.61);
+  margin: 0.25em auto 0.25em auto;
+  max-width: 300px;
+
 
 }
 

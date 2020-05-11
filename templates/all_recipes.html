@@ -9,7 +9,7 @@
       alt="{{recipe.recipe_name}}">
     <div class="card-body container">
       <div class="row">
-        <h5 class=" col card-title text-center cpt chf">{{recipe.recipe_name}}</h5>
+        <h5 class=" col card-title text-center cpt dhf">{{recipe.recipe_name}}</h5>
       </div>
       <hr>
       <div class="row">
@@ -58,7 +58,7 @@
     </div>
     <!--Card Container END-->
     <!--This link will take you to a recipe page with all the recipes details-->
-    <a href="{{ url_for('recipe', recipe_id=recipe._id ) }}" class="btn btn-primary chf">Lets Chow!</a>
+    <a href="{{ url_for('recipe', recipe_id=recipe._id ) }}" id="card-btn" class="btn btn-primary chf">Lets Chow!</a>
   </div>
 
 

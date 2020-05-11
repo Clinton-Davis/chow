@@ -7,7 +7,7 @@
             <img src="{{recipe.dish_image}}" id="recipe_dish_image" alt="{{recipe.recipe_name}}">
         </div>
         <div class="hero-sub">
-            <h4 class="text-center">{{recipe.recipe_name}}</h4>
+            <h4 class="text-center bhf">{{recipe.recipe_name}}</h4>
             <p id="dish-descrit" class="text-center">{{recipe.descrition}}</p>
         </div>
     </div>
@@ -15,59 +15,62 @@
 
 
     <div class="container">
-        <div class="row no-gutters">
-            <div class="col-2 col-md-1"><span class="material-icons">restaurant</span>
+        <div class="row no-gutters justify-content-around">
+            <div class="col-2 col-md-1 text-center "><span class="material-icons">restaurant</span>
             </div>
-            <div class="col-4 col-md-2">{{recipe.chef}}
-            </div>
-
-            <hr>
-
-            <div class="col-2 col-md-1"><span class="material-icons">poll</span>
-            </div>
-            <div class="col-4 col-md-2">{{recipe.category}}
+            <div class="col-4 col-md-2 text-center cpt chf">{{recipe.chef}}
             </div>
 
             <hr>
 
-            <div class="col-2 col-md-1"><span class="material-icons">access_time</span>
+            <div class="col-2 col-md-1 text-center "><span class="material-icons">poll</span>
             </div>
-            <div class="col-4 col-md-2">{{recipe.cooking_time}}
+            <div class="col-4 col-md-2 text-center  cpt chf">{{recipe.category}}
             </div>
 
             <hr>
 
-            <div class="col-2 col-md-1"><span class="material-icons">timelapse</span>
+            <div class="col-2 col-md-1 text-center "><span class="material-icons">access_time</span>
             </div>
-            <div class="col-4 col-md-2">{{recipe.servings}}
+            <div class="col-4 col-md-2 text-center  cpt chf">{{recipe.cooking_time}}
             </div>
+
+            <hr>
+
+            <div class="col-2 col-md-1 text-center "><span class="material-icons">timelapse</span>
+            </div>
+            <div class="col-4 col-md-2 text-center  cpt chf">{{recipe.servings}}
+            </div>
+
         </div>
+        <hr>
     </div>
     <br>
-    <br>
+
 
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-4">
-                <h5 class="text-center">Ingredients:</h5>
+                <h5 class="text-center dhf">Ingredients:</h5>
                 <p class="">{{recipe.ingredients|safe}}</p>
             </div>
             <div class="col-12 col-md-8">
-                <h5 class=" text-center">How to Cook it:</h5>
+                <h5 class=" text-center dhf">How to Cook it:</h5>
                 <p class="">{{recipe.cooking_method|safe}}</p>
             </div>
         </div>
     </div>
-    <h6 class="">Posted By: {{recipe.username}}</h6>
+    <h6 class="cpt chf mr-3">Uploaded By:<span class="">{{recipe.username}}</span></h6>
+
     <div class="container">
-        <div class="row">
-            <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn btn-primary col-4">Edit
+        <div class="row ustify-content-center ">
+            <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn btn-primary chf col-md-4">Edit
                 Recipe</a>
             <!--Sends you to a delete page for clicked recipe-->
-            <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="btn btn-primary col-4">Delete
+            <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="btn btn-primary chf col-md-4">Delete
                 Recipe</a>
             <!--Sends you back to all_recipes-->
-            <a href="{{url_for('all_recipe')}}" class="btn btn-primary col-4">Back Home</a>
+            <a href="{{url_for('all_recipe')}}" class="btn btn-primary chf col-md-4">Back Home</a>
         </div>
     </div>
 

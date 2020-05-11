@@ -64,9 +64,10 @@
         </form>
       </ul>
     </div>
-    <!--Puts the Logged in users name in header-->
     {% block Head %}
+    <!--Initialize ckeditor-->
     {{ ckeditor.load(pkg_type="basic") }}
+    <!--Puts the Logged in users name in header-->
     <h6 class="loggedIn">{{session_name}}</h6>
     {% endblock Head %}
   </nav>
@@ -74,7 +75,7 @@
 
 <body>
   <!--Flashed messages in container to hold just below the nav bar-->
-  <div class="container">
+  <div class="container-fluid">
     {% with messages = get_flashed_messages(with_categories=true) %} {% if
       messages %} {% for category, message in messages %}
     <div class="alert text-center alert-{{ category }} alert-dismissible fade show" role="alert">
