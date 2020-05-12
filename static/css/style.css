@@ -305,6 +305,37 @@ hr {
 
 }
 
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary span {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.3);
+
+  width: 100px;
+  height: 100px;
+  margin-top: -50px;
+  margin-left: -50px;
+
+  animation: ripple 1s;
+  opacity: 0;
+}
+
+@keyframes ripple {
+  from {
+    opacity: 1;
+    transform: scale(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(10);
+  }
+}
+
 /* Background image for non image recipes*/
 #dish_image {
   background-image: url(../images/chow-replacement.jpg);
