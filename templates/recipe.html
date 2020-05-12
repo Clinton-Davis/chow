@@ -64,13 +64,15 @@
 
     <div class="container">
         <div class="row ustify-content-center ">
-            <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn btn-primary chf col-md-4">Edit
+            <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}"
+                class="ripple-surface btn btn-primary chf col-md-4">Edit
                 Recipe</a>
             <!--Sends you to a delete page for clicked recipe-->
-            <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}" class="btn btn-primary chf col-md-4">Delete
+            <a href="{{url_for('delete_recipe', recipe_id=recipe._id)}}"
+                class="ripple-surface btn btn-primary chf col-md-4">Delete
                 Recipe</a>
             <!--Sends you back to all_recipes-->
-            <a href="{{url_for('all_recipe')}}" class="btn btn-primary chf col-md-4">Back Home</a>
+            <a href="{{url_for('all_recipe')}}" class="ripple-surface btn btn-primary chf col-md-4">Back Home</a>
         </div>
     </div>
 

@@ -305,15 +305,16 @@ hr {
 
 }
 
-.btn-primary {
+.ripple-surface {
+  display: inline-block;
   position: relative;
   overflow: hidden;
 }
 
-.btn-primary span {
+.ripple-surface span {
   position: absolute;
   border-radius: 50%;
-  background-color: rgba(250, 249, 249, 0.3);
+  background-color: rgba(0, 0, 0, 0.3);
 
   width: 100px;
   height: 100px;
@@ -323,6 +324,7 @@ hr {
   animation: ripple 1s;
   opacity: 0;
 }
+
 
 @keyframes ripple {
   from {

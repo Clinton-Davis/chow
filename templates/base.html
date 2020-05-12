@@ -21,7 +21,7 @@
 </head>
 <header>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="{{url_for('all_recipe')}}"><span id="navHead" class="hf fs">Chow</span><span
+    <a class=" navbar-brand" href="{{url_for('all_recipe')}}"><span id="navHead" class="hf fs">Chow</span><span
         class="bf w">by</span><span class="hotpoint w">HotPoint</span></a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -32,19 +32,19 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav .mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="{{url_for('all_recipe')}}">Home</a>
+          <a class="ripple-surface nav-link" href="{{url_for('all_recipe')}}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{url_for('about')}}">About</a>
+          <a class="ripple-surface  nav-link" href="{{url_for('about')}}">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{url_for('add_recipe')}}">Add Recipe</a>
+          <a class="ripple-surface  nav-link" href="{{url_for('add_recipe')}}">Add Recipe</a>
         </li>
         <li class="nav-item">
           {% if session['logged_in'] == True %}
-          <a class="nav-link" href="{{url_for('logout')}}">Logout</a>
+          <a class="ripple-surface  nav-link" href="{{url_for('logout')}}">Logout</a>
           {% else %}
-          <a class="nav-link" href="{{url_for('login_page')}}">Login</a>
+          <a class="ripple-surface  nav-link" href="{{url_for('login_page')}}">Login</a>
           {% endif %}
         </li>
         <form action="{{url_for('category')}}" method="POST">
@@ -60,7 +60,7 @@
             </select>
 
             <div class="input-group-append">
-              <button type="submit" class="btn btn-outline-light btn-sm" type="button">Select</button>
+              <button type="submit" class="ripple-surface btn btn-outline-light btn-sm" type="button">Select</button>
             </div>
           </div>
         </form>
@@ -108,7 +108,7 @@
         <input type="password" class="form-control form-control-sm" name="userPassword" id="footerpassword"
           placeholder="Password" />
       </div>
-      <button id="footer-log-btn" type="submit" class="btn btn-outline-light btn-sm">Login</button>
+      <button id="footer-log-btn" type="submit" class="ripple-surface btn btn-outline-light btn-sm">Login</button>
     </form>
     <div class="feet">
       <ul>
@@ -126,7 +126,8 @@
     <div class="feet">
       <div class="feet">Web Design:</div>
       <div class="feet feet-bg">
-        <a id="sign" href="https://github.com/Clinton-Davis" class="feet-bg" target="_blank">Clinton Davis</a>
+        <a id="sign" href="https://github.com/Clinton-Davis" class=" feet-bg" target="_blank">Clinton
+          Davis</a>
       </div>
     </div>
   </footer>
