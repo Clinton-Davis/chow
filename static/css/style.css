@@ -314,14 +314,14 @@ hr {
 .ripple-surface span {
   position: absolute;
   border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.685);
 
   width: 100px;
   height: 100px;
   margin-top: -50px;
   margin-left: -50px;
 
-  animation: ripple 1s;
+  animation: ripple 1500ms;
   opacity: 0;
 }
 
