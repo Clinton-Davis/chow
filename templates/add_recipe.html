@@ -39,7 +39,7 @@
                     <option value="Chicken">Chicken</option>
                     <option value="Lamb">Lamb</option>
                     <option value="Fish">Fish</option>
-                    <option value="Dessert">Dessert</option>
+                    <option value="Sweets">Sweets</option>
 
                 </select>
             </div>
@@ -79,6 +79,11 @@
                 <label for="cooking_method">Cooking Method:</label>
                 <textarea class="form-control ckeditor" id="cooking_method" name="cooking_method" rows="5"
                     placeholder="Seperate each different instruction with a space inbetween."></textarea>
+            </div>
+            <div class="">
+                <label class="sr-only" for="date_added"></label>
+                <input type="text" class="sr-only form-control" id="date_added" name="date_added"
+                    value="{{date_added}}">
             </div>
             <div>
                 <button type="submit" class="ripple-surface btn btn-primary">Add Recipe</button>

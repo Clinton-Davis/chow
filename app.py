@@ -110,11 +110,12 @@ def login():
   
 @app.route('/add_recipe')
 def add_recipe():
+  today = datetime.datetime.now().strftime('%d/%m/%Y')
   #check to see if login in
-    if 'username' in session:
-       return  render_template("add_recipe.html", session_name=session['username'])
-    flash('You Need to be Logged In to Add a New Recipe', 'warning')
-    return redirect(url_for('login_page'))
+  if 'username' in session:
+     return  render_template("add_recipe.html", session_name=session['username'], date_added=today)
+  flash('You Need to be Logged In to Add a New Recipe', 'warning')
+  return redirect(url_for('login_page'))
   #if not redirect to login
 
 #Inserts New recipe
@@ -135,8 +136,10 @@ def delete_recipe(recipe_id):
     if session['username'] == recipes['username']:
       recipe = mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
       return redirect(url_for('all_recipe'))
+    flash('Sorry! You have to Login first', 'danger')
+    return redirect(url_for('login_page'))   
   flash('Sorry! You have to Login first', 'danger')
-  return redirect(url_for('login_page'))   
+  return redirect(url_for('login_page')) 
     
     
 
@@ -162,10 +165,10 @@ def update_recipe(recipe_id):
                  'category': request.form.get('category'),
                  'servings' : request.form.get('servings'),
                  'cooking_time' : request.form.get('cooking_time'),
-                 'dairy_free' : request.form.get('dairy_free'),
                  'dish_image' : request.form.get('dish_image'),
                  'ingredients' : request.form.get('ingredients'),
-                 'cooking_method' : request.form.get('cooking_method'),})                    
+                 'cooking_method' : request.form.get('cooking_method'),
+                 'date_added': request.form.get('date_added')})                    
   
    flash(' You have Successfully Updated Your Recipe', 'success')
    return redirect(url_for('all_recipe', recipe=recipe))
