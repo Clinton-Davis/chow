@@ -211,6 +211,7 @@ hr {
 .card {
   margin-bottom: 1em;
   height: 28em;
+  box-shadow: var(--shd);
 }
 
 .card-body {

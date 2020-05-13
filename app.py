@@ -25,13 +25,13 @@ CKEditor(app)
 def all_recipe():
   #If there is a user logged: Username is printed in the Nav
   if 'username' in session:
-    #Looks for all the recipes and puts them in category alphabetical order
+    #Puts the resipe in order Newest to oldest
     return  render_template("all_recipes.html", 
                             session_name=session['username'], 
-                            recipes=mongo.db.recipes.find().sort('category', 1)) 
-  #this does the same but with out the login username
+                            recipes=mongo.db.recipes.find().sort("_id", -1)) 
+  #Puts the resipe in order Newest to oldest but with out the login username
   return render_template("all_recipes.html",
-                         recipes=mongo.db.recipes.find().sort('category', 1))
+                         recipes=mongo.db.recipes.find().sort("_id", -1))
   
 
   
@@ -110,6 +110,7 @@ def login():
   
 @app.route('/add_recipe')
 def add_recipe():
+  #addes todays date in day/month/year format
   today = datetime.datetime.now().strftime('%d/%m/%Y')
   #check to see if login in
   if 'username' in session:
@@ -122,7 +123,7 @@ def add_recipe():
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
     recipes = mongo.db.recipes
-    recipes.insert_one(request.form.to_dict())
+    recipes.insert_one(request.form.to_dict(),)
     flash('You have Successfully Added a Recipe', 'success')
     return redirect(url_for('all_recipe'))
     
