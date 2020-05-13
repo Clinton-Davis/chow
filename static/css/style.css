@@ -190,6 +190,12 @@ hr {
   border: var(--obb);
 }
 
+@media (max-width: 540px) {
+  .jumbotron {
+    width: 98%;
+  }
+}
+
 .recipeContainer {
   display: flex;
   flex-wrap: wrap;

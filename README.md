@@ -2,8 +2,6 @@
 
 ##MS3
 
-https://quilljs.com/docs/quickstart/
-
 Features:
 Register
 login
@@ -19,3 +17,10 @@ Placeholder food image: Photo by Lily Banse on Unsplash
 
 BUGS
 Not Rendering html fix using the safe filter |
+not getting the sessins to show on each page
+
+Ripple:
+https://medium.com/@leonardo.monteiro.fernandes/css-techniques-for-material-ripple-effect-3f0ece3062a0
+
+Pretty Printed
+https://www.youtube.com/channel/UC-QDfvrRIDB6F0bIO4I4HkQ

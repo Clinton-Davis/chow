@@ -1,5 +1,6 @@
 from flask import Flask, redirect, render_template, flash, url_for, request, session
 import os
+import datetime
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from flask_ckeditor import CKEditor
@@ -112,7 +113,7 @@ def add_recipe():
   #check to see if login in
     if 'username' in session:
        return  render_template("add_recipe.html", session_name=session['username'])
-    flash('You Need to be logged in to add a new recipe', 'warning')
+    flash('You Need to be Logged In to Add a New Recipe', 'warning')
     return redirect(url_for('login_page'))
   #if not redirect to login
 
@@ -121,7 +122,7 @@ def add_recipe():
 def insert_recipe():
     recipes = mongo.db.recipes
     recipes.insert_one(request.form.to_dict())
-    flash('You have successfully added a recipe', 'success')
+    flash('You have Successfully Added a Recipe', 'success')
     return redirect(url_for('all_recipe'))
     
 
