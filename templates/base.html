@@ -30,14 +30,14 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav .mr-auto">
-        <li class="nav-item active">
-          <a class="ripple-surface nav-link" href="{{url_for('all_recipe')}}">Home</a>
-        </li>
         <li class="nav-item">
-          <a class="ripple-surface  nav-link" href="{{url_for('about')}}">About</a>
+          <a class="ripple-surface nav-link" href="{{url_for('all_recipe')}}">All Recipes</a>
         </li>
         <li class="nav-item">
           <a class="ripple-surface  nav-link" href="{{url_for('add_recipe')}}">Add Recipe</a>
+        </li>
+        <li class="nav-item">
+          <a class="ripple-surface  nav-link" href="{{url_for('about')}}">About</a>
         </li>
         <li class="nav-item">
           {% if session['logged_in'] == True %}
@@ -70,7 +70,10 @@
     <!--Initialize ckeditor-->
     {{ ckeditor.load(pkg_type="basic") }}
     <!--Puts the Logged in users name in header-->
-    <h6 class="loggedIn">{{session_name}}</h6>
+    {% if session['logged_in'] == True %}
+    <h6 class="loggedIn chf">Welcome:&nbsp;{{session_name}}</h6>
+    {% else %}
+    {% endif %}
     {% endblock Head %}
   </nav>
 </header>
@@ -94,7 +97,7 @@
   <!--FOOTER-->
   <footer class="footer">
     <div class="feet">
-      <span id="navHead" class="hf fs">Chow</span><span class="bf w">by</span><span class="hotpoint w">HotPoint</span>
+      <span id="navFoot" class="hf fs">Chow</span><span class="bf w">by</span><span class="hotpoint w">HotPoint</span>
       <h6 class="copyRight">CopyRight© 2020</h6>
     </div>
     <!--Footer Login / uses same routes as login page-->
@@ -112,13 +115,13 @@
     </form>
     <div class="feet">
       <ul>
-        <li><a href="{{url_for('all_recipe')}}">Home</a></li>
-        <li><a href="{{url_for('about')}}">About</a></li>
-        <li><a href="{{url_for('add_recipe')}}">Add Recipe</a></li>
+        <li><a class="text-white" href="{{url_for('all_recipe')}}">Home</a></li>
+        <li><a class="text-white" href="{{url_for('about')}}">About</a></li>
+        <li><a class="text-white" href="{{url_for('add_recipe')}}">Add Recipe</a></li>
         {% if session['logged_in'] == True %}
-        <li><a href="{{url_for('logout')}}">Logout</a></li>
+        <li><a class="text-white" href="{{url_for('logout')}}">Logout</a></li>
         {% else %}
-        <li><a href="{{url_for('login_page')}}">Login</a></li>
+        <li><a class="text-white" href="{{url_for('login_page')}}">Login</a></li>
         {% endif %}
 
       </ul>

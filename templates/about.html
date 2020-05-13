@@ -5,9 +5,9 @@
     <span class="display-2 hf">Chow</span><span>By </span><span class="hotpoint fs">HotPoint</span>
 
     <hr class="my-4">
-    <p><span id="P-chow" class="hf">Chow</span> is a online cook book, Its for people how love to cook and spend time in
-        there
-        kitchen, we teemed up with
+    <p class="about-p"><span id="P-chow" class="hf">Chow</span> is a online cook book, Its for people how love to cook
+        and
+        spend time in there kitchen, we teemed up with
         HotPoint because Hotpoint's wide range of appliances suits the needs of every kitchen and home. Our home and
         kitchen domestic appliances have been designed with the latest innovations, intelligent technology and
         functional stylish design, offering our customers outstanding performance. Browse our online catalogue, which
@@ -15,17 +15,29 @@
         We also offer a wide variety of high quality small domestic appliances for the kitchen and home including slow
         juicers, coffee machines and vacuum cleaners.
         Hotpoint provide extensive customer care and assistance for their domestic appliances...</p>
+    <hr>
+    <br>
 
-    <a class="ripple-surface btn btn-primary lead hf btn-lg" href="https://www.hotpoint.ie/" target="_black"
-        role="button">Learn
-        more</a>
-
-
-    <a href="{{url_for('all_recipe')}}" class="ripple-surface btn btn-primary lead hf btn-lg" style="float:right;">Back
-        Home</a>
-
-
-
+    <p class="about-p"><span id="P-chow" class="hf">Using Chow</span>&nbsp;Is simple. You can browse Chow all you like,
+        click on the "Lets Chow" button to get a detailed list of
+        all the things you will need and How to cook them.
+        You can Add, Delete them or Edit recipes only if you uploaded them. To add a recipe, you have to log in, If
+        you haven't logged in before, You will have to <a href="{{ url_for('register') }}">Register</a> Once you have
+        Registered and login in you can add, delete or edit recipes.<br><strong>Be Sure </strong> to use the
+        same Username/Nickname you used when uploading the recipe as this is how the Chow knows how uploaded it.
+        Uploading a Image is not possable just yet but if you search for a image that looks like the dish. Right click
+        on the image and click "Copy image address" this will get the image web address and post it up as a image.
+        You can upload any recipe you like, Your own, or someone else's, if it's not yours, It's recommended you say
+        hows it is in the "Chef" section.
+        Thank you for using Chow, Enjoy your Meal.</p>
+    <div class="container">
+        <div class="row">
+            <a class="ripple-surface col-sm-6 btn btn-primary lead hf btn-lg" href="https://www.hotpoint.ie/"
+                target="_black" role="button">Learn more</a>
+            <a href="{{url_for('all_recipe')}}" class="ripple-surface col-sm-6 btn btn-primary lead hf btn-lg">Back
+                Home</a>
+        </div>
+    </div>
 </div>
 
 {% endblock content %}
