@@ -132,7 +132,7 @@ hr {
 }
 
 .navbar {
-  background-image: var(--dwood);
+  background-image: url(../images/wood-Dark-luca-ruegg-crop.jpg);
   background-position: center;
   background-size: cover;
   position: relative;
