@@ -360,7 +360,7 @@ hr {
 }
 
 /* Background image for non image recipes*/
-#dish_image {
+.dish_image {
   background-image: url(../images/chow-replacement.jpg);
   background-position: center center;
   background-size: cover;
