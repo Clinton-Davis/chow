@@ -22,8 +22,7 @@ html {
   /* Fruit Image*/
   --fruit: url(../images/overexposed-andy-chilton.jpg);
   /* Wooden Bords image */
-  --wood: url(../images/wood-blackleveup-luca-ruegg.jpg);
-  --dwood: url(../images/wood-Dark-luca-ruegg.jpg);
+  --dwood: url(../images/wood-Dark-luca-ruegg-crop.jpg);
   /* Box Shadow*/
   --shd: 0px 5px 5px 0px rgba(0, 0, 0, 0.5);
   /* Font Size 1.5rem*/
@@ -41,7 +40,6 @@ body {
 }
 
 /* Alt Picture*/
-
 
 a {
   color: darkred;
@@ -108,9 +106,6 @@ hr {
   font-size: 2em;
 }
 
-
-
-
 /* -=-=-=-=--=--=-=-=-=-=--=-NAVBAR*/
 @media (min-width: 992px) {
   .navbar-expand-lg .navbar-collapse {
@@ -168,10 +163,9 @@ hr {
   border-radius: 8px;
   width: 1.5em;
   height: 1.5em;
-
 }
 
-.input-group>.custom-select {
+.input-group > .custom-select {
   max-width: 10em;
 }
 
@@ -256,8 +250,6 @@ hr {
   margin-right: auto;
 }
 
-
-
 #recipe_dish_image {
   height: 200px;
   min-width: 200px;
@@ -307,13 +299,12 @@ hr {
 
 #dish-descrit {
   max-width: 650px;
-
 }
 
 /*Wood Btns*/
 .btn-primary {
   color: #fff;
-  background-image: var(--wood);
+  background-image: var(--dwood);
   background-position: center;
   background-size: contain;
   border-color: black;
@@ -351,7 +342,6 @@ hr {
   opacity: 0;
 }
 
-
 @keyframes ripple {
   from {
     opacity: 1;
@@ -370,11 +360,7 @@ hr {
   background-position: center center;
   background-size: cover;
   border: 5px solid rgba(0, 0, 0, 0.6);
-
 }
-
-
-
 
 /*-=-=-=-=-=--=-=About-=-=-=-=-*/
 #P-chow {
@@ -385,8 +371,6 @@ hr {
   margin-right: auto;
   margin-left: auto;
 }
-
-
 
 /* -=-=-=--=-=-=-FOOTER=-=-=-=--=-*/
 
@@ -424,10 +408,12 @@ hr {
 .feet-bg {
   font-weight: 600;
   margin-top: 0em;
-  background-image: linear-gradient(-45deg,
-      rgb(27, 240, 8),
-      rgb(250, 95, 95),
-      rgb(94, 102, 241));
+  background-image: linear-gradient(
+    -45deg,
+    rgb(27, 240, 8),
+    rgb(250, 95, 95),
+    rgb(94, 102, 241)
+  );
   color: transparent;
 
   background-size: 800%;
@@ -450,8 +436,6 @@ hr {
     background-position: left;
   }
 }
-
-
 
 #footer-log-lable {
   font-size: 1.75em;

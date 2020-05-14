@@ -24,3 +24,8 @@ https://medium.com/@leonardo.monteiro.fernandes/css-techniques-for-material-ripp
 
 Pretty Printed
 https://www.youtube.com/channel/UC-QDfvrRIDB6F0bIO4I4HkQ
+
+Getting into Vertial env
+$ source venv/Scripts/activate
+Run app
+$ python app.py
