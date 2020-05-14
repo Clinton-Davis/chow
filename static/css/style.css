@@ -36,7 +36,11 @@ body {
   background-image: url(../images/overexposed-andy-chilton.png);
   background-position: center center;
   background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
   background-attachment: fixed;
+  -webkit-background-attachment: fixed;
+  -moz-background-attachment: fixed;
 
 }
 
