@@ -34,7 +34,7 @@ body {
   min-height: 100vh;
   font-family: var(--bf);
   background-image: url(../images/overexposed-andy-chilton.png);
-  background-position: center center;
+  background-position: center;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
