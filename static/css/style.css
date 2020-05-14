@@ -308,7 +308,7 @@ hr {
 /*Wood Btns*/
 .btn-primary {
   color: #fff;
-  background-image: var(--dwood);
+  background-image: url(../images/wood-Dark-luca-ruegg-crop.jpg);
   background-position: center;
   background-size: contain;
   border-color: black;
