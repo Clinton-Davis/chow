@@ -380,7 +380,7 @@ hr {
 /* -=-=-=--=-=-=-FOOTER=-=-=-=--=-*/
 
 .footer {
-  background-image: var(--dwood);
+  background-image: url(../images/wood-Dark-luca-ruegg-crop.jpg);
   background-position: center;
   background-size: cover;
   display: flex;
