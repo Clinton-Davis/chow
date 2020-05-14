@@ -20,9 +20,9 @@ html {
   /* Off Black*/
   --offBlk: rgb(41, 41, 41);
   /* Fruit Image*/
-  --fruit: url(../images/overexposed-andy-chilton.jpg);
+  --fruit: url(../images/overexposed-andy-chilton.png);
   /* Wooden Bords image */
-  --dwood: url(../images/wood-Dark-luca-ruegg-crop.jpg);
+  --dwood: url(../images/wood-Dark-luca-ruegg-crop.png);
   /* Box Shadow*/
   --shd: 0px 5px 5px 0px rgba(0, 0, 0, 0.5);
   /* Font Size 1.5rem*/
@@ -34,9 +34,17 @@ body {
   min-height: 100vh;
   font-family: var(--bf);
   background-image: var(--fruit);
+  -moz-background-image: var(--fruit);
+  -o-background-image: var(--fruit);
+  -webkit-background-image: var(--fruit);
   background-position: center;
   background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+
   background-attachment: fixed;
+
 }
 
 /* Alt Picture*/
@@ -49,6 +57,7 @@ a:focus,
 a:hover {
   color: rgb(232, 217, 201);
   text-shadow: 1px 1px rgb(97, 97, 97);
+
 }
 
 p {
@@ -165,7 +174,7 @@ hr {
   height: 1.5em;
 }
 
-.input-group > .custom-select {
+.input-group>.custom-select {
   max-width: 10em;
 }
 
@@ -220,6 +229,8 @@ hr {
   margin-bottom: 1em;
   height: 28em;
   box-shadow: var(--shd);
+  -webkit-box-shadow: var(--shd);
+  -moz-box-shadow: var(--shd);
 }
 
 .card-body {
@@ -308,11 +319,13 @@ hr {
   background-position: center;
   background-size: contain;
   border-color: black;
-  box-shadow: var(--shd);
   min-height: 2.5em;
   border: 1px solid rgba(0, 0, 0, 0.61);
   margin: 0.25em auto 0.25em auto;
   max-width: 300px;
+  box-shadow: var(--shd);
+  -webkit-box-shadow: var(--shd);
+  -moz-box-shadow: var(--shd);
 }
 
 .btn-primary:hover,
@@ -332,14 +345,13 @@ hr {
   position: absolute;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.685);
-
   width: 100px;
   height: 100px;
   margin-top: -50px;
   margin-left: -50px;
-
-  animation: ripple 1500ms;
+  animation: ripple 1200ms;
   opacity: 0;
+  -webkit-animation: ripple 1200ms;
 }
 
 @keyframes ripple {
@@ -408,12 +420,10 @@ hr {
 .feet-bg {
   font-weight: 600;
   margin-top: 0em;
-  background-image: linear-gradient(
-    -45deg,
-    rgb(27, 240, 8),
-    rgb(250, 95, 95),
-    rgb(94, 102, 241)
-  );
+  background-image: linear-gradient(-45deg,
+      rgb(27, 240, 8),
+      rgb(250, 95, 95),
+      rgb(94, 102, 241));
   color: transparent;
 
   background-size: 800%;
