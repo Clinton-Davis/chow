@@ -33,7 +33,7 @@ html {
 body {
   min-height: 100vh;
   font-family: var(--bf);
-  background-image: var(--fruit);
+  background-image: url(../images/overexposed-andy-chilton.png);
   -moz-background-image: var(--fruit);
   -o-background-image: var(--fruit);
   -webkit-background-image: var(--fruit);
