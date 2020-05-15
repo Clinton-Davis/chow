@@ -10,8 +10,7 @@
         <form action="{{ url_for('update_recipe', recipe_id=recipe._id) }}" method="POST">
             <div class="form-group">
                 <label class="sr-only" for="username"></label>
-                <input type="text" class="form-control sr-only" id="username" value="{{session_name}}" name="username"
-                    placeholder="Nick name or Username">
+                <input type="text" class="form-control sr-only" id="username" value="{{session_name}}" name="username">
             </div>
             <div class="form-group">
                 <label for="recipeName">Recipe Name:</label>

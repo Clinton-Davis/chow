@@ -107,10 +107,14 @@
       <div class="form-group">
         <label id="footer-log-lable" for="loginEmail" class="w hf">Login</label>
         <input type="text" class="form-control form-control-sm" name="username" id="usernameLogin"
-          placeholder="Username">
-        <input type="email" class="form-control form-control-sm" name="userEmail" id="loginEmail" placeholder="Email" />
+          placeholder="Username" required>
+
+        <input type="email" class="form-control form-control-sm" name="userEmail" id="loginEmail" placeholder="Email"
+          required />
+        <label for="footerpassword" class="sr-only"></label>
+
         <input type="password" class="form-control form-control-sm" name="userPassword" id="footerpassword"
-          placeholder="Password" />
+          placeholder="Password" required />
       </div>
       <button id="footer-log-btn" type="submit" class="ripple-surface btn btn-outline-light btn-sm">Login</button>
     </form>
