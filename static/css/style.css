@@ -289,10 +289,15 @@ hr {
 }
 
 /* Detail Recipe Page*/
-.hero {
+.about-hero {
   display: flex;
-  justify-items: center;
+  align-items: baseline;
 }
+
+.hero-img-wrap {
+  align-self: normal;
+}
+
 
 .hero-sub {
   display: flex;
@@ -332,14 +337,6 @@ hr {
   max-width: 650px;
 }
 
-/* Forms
-input,
-textarea,
-select {
-  max-width: 90%;
-
-}
-*/
 /*Wood Btns*/
 .btn-primary {
   color: #fff;
@@ -405,6 +402,21 @@ select {
 /*-=-=-=-=-=--=-=About-=-=-=-=-*/
 #P-chow {
   font-size: 1.3rem;
+}
+
+.hero-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+
+
+.about-img {
+  height: 100px;
+  width: 200px;
+  margin: 0px 1em;
+  border: 2px solid var(--offBlk);
 }
 
 .about-p {
