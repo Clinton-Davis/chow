@@ -297,9 +297,7 @@ hr {
   align-items: baseline;
 }
 
-.hero-img-wrap {
-  align-self: normal;
-}
+
 
 
 .hero-sub {
@@ -413,12 +411,15 @@ hr {
   align-items: baseline;
 }
 
+.hero-img-wrap {
+  align-self: normal;
 
+}
 
 .about-img {
   height: 100px;
   width: 160px;
-  margin: 0px 1em;
+  margin: 0px 0.25em;
   border: 2px solid var(--offBlk);
 }
 
