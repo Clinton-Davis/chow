@@ -284,7 +284,10 @@ hr {
 .ad-img-box {
   height: 200px;
   width: 200px;
-  margin: 2.25em 1em;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  margin-left: 3em;
+  margin-right: 1em;
   border: 3px solid var(--offBlk);
 }
 
@@ -414,7 +417,7 @@ hr {
 
 .about-img {
   height: 100px;
-  width: 200px;
+  width: 160px;
   margin: 0px 1em;
   border: 2px solid var(--offBlk);
 }
