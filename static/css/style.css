@@ -184,7 +184,7 @@ hr {
   right: 20px;
 }
 
-/* -=-=-=---=-=--=-=-=-=-Main body Jumbos and cards */
+/* -=-=-=---=-=--=-=-=-=-Main body Jumbos / Cards / Forms */
 .jumbotron {
   background-color: var(--cbg);
   padding: 2rem 2rem;
@@ -193,6 +193,8 @@ hr {
   border-radius: 20px;
   border: var(--obb);
 }
+
+
 
 @media (max-width: 540px) {
   .jumbotron {
@@ -210,16 +212,13 @@ hr {
   }
 }
 
+/* All-Recipes */
 .recipeContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   min-height: 60vh;
   margin-top: 2em;
-}
-
-.row {
-  align-items: baseline;
 }
 
 .card {
@@ -266,6 +265,30 @@ hr {
   border: 5px solid rgba(0, 0, 0, 0.6);
 }
 
+/*Add-Recipe-page*/
+.add-recipys {
+  display: flex;
+}
+
+.add-recipe-form {
+  width: 100%;
+}
+
+.point-images {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+}
+
+.ad-img-box {
+  height: 200px;
+  width: 200px;
+  margin: 2.25em 1em;
+  border: 3px solid var(--offBlk);
+}
+
+/* Detail Recipe Page*/
 .hero {
   display: flex;
   justify-items: center;
@@ -309,6 +332,14 @@ hr {
   max-width: 650px;
 }
 
+/* Forms
+input,
+textarea,
+select {
+  max-width: 90%;
+
+}
+*/
 /*Wood Btns*/
 .btn-primary {
   color: #fff;

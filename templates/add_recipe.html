@@ -6,89 +6,105 @@
         <h1 class="text-center hf">Add Recipe</h1>
     </div>
 
-    <div class="addrecipys">
-        <form action="{{ url_for('insert_recipe') }}" method="POST">
-            <div class="form-group">
-                <label class="sr-only" for="username"></label>
-                <input type="text" class="form-control sr-only" id="username" value="{{session_name}}" name="username">
-            </div>
-            <div class="form-group">
-                <label for="recipeName">Recipe Name:</label>
-                <input type="text" class="form-control" id="recipeName" name="recipe_name"
-                    placeholder="What the dish called?">
-            </div>
-            <div class="form-group">
-                <label for="chef">Chefs Name</label><i class="material-icons">
-                    restaurant
-                </i>
-                <input type="text" class="form-control" id="chef" name="chef"
-                    placeholder="How is the owner of the recipe" required>
-            </div>
-            <div class="form-group">
-                <label for="descrition">Dish descrition:</label>
-                <textarea class="form-control" id="descrition" name="descrition" rows="2" maxlength="150"
-                    placeholder="Write a little somthing about your dish  (Max 150 Charaters)"></textarea>
-            </div>
-            <div class="form-group">
-                <label class="my-1 mr-2" for="category">Categorys:</label>
-                <select class="custom-select my-1 mr-sm-2" name="category" id="category" required>
-                    <option value="" disabled selected>Choose Category:</option>
-                    <option value="Veggie">Veggie</option>
-                    <option value="Beef">Beef</option>
-                    <option value="Pork">Pork</option>
-                    <option value="Chicken">Chicken</option>
-                    <option value="Lamb">Lamb</option>
-                    <option value="Fish">Fish</option>
-                    <option value="Sweets">Sweets</option>
+    <div class="add-recipys">
+        <div class="add-recipe-form">
+            <form action="{{ url_for('insert_recipe') }}" method="POST">
+                <div class="form-group">
+                    <label class="sr-only" for="username"></label>
+                    <input type="text" class="form-control sr-only" id="username" value="{{session_name}}"
+                        name="username">
+                </div>
+                <div class="form-group">
+                    <label for="recipeName">Recipe Name:</label>
+                    <input type="text" class="form-control" id="recipeName" name="recipe_name"
+                        placeholder="What the dish called?">
+                </div>
+                <div class="form-group">
+                    <label for="chef">Chefs Name</label><i class="material-icons">
+                        restaurant
+                    </i>
+                    <input type="text" class="form-control" id="chef" name="chef"
+                        placeholder="How is the owner of the recipe" required>
+                </div>
+                <div class="form-group">
+                    <label for="descrition">Dish descrition:</label>
+                    <textarea class="form-control" id="descrition" name="descrition" rows="2" maxlength="150"
+                        placeholder="Write a little somthing about your dish  (Max 150 Charaters)"></textarea>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label class="sr-only" for="category">Choose a Categorys:</label>
+                    <select class="custom-select my-1 mr-sm-2 text-body" name="category" id="category" required>
+                        <option value="" disabled selected>Choose Category:</option>
+                        <option value="Veggie">Veggie</option>
+                        <option value="Beef">Beef</option>
+                        <option value="Pork">Pork</option>
+                        <option value="Chicken">Chicken</option>
+                        <option value="Lamb">Lamb</option>
+                        <option value="Fish">Fish</option>
+                        <option value="Sweets">Sweets</option>
+                    </select>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label class="sr-only" for="servings"></label>
+                    <select class="custom-select my-1 mr-sm-2 text-body" id="servings" name="servings" required>
+                        <option value="" disabled selected>How many Servings:</option>
+                        <option value="1-2 Servings">1-2</option>
+                        <option value="3-4 Servings">3-4</option>
+                        <option value="5-6 Servings">5-6</option>
+                        <option value="7-8 Servings">7-8</option>
+                        <option value="9-10 Servings">9-10</option>
+                        <option value="10-12 Servings">10-12</option>
+                        <option value="12-15 Servings">12-15</option>
+                        <option value="15-20 Servings">15-20</option>
+                        <option value="Loads">Loads</option>
+                    </select>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="cooking_time">Cooking Time:</label>
+                    <input type="text" class="form-control" name="cooking_time" id="cooking_time"
+                        placeholder="How long will it take to cook?">
+                </div>
 
-                </select>
-            </div>
-            <div class="form-group">
-                <label class="my-1 mr-2" for="servings">Servings:</label>
-                <select class="custom-select my-1 mr-sm-2" id="servings" name="servings" required>
-                    <option value="" disabled selected>Servings:</option>
-                    <option value="1-2 Servings">1-2</option>
-                    <option value="3-4 Servings">3-4</option>
-                    <option value="5-6 Servings">5-6</option>
-                    <option value="7-8 Servings">7-8</option>
-                    <option value="9-10 Servings">9-10</option>
-                    <option value="10-12 Servings">10-12</option>
-                    <option value="12-15 Servings">12-15</option>
-                    <option value="15-20 Servings">15-20</option>
-                    <option value="Loads">Loads</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="cooking_time">Cooking Time:</label>
-                <input type="text" class="form-control" name="cooking_time" id="cooking_time"
-                    placeholder="How long will it take to cook?">
-            </div>
-
-            <br>
-            <div class="form-group">
-                <label for="dish_image_uploader">Dish Image URL</label>
-                <input type="text" class="form-control" name="dish_image" id="dish_image_uploader"
-                    placeholder="To display an Image we need a Web URL (Link)" required>
-            </div>
-            <br>
-            <div class="form-group">
-                <label for="ingredients">Ingreadence:</label>
-                <textarea class="form-control ckeditor" id="ingredients" name="ingredients" rows="4"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="cooking_method">Cooking Method:</label>
-                <textarea class="form-control ckeditor" id="cooking_method" name="cooking_method" rows="5"
-                    placeholder="Seperate each different instruction with a space inbetween."></textarea>
-            </div>
-            <div class="">
-                <label class="sr-only" for="date_added"></label>
-                <input type="text" class="sr-only form-control" id="date_added" name="date_added"
-                    value="{{date_added}}">
-            </div>
-            <div>
-                <button type="submit" class="ripple-surface btn btn-primary">Add Recipe</button>
-            </div>
-        </form>
+                <br>
+                <div class="form-group">
+                    <label for="dish_image_uploader">Dish Image URL</label>
+                    <input type="text" class="form-control" name="dish_image" id="dish_image_uploader"
+                        placeholder="To display an Image we need a Web URL (Link)" required>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="ingredients">Ingreadence:</label>
+                    <textarea class="form-control ckeditor" id="ingredients" name="ingredients" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="cooking_method">Cooking Method:</label>
+                    <textarea class="form-control ckeditor" id="cooking_method" name="cooking_method" rows="5"
+                        placeholder="Seperate each different instruction with a space inbetween."></textarea>
+                </div>
+                <div class="">
+                    <label class="sr-only" for="date_added"></label>
+                    <input type="text" class="sr-only form-control" id="date_added" name="date_added"
+                        value="{{date_added}}">
+                </div>
+                <div>
+                    <button type="submit" class="ripple-surface btn btn-primary">Add Recipe</button>
+                </div>
+            </form>
+        </div>
+        <div class="point-images d-none d-md-flex">
+            <a href="https://www.hotpoint.ie/" target="_black"> <img
+                    src="https://www.whirlpool.eu/digitalassets/Picture/web320x320/F100149_320x320_frontal.png"
+                    alt="HotPoint Oven" class="ad-img-box"></a>
+            <a href="https://www.hotpoint.ie/" target="_black"><img
+                    src="https://cdn.wpsandwatch.com/var/sandwatch/storage/images/ie/hp/home-page/hp-module-carousel-for-half-image-news-carousel/hp-module-banner-half-image-free-set-of-induction-pots/8791171-3-eng-IE/HP-Module-Banner-half-image-FREE-SET-OF-INDUCTION-POTS_HP_compressed.jpg"
+                    alt="otPoint Wares" class="ad-img-box"></a>
+            <a href="https://www.hotpoint.ie/" target="_black"><img
+                    src="https://cdn.wpsandwatch.com/var/sandwatch/storage/images/3/1/3/0/3570313-1-eng-IE/HP-Module-Hero-DIRECT-FLAME-FOR-THE-FINEST-COOKING-RESULTS_HP_compressed.png"
+                    alt="Hot Point Hob" class="ad-img-box"></a>
+        </div>
     </div>
 </div>
 

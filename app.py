@@ -54,6 +54,10 @@ def category():
 @app.route('/about')
 def about():
   return render_template('about.html')
+
+@app.route('/contact')
+def contact():
+  return render_template('contact.html')
  
  #This sends the choise recipe to the recipe with a full list of details
 @app.route('/recipe/<recipe_id>')

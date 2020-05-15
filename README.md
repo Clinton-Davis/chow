@@ -175,7 +175,7 @@
 
 <a name="bugs"></a>
 
-## Bugs
+## Bugs :beetle:
 
 ---
 
@@ -183,19 +183,31 @@
 
 ## Deployment
 
-I hosted this site using [Netlify](https://www.netlify.com/).
+I hosted this site using [Heroku](https://www.heroku.com/).
 
-<details>
-<summary>To deploy on Netlify:</summary>
-<br>
-<ol>
-<li>Open Netlify</li>
+Heroku is a container-based cloud Platform as a Service (PaaS). I used it because its free, elegant, flexible, and easy to use, offering developers the simplest path to getting my app up.
+
+### To deploy on Heroku
+
+1. Open Heroku.  
+   The Heroku CLI requires Git, the popular version control system. If you don’t already have Git installed, complete the following before proceeding: - [Git installation](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) - [First-time Git setup](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup)
+
+2. Install the Heroku Command Line Interface (CLI). You use the CLI to manage and scale your applications, provision add-ons, view your application logs, and run your application locally.
+
+3. Create an account and navigate to dashdashboard.
+   Click on the _New_ buttun.
+   Click - _Create New App_.
+
+4. Create a corresponding app name that we will use to deploy our application. The apps _name_ must be _unique._.
+   Pick a server location what is closest to you.
+
+5. In your Terminal. Navigate to you directory using the cd(filename)
 
 </ol>
 </details>
 <br>
 <details>
-<summary>Clone to a work station</summary>
+<summary>Clone to a work station
 <br>
 <ol>
 <li>On GitHub, navigate to the main page of the repository.</li>
