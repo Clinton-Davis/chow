@@ -91,27 +91,38 @@ def register():
 
 
 
-
+"""Login Route:
+1. Checks to see if its a post: True-Contine: False-Render Login template.
+2. Create Users var as mongo collection
+3. create login_user and find the email and request form email.
+4. check to see if login_user hashed password matches the saved hashed password.
+    If False: flash message and redirect back to login page: return out
+    If Ture: create session wih request form username
+5. create session login to True
+6. flash success message and redirect to all recipes
+"""
 @app.route('/login', methods=['POST','GET'])
 def login():
-  if request.method == 'POST':
-      users = mongo.db.users
-      login_user = users.find_one({'email': request.form['userEmail']})
+  if request.method == 'POST': #1
+      users = mongo.db.users   #2
+      login_user = users.find_one({'email': request.form['userEmail']}) #3
       if login_user:
-        if bcrypt.checkpw(request.form['userPassword'].encode('utf-8'), 
+        if bcrypt.checkpw(request.form['userPassword'].encode('utf-8'), #4
                         login_user['password']):
-          session['username'] = request.form['username']
-          session['logged_in'] = True
-          flash('Welcome Back ' + session['username'] + ' You are now Logged In', 'success')
-          return redirect(url_for('all_recipe'))    
-        flash('That is an Inalid Username or Password', 'warning')
-        return render_template('login_page.html')
-  return render_template('login_page.html')
+          session['username'] = request.form['username'] #4
+          session['logged_in'] = True #5
+          flash('Welcome Back ' + session['username'] + ' You are now Logged In', 'success') #6
+          return redirect(url_for('all_recipe'))    #6
+        flash('That is an Inalid Username or Password', 'warning') #4
+        return render_template('login_page.html') #4
+  return render_template('login_page.html') #1
   
-  
-  #addes todays date in day/month/year format
-  #check to see if login in
-  #if not redirect to login
+"""Add Recipe Route:
+1. Gets todays date: convets into string(day/month/year)(subject to change in the future)
+2. If User is in session: True:-continue to get ID / False:-redirect to Login: Returns out.
+3. Inserts Gets form data and convets into a dictonary(to_dict)
+4. redirects to all_recipe
+"""  
 @app.route('/add_recipe',methods=['POST','GET'])
 def add_recipe():
   today = datetime.datetime.now().strftime('%d/%m/%Y')
@@ -125,18 +136,14 @@ def add_recipe():
   flash('You Need to be Logged In to Add a New Recipe', 'warning')
   return redirect(url_for('login'))
 
-#Inserts New recipe
 
     
-    
+  
 
-
-"""This Route checks to see if:
-1. If User is in session: 
-    True:-continue to get ID
-    False:-redirect to Login: Returns out.
+"""Delete Recipe Route:
+1. If User is in session: True:-continue to get ID / False:-redirect to Login: Returns out.
 2. Get's the ID of the recipe
-3. If session name matches the user that posted the recipe
+3. If session name matches the user that posted the recipe:
     True:-removes recipe with ID and redirects to all_recipes
     False:-redirect to Login: Returns out."""
     
@@ -153,13 +160,12 @@ def delete_recipe(recipe_id):
   return redirect(url_for('login_page')) 
     
     
+    
+    
 """This Route checks to see if:
-1. If User is in session: 
-    True:-continue to get ID
-    False:-redirect to Login: return out.
+1. If User is in session: True:-continue to get ID / False:-redirect to Login: return out.
 2. Get's the ID of the recipe
-3. If session name matches the user that posted the recipe
-    True:-Check to see if method is POST #4
+3. If session name matches the user that posted the recipe: True:-Check to see if method is POST #4
     Flase:- Render edit_recipe template: return out
 4.  If method is POST create recipes variable and update recipe, Flash Success
     redirect to all_recipe: return out"""
@@ -190,6 +196,8 @@ def edit_recipe(recipe_id):
     return redirect(url_for('login_page')) #1
 
 
+
+
 """This Route take the session username and 
   1. changes it to none
   2. makes the Loggin_in = False"""
@@ -199,6 +207,8 @@ def logout():
     session.pop('username', None)
     session['logged_in'] = False
     return redirect(url_for('all_recipe'))
+  
+  
   
 if __name__ == "__main__":
     app.run(host=os.environ.get('IP'),
