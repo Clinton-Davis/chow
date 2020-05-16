@@ -1,11 +1,11 @@
-from flask import Flask, redirect, render_template, flash, url_for, request, session
 import os
 import datetime
-from flask_pymongo import PyMongo
-from bson.objectid import ObjectId
-from flask_ckeditor import CKEditor
-from os import path
 import bcrypt
+from flask import Flask, redirect, render_template, flash, url_for, request, session
+from flask_pymongo import PyMongo
+from flask_ckeditor import CKEditor
+from bson.objectid import ObjectId
+from os import path
 if path.exists("env.py"):
   import env 
 
