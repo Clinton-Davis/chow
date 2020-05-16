@@ -8,7 +8,7 @@
 
     <div class="add-recipys">
         <div class="add-recipe-form">
-            <form action="{{ url_for('insert_recipe') }}" method="POST">
+            <form action="{{ url_for('add_recipe') }}" method="POST">
                 <div class="form-group">
                     <label class="sr-only" for="username"></label>
                     <input type="text" class="form-control sr-only" id="username" value="{{session_name}}"

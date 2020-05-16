@@ -75,7 +75,6 @@ def register():
       #Looking for existing users using there emails, emails are more uniue
        users = mongo.db.users 
        existing_email = users.find_one({'email': request.form['userEmail']})
-      
        if existing_email is None:
             hashpass = bcrypt.hashpw(request.form['userPassword'].encode('utf-8'), bcrypt.gensalt())
             users.insert({
@@ -110,30 +109,39 @@ def login():
   return render_template('login_page.html')
   
   
-@app.route('/add_recipe')
-def add_recipe():
   #addes todays date in day/month/year format
-  today = datetime.datetime.now().strftime('%d/%m/%Y')
   #check to see if login in
-  if 'username' in session:
-     return  render_template("add_recipe.html", session_name=session['username'], date_added=today)
-  flash('You Need to be Logged In to Add a New Recipe', 'warning')
-  return redirect(url_for('login_page'))
   #if not redirect to login
+@app.route('/add_recipe',methods=['POST','GET'])
+def add_recipe():
+  today = datetime.datetime.now().strftime('%d/%m/%Y')
+  if 'username' in session:
+      if request.method == 'POST':
+          recipes = mongo.db.recipes
+          recipes.insert_one(request.form.to_dict(),)
+          flash('You have Successfully Added a Recipe', 'success')
+          return redirect(url_for('all_recipe'))
+      return  render_template("add_recipe.html", session_name=session['username'], date_added=today)
+  flash('You Need to be Logged In to Add a New Recipe', 'warning')
+  return redirect(url_for('login'))
 
 #Inserts New recipe
-@app.route('/insert_recipe', methods=['POST'])
-def insert_recipe():
-    recipes = mongo.db.recipes
-    recipes.insert_one(request.form.to_dict(),)
-    flash('You have Successfully Added a Recipe', 'success')
-    return redirect(url_for('all_recipe'))
+
+    
     
 
 
+"""This Route checks to see if:
+1. If User is in session: 
+    True:-continue to get ID
+    False:-redirect to Login: Returns out.
+2. Get's the ID of the recipe
+3. If session name matches the user that posted the recipe
+    True:-removes recipe with ID and redirects to all_recipes
+    False:-redirect to Login: Returns out."""
+    
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
-  #if  session['logged_in'] == True:
   if 'username' in session:
     recipes = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
     if session['username'] == recipes['username']:
@@ -155,13 +163,13 @@ def delete_recipe(recipe_id):
     Flase:- Render edit_recipe template: return out
 4.  If method is POST create recipes variable and update recipe, Flash Success
     redirect to all_recipe: return out"""
+    
 @app.route('/edit_recipe/<recipe_id>', methods=['POST','GET'])
 def edit_recipe(recipe_id): 
-  #1
-    if 'username' in session:
-          recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
-          if session['username'] == recipe['username']:
-              if request.method == 'POST':
+    if 'username' in session: #1
+          recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}) #2
+          if session['username'] == recipe['username']: #3
+              if request.method == 'POST': #4
                  recipes = mongo.db.recipes
                  recipes.update({'_id': ObjectId(recipe_id)},                          
                   {'username' : request.form.get('username'),
@@ -177,21 +185,14 @@ def edit_recipe(recipe_id):
                   'date_added': request.form.get('date_added')})  
                  flash(' You have Successfully Updated Your Recipe', 'success')
                  return redirect(url_for('all_recipe', recipe=recipe))
-              return render_template('edit_recipe.html',session_name=session['username'], recipe=recipe)      
+              return render_template('edit_recipe.html',session_name=session['username'], recipe=recipe)#3      
     flash('Sorry! You have to Login First', 'danger')
-    return redirect(url_for('login_page')) 
+    return redirect(url_for('login_page')) #1
 
 
-
-  
-   
-  
-  
-   
-   
-  
-
-
+"""This Route take the session username and 
+  1. changes it to none
+  2. makes the Loggin_in = False"""
 @app.route('/logout')
 def logout():
    # remove the username from the session if it's there
