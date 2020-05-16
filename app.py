@@ -108,7 +108,7 @@ def login():
         flash('Welcome Back ' + session['username'] + ' You are now Logged In', 'success')
         return redirect(url_for('all_recipe'))
       
-  flash('That is an Inalid username or password', 'warning')
+  flash('That is an Inalid Username or Password', 'warning')
   return render_template('login_page.html')
   
   
