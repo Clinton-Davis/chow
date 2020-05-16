@@ -91,24 +91,21 @@ def register():
     return render_template('register.html') 
 
 
-@app.route('/login_page')
-def login_page():
-  return render_template('login_page.html')
-
 
 @app.route('/login', methods=['POST','GET'])
 def login():
-  users = mongo.db.users
-  login_user = users.find_one({'email': request.form['userEmail']})
-  if login_user:
-      if bcrypt.checkpw(request.form['userPassword'].encode('utf-8'), 
+  if request.method == 'POST':
+      users = mongo.db.users
+      login_user = users.find_one({'email': request.form['userEmail']})
+      if login_user:
+        if bcrypt.checkpw(request.form['userPassword'].encode('utf-8'), 
                         login_user['password']):
-        session['username'] = request.form['username']
-        session['logged_in'] = True
-        flash('Welcome Back ' + session['username'] + ' You are now Logged In', 'success')
-        return redirect(url_for('all_recipe'))
-      
-  flash('That is an Inalid Username or Password', 'warning')
+          session['username'] = request.form['username']
+          session['logged_in'] = True
+          flash('Welcome Back ' + session['username'] + ' You are now Logged In', 'success')
+          return redirect(url_for('all_recipe'))    
+        flash('That is an Inalid Username or Password', 'warning')
+        return render_template('login_page.html')
   return render_template('login_page.html')
   
   

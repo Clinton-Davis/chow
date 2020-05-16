@@ -41,7 +41,7 @@
           {% if session['logged_in'] == True %}
           <a class="ripple-surface  nav-link" href="{{url_for('logout')}}">Logout</a>
           {% else %}
-          <a class="ripple-surface  nav-link" href="{{url_for('login_page')}}">Login</a>
+          <a class="ripple-surface  nav-link" href="{{url_for('login')}}">Login</a>
           {% endif %}
         </li>
         <form action="{{url_for('category')}}" method="POST">
@@ -124,7 +124,7 @@
         {% if session['logged_in'] == True %}
         <li><a class="text-white" href="{{url_for('logout')}}">Logout</a></li>
         {% else %}
-        <li><a class="text-white" href="{{url_for('login_page')}}">Login</a></li>
+        <li><a class="text-white" href="{{url_for('login')}}">Login</a></li>
         {% endif %}
 
       </ul>
