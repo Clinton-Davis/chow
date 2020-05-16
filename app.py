@@ -50,11 +50,13 @@ def category():
   return  render_template("all_recipes.html", 
                           recipes=recipes.find({'category': request.form.get ('category_search')}))
     
-    
+# Renders About Template
 @app.route('/about')
 def about():
   return render_template('about.html')
 
+
+# Renders Contact template
 @app.route('/contact')
 def contact():
   return render_template('contact.html')
@@ -68,7 +70,8 @@ def recipe(recipe_id):
   return render_template('recipe.html', recipe=recipe)
   
 
-#registering route
+"""Registering route 
+1. Checks to see if method is POST: if False- """
 @app.route('/register', methods=['POST', 'GET'])
 def register():
     if request.method == 'POST':
@@ -76,17 +79,19 @@ def register():
        users = mongo.db.users 
        existing_email = users.find_one({'email': request.form['userEmail']})
        if existing_email is None:
-            hashpass = bcrypt.hashpw(request.form['userPassword'].encode('utf-8'), bcrypt.gensalt())
-            users.insert({
-            'name' : request.form['username'].lower(), 
-            'email': request.form['userEmail'].lower(),
-            'password' : hashpass
-            })
-            session['username'] = request.form['username']
-            flash('Hello ' + session['username'] + ' You have be successfull registered and are login In', 'success')
-            return redirect(url_for('all_recipe'))
-      
-    flash('That email already exists, Check the spelling', 'warning')
+                hashpass = bcrypt.hashpw(request.form['userPassword'].encode('utf-8'), bcrypt.gensalt())
+                users.insert({
+                'name' : request.form['username'].lower(), 
+                'email': request.form['userEmail'].lower(),
+                'password' : hashpass
+                })
+                session['username'] = request.form['username']
+                flash('Hello ' + session['username'] + ' You have be successfull registered and are login In', 'success')
+                return redirect(url_for('all_recipe'))
+       flash('That email already exists, Check the spelling', 'warning')
+       return render_template('register.html')  
+        
+        
     return render_template('register.html') 
 
 
