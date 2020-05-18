@@ -1,13 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="jumbotron">
-
     <div class="hero-wrap">
         <div class="about-hero">
             <span class="display-2 hf">Chow</span><span>By </span><span class="hotpoint fs">HotPoint</span>
         </div>
-
-
         <div class="hero-img-wrap d-none d-lg-flex d-xl-flex">
             <a href="" target="_blank"><img
                     src="https://cdn.wpsandwatch.com/var/sandwatch/storage/images/ie/hp/home-page/hp-module-carousel-for-banners-carousel-for-hero/hp-module-hero-built-in-collection/8289447-4-eng-IE/HP-Module-Hero-Built-in-collection_HP_compressed.jpg"
@@ -21,27 +18,26 @@
         </div>
 
     </div>
-
     <hr class="my-4">
     <p class="about-p">Thank you for using<span class="dhf">&nbsp;Chow</span>. If you would like to get in contact.
         <br>
         Please leave a message below and we will be in touch shortly.</p>
     <hr>
     <br>
-    <form onsubmit="return sendMail(this);" id="mainform">
+    <form action="{{ url_for('contact_email') }}" method="POST">
         <div class="form-group">
             <label for="fullname">Your Name</label>
             <input type="text" class="form-control" id="fullname" name="name" placeholder="Your Name Here">
         </div>
         <div class="form-group">
             <label for="contact_email">Email address</label>
-            <input type="email" class="form-control" id="contact_email" name="emailaddress"
+            <input type="email" class="form-control" id="contact_email" name="email_address"
                 placeholder="Your email here">
 
         </div>
         <div class="form-group">
             <label for="message">Leave us a message</label>
-            <textarea class="form-control" id="message" name="Message" rows="3"
+            <textarea class="form-control" id="message" name="user_message" rows="3"
                 placeholder="Leave your message here."></textarea>
         </div>
         <div class="container">

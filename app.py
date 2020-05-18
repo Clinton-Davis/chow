@@ -1,6 +1,7 @@
 import os
 import datetime
 import bcrypt
+import smtplib
 from flask import Flask, redirect, render_template, flash, url_for, request, session
 from flask_pymongo import PyMongo
 from flask_ckeditor import CKEditor
@@ -57,8 +58,20 @@ def about():
 
 
 # Renders Contact template
-@app.route('/contact')
-def contact():
+@app.route('/contact_email', methods=['POST','GET'])
+def contact_email():
+  if request.method == 'POST':
+    name = request.form.get("name")
+    email_address = request.form.get("email_address")
+    user_message = request.form.get("message")
+    
+    message = "Hello " + name + "Thank you for getting in touch, Your message is logged and we will be in touch with you soon. Thank you"    
+    server = smtplib.SMTP("smtp.gmail.com", 587)
+    server.starttls()
+    server.login(os.getenv("LOGIN"), os.getenv("PASSWORD"))
+    server.sendmail(os.getenv("LOGIN"), email_address, message)
+    flash("Thank you " + name + " for getting in touch, Your email has been sent",'success')
+    return redirect(url_for('all_recipe'))
   return render_template('contact.html')
  
  #This sends the choise recipe to the recipe with a full list of details
