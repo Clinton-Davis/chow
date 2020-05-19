@@ -7,6 +7,8 @@
   <div class="card" style="width: 18rem;">
     <img src="{{recipe.dish_image}}" class="dish_image card-img-top" alt="{{recipe.recipe_name}}">
     <div class="card-body container">
+
+      <div class="new">New</div>
       <div class="row">
         <h5 class=" col card-title text-center cpt dhf">{{recipe.recipe_name}}</h5>
       </div>
@@ -43,12 +45,6 @@
         <p class="card-text text-center col-12">{{recipe.descrition}}</p>
       </div>
       <hr>
-      <!--<h5 class="card-text text-center chf">Ingredients:</h5>
-      <p class="card-text">{{recipe.ingredients|safe}}</p>
-      <hr>
-      <h5 class="card-text text-center chf">How to Cook it:</h5>
-      <p class="card-text">{{recipe.cooking_method|safe}}</p>-->
-
       <div class="row">
         <p class="card-title chf col-6">Posted by:</p>
         <p class="card-title col-6 cpt">{{recipe.username}}</p>

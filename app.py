@@ -29,10 +29,10 @@ def all_recipe():
     #Puts the resipe in order Newest to oldest
     return  render_template("all_recipes.html", 
                             session_name=session['username'], 
-                            recipes=mongo.db.recipes.find().sort("category", 1)) 
+                            recipes=mongo.db.recipes.find().sort("_id", -1)) 
   #Puts the resipe in order Newest to oldest but with out the login username
   return render_template("all_recipes.html",
-                         recipes=mongo.db.recipes.find().sort("category", 1))
+                         recipes=mongo.db.recipes.find().sort("_id", -1))
   
   
 
@@ -61,9 +61,9 @@ def chef():
   if 'username' in session:
     return  render_template("all_recipes.html", 
                             session_name=session['username'], 
-                            recipes=mongo.db.recipes.find().sort("chef", -1)) 
+                            recipes=mongo.db.recipes.find().sort("chef", 1)) 
   return render_template("all_recipes.html",
-                         recipes=mongo.db.recipes.find().sort("chef", -1))
+                         recipes=mongo.db.recipes.find().sort("chef", 1))
 
 
 
@@ -152,7 +152,7 @@ def register():
        if existing_email is None:                                             #5
                 hashpass = bcrypt.hashpw(request.form['userPassword'].encode('utf-8'), bcrypt.gensalt())
                 users.insert({                                                #6
-                'name' : request.form['username'].lower(), 
+                'name' : request.form['username'].capitalize(), 
                 'email': request.form['userEmail'].lower(),
                 'password' : hashpass,
                 'reg_date' : time
@@ -202,14 +202,28 @@ def login():
 """  
 @app.route('/add_recipe',methods=['POST','GET'])
 def add_recipe():
-  today = datetime.datetime.now().strftime('%d/%m/%Y')
+  today_string = datetime.datetime.now().strftime('%d/%m/%y')
+  today_iso = datetime.datetime.now()
   if 'username' in session:
       if request.method == 'POST':
           recipes = mongo.db.recipes
-          recipes.insert_one(request.form.to_dict(),)
+          recipes.insert({                          
+                  'username' : request.form.get('username'),
+                  'chef': request.form.get('chef'),
+                  'recipe_name' : request.form.get('recipe_name'),
+                  'descrition' : request.form.get('descrition'),
+                  'category': request.form.get('category'),
+                  'servings' : request.form.get('servings'),
+                  'cooking_time' : request.form.get('cooking_time'),
+                  'dish_image' : request.form.get('dish_image'),
+                  'ingredients' : request.form.get('ingredients'),
+                  'cooking_method' : request.form.get('cooking_method'),
+                  'date_added': today_string,
+                  'date_iso': today_iso})  
+          
           flash('You have Successfully Added a Recipe', 'success')
           return redirect(url_for('all_recipe'))
-      return  render_template("add_recipe.html", session_name=session['username'], date_added=today)
+      return  render_template("add_recipe.html", session_name=session['username'])
   flash('You Need to be Logged In to Add a New Recipe', 'warning')
   return redirect(url_for('login'))
 
