@@ -42,14 +42,35 @@ def category():
   cat_search =  request.form.get ('category_search')
   if  cat_search == None:
     return redirect('all_recipe')
+  
+  if cat_search == "chef":
+    return redirect('chef')
   if 'username' in session:
     #This displays the categorys choisen by user
-    return  render_template("all_recipes.html", 
+      return  render_template("all_recipes.html", 
                             session_name=session['username'],
                             recipes=recipes.find({'category': cat_search}).sort([('category', -1),("_id", -1)]))
   return  render_template("all_recipes.html", 
                           recipes=recipes.find({'category': cat_search}).sort([('category', -1),("_id", -1)]))
-    
+
+
+@app.route('/chef')
+def chef():
+  if 'username' in session:
+    #Puts the resipe in order Newest to oldest
+    return  render_template("all_recipes.html", 
+                            session_name=session['username'], 
+                            recipes=mongo.db.recipes.find().sort("chef", -1)) 
+  #Puts the resipe in order Newest to oldest but with out the login username
+  return render_template("all_recipes.html",
+                         recipes=mongo.db.recipes.find().sort("chef", -1))
+ 
+
+ 
+ 
+  
+
+
 # Renders About Template
 @app.route('/about')
 def about():
