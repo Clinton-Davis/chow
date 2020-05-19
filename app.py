@@ -260,6 +260,7 @@ def delete_recipe(recipe_id):
 """
 @app.route('/edit_recipe/<recipe_id>', methods=['POST','GET'])
 def edit_recipe(recipe_id): 
+  
     if 'username' in session: #1
           recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}) #2
           if session['username'] == recipe['username']: #3
@@ -276,7 +277,8 @@ def edit_recipe(recipe_id):
                   'dish_image' : request.form.get('dish_image'),
                   'ingredients' : request.form.get('ingredients'),
                   'cooking_method' : request.form.get('cooking_method'),
-                  'date_added': request.form.get('date_added')})  
+                  'date_added': request.form.get('date_added'),
+                  'update_iso' : datetime.datetime.now() })  
                  flash(' You have Successfully Updated Your Recipe', 'success')
                  return redirect(url_for('all_recipe', recipe=recipe))
               return render_template('edit_recipe.html',session_name=session['username'], recipe=recipe)#3      
