@@ -45,6 +45,8 @@ def category():
   
   if cat_search == "chef":
     return redirect('chef')
+  elif cat_search == "myrecipes":
+    return redirect('myrecipes')
   if 'username' in session:
     #This displays the categorys choisen by user
       return  render_template("all_recipes.html", 
@@ -57,20 +59,24 @@ def category():
 @app.route('/chef')
 def chef():
   if 'username' in session:
-    #Puts the resipe in order Newest to oldest
     return  render_template("all_recipes.html", 
                             session_name=session['username'], 
                             recipes=mongo.db.recipes.find().sort("chef", -1)) 
-  #Puts the resipe in order Newest to oldest but with out the login username
   return render_template("all_recipes.html",
                          recipes=mongo.db.recipes.find().sort("chef", -1))
- 
 
- 
- 
+
+
+@app.route('/myrecipes')
+def myrecipes():
+   session_name = session['username']
+   return  render_template("all_recipes.html", 
+                            session_name=session['username'], 
+                            recipes=mongo.db.recipes.find({'username': session_name }))
   
-
-
+  
+  
+  
 # Renders About Template
 @app.route('/about')
 def about():
