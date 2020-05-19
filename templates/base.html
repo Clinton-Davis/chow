@@ -44,33 +44,30 @@
           <a class="ripple-surface  nav-link" href="{{url_for('login')}}">Login</a>
           {% endif %}
         </li>
-    </div>
-    <form action="{{url_for('category')}}" method="POST">
-      <div class="input-group">
-        <select class="custom-select" id="categorySearch" name="category_search">
-          <option value="#" disabled selected>All Categories</option>
-          <option value="Veggie">Veggie</option>
-          <option value="Fish">Fish</option>
-          <option value="Beef">Beef</option>
-          <option value="Pork">Pork</option>
-          <option value="Chicken">Chicken</option>
-          <option value="Lamb">Lamb</option>
-          <option value="Sweets">Sweets</option>
-          <option value="chef">Chefs</option>
-          {% if session['logged_in'] == True %}
-          <option value="myrecipes">My Recipes</option>
-          {% else %}
-          {% endif %}
 
-
-        </select>
-
-        <div class="input-group-append">
-          <button type="submit" class="ripple-surface btn btn-outline-light btn-sm">Select</button>
-        </div>
-      </div>
-    </form>
-    </ul>
+        <form action="{{url_for('category')}}" method="POST">
+          <div class="input-group">
+            <select class="custom-select" id="categorySearch" name="category_search">
+              <option value="#" disabled selected>Select By:</option>
+              <option value="Veggie">Veggie</option>
+              <option value="Fish">Fish</option>
+              <option value="Beef">Beef</option>
+              <option value="Pork">Pork</option>
+              <option value="Chicken">Chicken</option>
+              <option value="Lamb">Lamb</option>
+              <option value="Sweets">Sweets</option>
+              <option value="chef">Chefs</option>
+              {% if session['logged_in'] == True %}
+              <option value="myrecipes">My Recipes</option>
+              {% else %}
+              {% endif %}
+            </select>
+            <div class="input-group-append">
+              <button type="submit" class="ripple-surface btn btn-outline-light btn-sm">Select</button>
+            </div>
+          </div>
+        </form>
+      </ul>
     </div>
     {% block Head %}
     <!--Initialize ckeditor-->
