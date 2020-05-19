@@ -24,11 +24,13 @@ CKEditor(app)
 @app.route('/')
 @app.route('/all_recipe')
 def all_recipe():
+  today =  datetime.datetime.now().strftime('%d/%m/%y')
   #If there is a user logged: Username is printed in the Nav
   if 'username' in session:
     #Puts the resipe in order Newest to oldest
     return  render_template("all_recipes.html", 
                             session_name=session['username'], 
+                            today=today,
                             recipes=mongo.db.recipes.find().sort("_id", -1)) 
   #Puts the resipe in order Newest to oldest but with out the login username
   return render_template("all_recipes.html",
@@ -55,17 +57,14 @@ def category():
   return  render_template("all_recipes.html", 
                           recipes=recipes.find({'category': cat_search}).sort([('category', -1),("_id", -1)]))
 
-
 @app.route('/chef')
 def chef():
   if 'username' in session:
     return  render_template("all_recipes.html", 
                             session_name=session['username'], 
-                            recipes=mongo.db.recipes.find().sort("chef", 1)) 
+                            recipes=mongo.db.recipes.find().sort("chef", -1)) 
   return render_template("all_recipes.html",
-                         recipes=mongo.db.recipes.find().sort("chef", 1))
-
-
+                         recipes=mongo.db.recipes.find().sort("chef", -1))
 
 @app.route('/myrecipes')
 def myrecipes():
@@ -74,9 +73,7 @@ def myrecipes():
                             session_name=session['username'], 
                             recipes=mongo.db.recipes.find({'username': session_name }))
   
-  
-  
-  
+   
 # Renders About Template
 @app.route('/about')
 def about():
@@ -145,24 +142,25 @@ def recipe(recipe_id):
 """
 @app.route('/register', methods=['POST', 'GET'])
 def register():
-    if request.method == 'POST':                                              #1
-       users = mongo.db.users                                                 #2
-       time = datetime.datetime.now()                                         #3
-       existing_email = users.find_one({'email': request.form['userEmail']})  #4
-       if existing_email is None:                                             #5
+    if request.method == 'POST':                                              
+       users = mongo.db.users                                                 
+       time = datetime.datetime.now()                                         
+       existing_email = users.find_one({'email': request.form['userEmail']})  
+       if existing_email is None:                                             
                 hashpass = bcrypt.hashpw(request.form['userPassword'].encode('utf-8'), bcrypt.gensalt())
-                users.insert({                                                #6
+                users.insert({                                                
                 'name' : request.form['username'].capitalize(), 
                 'email': request.form['userEmail'].lower(),
                 'password' : hashpass,
                 'reg_date' : time
                 })
-                session['username'] = request.form['username']                 #7
+                session['username'] = request.form['username']   
+                session['logged_in'] = True               
                 flash('Hello ' + session['username'] + ' You have be successfull registered and are login In', 'success')
-                return redirect(url_for('all_recipe'))                         #8
-       flash('That email already exists, Check the spelling', 'warning')       #5
+                return redirect(url_for('all_recipe',))                         
+       flash('That email already exists, Check the spelling', 'warning')       
        return render_template('register.html')  
-    return render_template('register.html')                                    #1
+    return render_template('register.html')                                    
 
 
 
@@ -180,17 +178,17 @@ def register():
 def login():
   if request.method == 'POST': #1
       users = mongo.db.users   #2
-      login_user = users.find_one({'email': request.form['userEmail']}) #3
+      login_user = users.find_one({'email': request.form['userEmail']}) 
       if login_user:
-        if bcrypt.checkpw(request.form['userPassword'].encode('utf-8'), #4
+        if bcrypt.checkpw(request.form['userPassword'].encode('utf-8'), 
                         login_user['password']):
-          session['username'] = request.form['username'] #4
-          session['logged_in'] = True #5
-          flash('Welcome Back ' + session['username'] + ' You are now Logged In', 'success') #6
-          return redirect(url_for('all_recipe'))    #6
-        flash('That is an Inalid Username or Password', 'warning') #4
-        return render_template('login_page.html') #4
-  return render_template('login_page.html') #1
+          session['username'] = request.form['username'] 
+          session['logged_in'] = True 
+          flash('Welcome Back ' + session['username'] + ' You are now Logged In', 'success') 
+          return redirect(url_for('all_recipe'))    
+        flash('That is an Inalid Username or Password', 'warning') 
+        return render_template('login_page.html') 
+  return render_template('login_page.html') 
   
   
   

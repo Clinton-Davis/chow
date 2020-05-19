@@ -299,6 +299,7 @@ hr {
 
 .hero {
   display: flex;
+  justify-content: space-evenly;
 }
 
 

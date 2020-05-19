@@ -48,7 +48,7 @@
         <form action="{{url_for('category')}}" method="POST">
           <div class="input-group">
             <select class="custom-select" id="categorySearch" name="category_search">
-              <option value="#" disabled selected>Select By:</option>
+              <option value="#" disabled selected>Select All:</option>
               <option value="Veggie">Veggie</option>
               <option value="Fish">Fish</option>
               <option value="Beef">Beef</option>
@@ -121,7 +121,7 @@
     </form>
     <div class="feet">
       <ul>
-        <li><a class="text-white" href="{{url_for('all_recipe')}}">Home</a></li>
+        <li><a class="text-white" href="{{url_for('all_recipe')}}">All Recipe</a></li>
         <li><a class="text-white" href="{{url_for('about')}}">About</a></li>
         <li><a class="text-white" href="{{url_for('add_recipe')}}">Add Recipe</a></li>
         <li><a class="text-white" href="{{url_for('contact_email')}}">Contact Us</a></li>
