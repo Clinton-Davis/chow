@@ -37,7 +37,7 @@ added rel="noopener" for sercity
 4. [**Wireframe Mockups**](#wireframes)
 5. [**Surface**](#surface)
 6. [**Technologies**](#technologies)
-7. [**Features**](#features)
+7. [**Functions and Features**](#features)
 8. [**Testing**](#testing)
 9. [**Bugs**](#bugs)
 10. [**Deployment**](#deployment)
@@ -50,13 +50,32 @@ added rel="noopener" for sercity
 
 ## UX
 
+My directive was to make an on line cookbook that users could find and share recipes, at the same time promote the Hotpoint brand. All the tools nedded to cook all the recipes the user can get from HotPoint.
+
 ### User Stories
+
+1. I would like to be able to look up recipes I like from the Chefs I like.
+
+2. I would like to have all the recipes I like in one place.
+
+3. I would also like to be able to edit them if I like on the app.
+
+4. I would like to have my friends and family share our recipe we like so we can all enjoy them.
 
 ---
 
 <a name="scope"></a>
 
 ## Scope
+
+---
+
+**Chow by HotPoint** is a web based cookbook that lets the public browse and use recipes that users have uploaded. Anyone can choose a recipe and get list of ingredance and cooking instruction. If the public would like to contrbute to the collection they would have to become a user.
+To become a user you would have to register. Once registered, you would be able to use the service. The user will be able to keep a collection of there own with full editing or delete (your own recipes) capabilities.
+
+The web app will be made using [Python](https://www.python.org/)and [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) as the main logical languages [Flask](<https://en.wikipedia.org/wiki/Flask_(web_framework)>) and [Boostrap](https://getbootstrap.com/) Framworks with [Mongodb](https://www.mongodb.com/) Altes for the database.
+
+The Client HotPoint, has a wide range of products that cover all things a house should have. As the hart of every home is the kithen. This is there focus with Chow. The logo will be in the main title, Chow by HotPoint clearly showing this. Pitures of the products with be in strategic place throught the site. With link there website.
 
 ---
 
