@@ -2,7 +2,7 @@ import os
 import datetime
 import bcrypt
 import smtplib
-from flask import Flask, redirect, render_template, flash, url_for, request, session
+from flask import Flask, redirect, render_template, flash, url_for, request, session, abort
 from flask_pymongo import PyMongo
 from flask_ckeditor import CKEditor
 from bson.objectid import ObjectId
@@ -24,6 +24,8 @@ CKEditor(app)
 @app.route('/')
 @app.route('/all_recipe')
 def all_recipe():
+  
+  
   today =  datetime.datetime.now().strftime('%d/%m/%y')
   #If there is a user logged: Username is printed in the Nav
   if 'username' in session:
@@ -62,9 +64,9 @@ def chef():
   if 'username' in session:
     return  render_template("all_recipes.html", 
                             session_name=session['username'], 
-                            recipes=mongo.db.recipes.find().sort("chef", -1)) 
+                            recipes=mongo.db.recipes.find().sort("chef", 1)) 
   return render_template("all_recipes.html",
-                         recipes=mongo.db.recipes.find().sort("chef", -1))
+                         recipes=mongo.db.recipes.find().sort("chef", 1))
 
 @app.route('/myrecipes')
 def myrecipes():
@@ -258,7 +260,6 @@ def delete_recipe(recipe_id):
 """
 @app.route('/edit_recipe/<recipe_id>', methods=['POST','GET'])
 def edit_recipe(recipe_id): 
-  
     if 'username' in session: #1
           recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}) #2
           if session['username'] == recipe['username']: #3
@@ -295,6 +296,14 @@ def logout():
     session.pop('username', None)
     session['logged_in'] = False
     return redirect(url_for('all_recipe'))
+  
+
+
+@app.errorhandler(404)
+def page_not_found(error):
+  
+  app.logger.info(f'Page not found: {request.url}')
+  return render_template('404.html', error=error)
   
   
   
