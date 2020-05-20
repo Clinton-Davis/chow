@@ -21,7 +21,8 @@ app.config["SECRET_KEY"] = os.urandom(24)
 mongo = PyMongo(app)
 CKEditor(app)
 
-""" All Recipe (Home Route)
+""" 
+All Recipe (Home Route)
     1. Get today datetime in string formate (for future features)
     2. check to see if user is in sessions
        True: - renders template and passes session user to session_name 
@@ -43,7 +44,8 @@ def all_recipe():
                          recipes=mongo.db.recipes.find().sort("_id", -1))
   
   
-"""Category Route
+"""
+Category Route
     1. Creates variable for collection
     2. Creats a variable for get.form
     3. checks to see if any category has been chosen
@@ -51,6 +53,7 @@ def all_recipe():
     4. False: one has been choosen
     5. check to see if is categorys or chef or myrecipes
     6. if chef is chosen redirct to chef route: return out
+       else if Servings is chosen redirects to servings.
        else if myrecipes is chosen redirct to myrecipes route: return out
     7. check to see if user is in session
     8. True render template all recipes with username and recipe quary
@@ -67,6 +70,8 @@ def category():
     return redirect('chef')
   elif cat_search == "myrecipes":
     return redirect('myrecipes')
+  elif cat_search == "servings":
+    return redirect('servings')
   if 'username' in session:
     #This displays the categorys choisen by user
       return  render_template("all_recipes.html", 
@@ -76,7 +81,8 @@ def category():
                           recipes=recipes.find({'category': cat_search}).sort([('category', -1),("_id", -1)]))
 
 
-""" Chefs Route
+"""
+ Chefs Route
     finds all the chef and orders them alphabeticailly """
 @app.route('/chef')
 def chef():
@@ -86,9 +92,23 @@ def chef():
                             recipes=mongo.db.recipes.find().sort("chef", 1)) 
   return render_template("all_recipes.html",
                          recipes=mongo.db.recipes.find().sort("chef", 1))
-"""My recipes 
-    Finds all the recipes that the user has posted"""
 
+"""
+ Servings Route
+    finds all the recipes serving size and orders them in ascending """
+@app.route('/servings')
+def servings():
+  if 'username' in session:
+    return  render_template("all_recipes.html", 
+                            session_name=session['username'], 
+                            recipes=mongo.db.recipes.find().sort("servings", 1)) 
+  return render_template("all_recipes.html",
+                         recipes=mongo.db.recipes.find().sort("servings", 1))
+
+  
+"""
+My recipes 
+    Finds all the recipes that the user has posted"""
 @app.route('/myrecipes')
 def myrecipes():
    session_name = session['username']
@@ -97,12 +117,14 @@ def myrecipes():
                             recipes=mongo.db.recipes.find({'username': session_name }))
   
    
-"""Renders About Template """
+"""
+Renders About Template """
 @app.route('/about')
 def about():
   return render_template('about.html')
 
-"""Contact Email Routes 
+"""
+Contact Email Routes 
   1. Checks to see it its a POST Reuest: - False:-Render template Return Out 
   2. True- create Varaibles for Emailers Name/address/message
   3. Create Viarable for the time of submission
@@ -143,7 +165,8 @@ def contact_email():
   return render_template('contact.html')                        #1
  
   
-"""Deatiled Recipe page
+"""
+Deatiled Recipe page
    1. Finds the id of the recipe required 
    2. Check to see if user is in session, If does this because there is a if statment in the HTML
       to check if user is the owner of the recipe, If the user is the ower, the Edit/Delete buttons are
@@ -156,7 +179,8 @@ def recipe(recipe_id):
   return render_template('recipe.html', recipe=recipe)
   
 
-"""Registering route 
+"""
+Registering route 
   1. Checks to see if method is POST: if False-Render Template for Register 
   2. True:- Create mongo collection Variable
   3. Create time variable

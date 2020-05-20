@@ -29,7 +29,7 @@ html {
   --fs: 1.5rem;
 }
 
-/*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=Genral*/
+/*=-=-Genral*/
 body {
   min-height: 100vh;
   font-family: var(--bf);
@@ -47,7 +47,7 @@ body {
 /* Alt Picture*/
 
 a {
-  color: darkred;
+  color: rgb(139, 0, 0);
 }
 
 a:focus,
@@ -112,7 +112,7 @@ hr {
   font-size: 2em;
 }
 
-/* -=-=-=-=--=--=-=-=-=-=--=-NAVBAR*/
+/* -=-=-NAVBAR*/
 @media (min-width: 992px) {
   .navbar-expand-lg .navbar-collapse {
     display: -ms-flexbox !important;
@@ -161,7 +161,7 @@ hr {
 .navbar-light .navbar-nav .nav-link:focus,
 .navbar-light .navbar-nav .nav-link:hover {
   color: rgb(232, 217, 201);
-  text-shadow: 1px 1px darkgray;
+  text-shadow: 1px 1px rgb(169, 169, 169);
 }
 
 .navbar-toggler-icon {
@@ -184,7 +184,7 @@ hr {
   right: 20px;
 }
 
-/* -=-=-=---=-=--=-=-=-=-Main body Jumbos / Cards / Forms */
+/* Main body Jumbos / Cards / Forms */
 .jumbotron {
   background-color: var(--cbg);
   padding: 2rem 2rem;
@@ -343,11 +343,11 @@ hr {
 
 /*Wood Btns*/
 .btn-primary {
-  color: #fff;
+  color: rgb(255, 255, 255);
   background-image: url(../images/wood-Dark-luca-ruegg-crop.jpg);
   background-position: center;
   background-size: contain;
-  border-color: black;
+  border-color: rgb(0, 0, 0);
   min-height: 2.5em;
   border: 1px solid rgba(0, 0, 0, 0.61);
   margin: 0.25em auto 0.25em auto;
@@ -360,8 +360,8 @@ hr {
 .btn-primary:hover,
 .btn-primary:focus {
   color: #fff;
-  background-color: gray;
-  border-color: gray;
+  background-color: rgb(128, 128, 128);
+  border-color: rgb(128, 128, 128);
 }
 
 .ripple-surface {
@@ -405,7 +405,7 @@ hr {
   width: auto;
 }
 
-/*-=-=-=-=-=--=-=About-=-=-=-=-*/
+/*-=-=About-=-*/
 #P-chow {
   font-size: 1.3rem;
 }
@@ -433,7 +433,7 @@ hr {
   margin-left: auto;
 }
 
-/* -=-=-=--=-=-=-FOOTER=-=-=-=--=-*/
+/* -=-FOOTER=--*/
 
 .footer {
   background-image: url(../images/wood-Dark-luca-ruegg-crop.jpg);
