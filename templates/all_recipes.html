@@ -14,28 +14,28 @@
       </div>
       <hr>
       <div class="row">
-        <div class="card-text chf col-2"><span class="material-icons">
+        <div class="card-text chf col-2" title="Chef Name"><span class="material-icons">
             restaurant
           </span></div>
         <div class="card-text chf text-center col-10 cpt">{{recipe.chef}}</div>
       </div>
       <hr>
       <div class="row">
-        <div class="card-text chf col-2"><span class="material-icons">
+        <div class="card-text chf col-2" title="Catogery"><span class="material-icons">
             poll
           </span></div>
         <div class="card-text text-center chf col-10">{{recipe.category}}</div>
       </div>
       <hr>
       <div class="row">
-        <div class="card-text chf col-2"><span class="material-icons">
+        <div class="card-text chf col-2" title="Total time"><span class="material-icons">
             access_time
           </span></div>
         <div class="card-text chf text-center col-10 cpt">{{recipe.cooking_time}}</div>
       </div>
       <hr>
       <div class="row">
-        <div class="card-text chf col-2"><span class="material-icons">
+        <div class="card-text chf col-2" title="Servings"><span class="material-icons">
             timelapse
           </span></div>
         <div class="card-text col-10 text-center chf cpt">{{recipe.servings}} Servings</div>
@@ -57,7 +57,7 @@
     </div>
     <!--Card Container END-->
     <!--This link will take you to a recipe page with all the recipes details-->
-    <a href="{{ url_for('recipe', recipe_id=recipe._id ) }}" id="card-btn"
+    <a href="{{ url_for('recipe', recipe_id=recipe._id ) }}" id="card-btn" title="Get Recipe Deatils"
       class="ripple-surface btn btn-primary chf">Lets
       Chow!</a>
   </div>
