@@ -83,9 +83,39 @@ The Client HotPoint, has a wide range of products that cover all things a house 
 
 ## Structure
 
-#### **_Main Page_**
+There are five pages for Chow. Because we are using [Flask](<https://en.wikipedia.org/wiki/Flask_(web_framework)>) and [Boostrap](https://getbootstrap.com/) The Navigation header and footer for all the pages will be the same and fully responsive.
+In the Navgation section in the head of the pages you will be able to navigate to the _All recipe / Add Recipe / About / Login_ Pages. The Select all drop down menu with have a Show By: Catogery/Chef/Servings/My Recipes.
 
-#### **_Contact Page_**
+- **Catogery** will show only the category you choise.
+- **Chef** will show all the differant chefs in alpherbetail order.
+- **Serving** will show the recipes in order of serving size small to large.
+- **My Recipes** will only show your collection of recipes you up loaded.
+
+#### **All Recipes**
+
+This is the first page we get to see, All the recipes uploaded by the users will be seen here. The Structure of the page is Card based with a 'snap' shot of the details and a web based image of the dish. The order will be in newest first by default.
+The design of this is made for browsing, to be scaned over with looking for dinner tonight. Once the recipe is chosen, then "Lets Chow" button will bring you to the Recipe page.
+
+#### **Recipe**
+
+The recipe page is a center block with all the details of the recipe.
+The name and a short description and the same piture.
+Here you will find all the details you will need to make the dish.
+A list of all the Ingreadients and Cooking instruction neatly laid out and easy to read.
+It is from here you will be given the option to edit or delete a recipe. Only if you are the uploader of the recipe.
+
+#### **Add Recipe**
+
+This page is of a form formate has all the inputs you will need to upload a great recipe. We have incorperated a text editor called [CKEditor](https://ckeditor.com/) to help with keeping it very neat and ordered.
+All the input will have to be used to add a recipe, there is form validation.
+
+#### **Edit Recipe**
+
+#### **Contact Us**
+
+#### **About**
+
+---
 
 <a name="wireframes"></a>
 
