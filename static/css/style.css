@@ -433,6 +433,13 @@ hr {
   margin-left: auto;
 }
 
+/* Admin */
+
+.messages {
+  background-color: aqua;
+  width: 50%;
+}
+
 /* -=-FOOTER=--*/
 
 .footer {

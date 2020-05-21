@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="jumbotron">
+    <h1 class="hf text-center">Chow Admin</h1>
+    {% for message in messages %}
+    <div class="messages">
+        <p>From: {{message.name}}</p>
+        <p>Email: {{message.email}}</p>
+        <p>Msg: {{message.msg}}</p>
+        <p>Time Recieved {{message.sub_time}}</p>
+
+        <a href="mailto:{{message.email}}?Subject=Regarding Chow Message"
+            class="ripple-surface btn btn-primary">Reply</a>
+        <a href="{{url_for('delete_message', message_id=message._id)}}" class="ripple-surface btn btn-primary">Done with
+            Email</a>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <input type="checkbox" aria-label="Checkbox for following text input">
+                    Replyed date?
+                </div>
+            </div>
+            <input type="text" class="form-control" aria-label="Text input with checkbox">
+        </div>
+
+        <hr class="my-4">
+    </div>
+    {% endfor %}
+    <div class="container">
+        <div class="row">
+            <a href="{{url_for('all_recipe')}}" class="ripple-surface col-sm-6 btn btn-primary lead hf btn-lg">Back
+                Home</a>
+            <a href="{{url_for('logout')}}" class="ripple-surface col-sm-6 btn btn-primary lead hf btn-lg">Logout</a>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock content %}

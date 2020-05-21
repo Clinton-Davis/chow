@@ -224,22 +224,39 @@ def register():
   6. flash success message and redirect to all recipes """
 @app.route('/login', methods=['POST','GET'])
 def login():
-  if request.method == 'POST': #1
-      users = mongo.db.users   #2
+  if request.method == 'POST': 
+      users = mongo.db.users   
       login_user = users.find_one({'email': request.form['userEmail']}) 
       if login_user:
         if bcrypt.checkpw(request.form['userPassword'].encode('utf-8'), 
                         login_user['password']):
           session['username'] = request.form['username'] 
           session['logged_in'] = True 
+          if login_user == "clintongadavis@gmail.com":
+            admin = True
+            flash('Welcome Back ' + session['username'] + ' You are now Logged In as Admin', 'success') 
+            return redirect(url_for('admin'))  
+            
           flash('Welcome Back ' + session['username'] + ' You are now Logged In', 'success') 
           return redirect(url_for('all_recipe'))    
         flash('That is an Inalid Username or Password', 'warning') 
         return render_template('login_page.html') 
   return render_template('login_page.html') 
   
-  
-  
+@app.route('/admin')
+def admin():
+  today =  datetime.datetime.now()
+  messages = mongo.db.email_inbox.find().sort("_id", -1)
+  return render_template('admin.html',  
+                         admin=admin,today=today,messages=messages)
+
+@app.route('/delete_message/<message_id>')
+def delete_message(message_id):
+  msg = mongo.db.email_inbox.find_one({'_id': ObjectId(message_id)})
+  message = mongo.db.msg.remove({'_id': ObjectId(message_id)})
+  return redirect(url_for('admin'))
+
+
 """Add Recipe Route:
   1. Gets todays date: convets into string(day/month/year)(subject to change in the future)
      and in iso formate
@@ -273,6 +290,7 @@ def add_recipe():
       return  render_template("add_recipe.html", session_name=session['username'])
   flash('You Need to be Logged In to Add a New Recipe', 'warning')
   return redirect(url_for('login'))
+
 
  
 
