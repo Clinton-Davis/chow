@@ -232,7 +232,7 @@ def login():
                         login_user['password']):
           session['username'] = request.form['username'] 
           session['logged_in'] = True 
-          if login_user == "clintongadavis@gmail.com":
+          if login_user['email'] == "clintongadavis@gmail.com":
             admin = True
             flash('Welcome Back ' + session['username'] + ' You are now Logged In as Admin', 'success') 
             return redirect(url_for('admin'))  
@@ -248,12 +248,12 @@ def admin():
   today =  datetime.datetime.now()
   messages = mongo.db.email_inbox.find().sort("_id", -1)
   return render_template('admin.html',  
-                         admin=admin,today=today,messages=messages)
+                         admin=admin, today=today, messages=messages)
 
 @app.route('/delete_message/<message_id>')
 def delete_message(message_id):
-  msg = mongo.db.email_inbox.find_one({'_id': ObjectId(message_id)})
-  message = mongo.db.msg.remove({'_id': ObjectId(message_id)})
+  oldmail = mongo.db.email_inbox.find_one({'_id': ObjectId(message_id)})
+  message = mongo.db.oldmail.remove({'_id': ObjectId(message_id)}), True
   return redirect(url_for('admin'))
 
 
