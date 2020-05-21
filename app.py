@@ -192,11 +192,6 @@ def login():
                         login_user['password']):
           session['username'] = request.form['username'] 
           session['logged_in'] = True 
-          if login_user['email'] == os.getenv("LOGIN"):
-            admin = True
-            flash('Welcome Back ' + session['username'] + ' You are now Logged In as Admin', 'success') 
-            return redirect(url_for('admin'))  
-            
           flash('Welcome Back ' + session['username'] + ' You are now Logged In', 'success') 
           return redirect(url_for('all_recipe'))    
         flash('That is an Inalid Username or Password', 'warning') 
