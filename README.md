@@ -70,12 +70,12 @@ My directive was to make an on line cookbook that users could find and share rec
 
 ---
 
-**Chow by HotPoint** is a web based cookbook that lets the public browse and use recipes that users have uploaded. Anyone can choose a recipe and get list of ingredance and cooking instruction. If the public would like to contrbute to the collection they would have to become a user.
-To become a user you would have to register. Once registered, you would be able to use the service. The user will be able to keep a collection of there own with full editing or delete (your own recipes) capabilities.
+**Chow by HotPoint** is a web-based cookbook that lets the public browse and uses recipes that users have uploaded. Anyone can choose a recipe and get a list of ingredients and cooking instruction. If the public would like to contribute to the collection, they would have to become a user.
+To become a user, you would have to register. Once registered, you would be able to use the service. The user can keep a collection of there own with full editing or delete capabilities.
 
-The web app will be made using [Python](https://www.python.org/)and [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) as the main logical languages [Flask](<https://en.wikipedia.org/wiki/Flask_(web_framework)>) and [Boostrap](https://getbootstrap.com/) Framworks with [Mongodb](https://www.mongodb.com/) Altes for the database.
+The web app is made using [Python](https://www.python.org/)and [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) as the main logical languages [Flask](<https://en.wikipedia.org/wiki/Flask_(web_framework)>) and [Boostrap](https://getbootstrap.com/) Frameworks with [Mongodb](https://www.mongodb.com/) Altes for the database.
 
-The Client HotPoint, has a wide range of products that cover all things a house should have. As the hart of every home is the kithen. This is there focus with Chow. The logo will be in the main title, Chow by HotPoint clearly showing this. Pitures of the products with be in strategic place throught the site. With link there website.
+The Client HotPoint, has a wide range of products that cover all things a house should have, As the heart of every home is the kitchen. Here is there focus on Chow. The logo is in the main title, On every page. Pictures of the products have been strategically placed throughout the site, with links to their website.
 
 ---
 
@@ -83,23 +83,29 @@ The Client HotPoint, has a wide range of products that cover all things a house 
 
 ## Structure
 
-There are five pages for Chow. Because we are using [Flask](<https://en.wikipedia.org/wiki/Flask_(web_framework)>) and [Boostrap](https://getbootstrap.com/) The Navigation header and footer for all the pages will be the same and fully responsive.
-In the Navgation section in the head of the pages you will be able to navigate to the _All recipe / Add Recipe / About / Login_ Pages. The Select all drop down menu with have a Show By: Catogery/Chef/Servings/My Recipes.
+There are five main pages, two error handing pages and one 'Base' page. Because we are using [Flask](<https://en.wikipedia.org/wiki/Flask_(web_framework)>) we are able to utlise the [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/) templating lanuguage. Therefore the 'Base' page is the same in all pages in the site. [Boostrap](https://getbootstrap.com/) framework alows the Navigation header and footer to be fully responsive.
 
-- **Catogery** will show only the category you choise.
-- **Chef** will show all the differant chefs in alpherbetail order.
-- **Serving** will show the recipes in order of serving size small to large.
-- **My Recipes** will only show your collection of recipes you up loaded.
+In the Navigation section of the head, you can navigate to the _All recipe / Add Recipe / About / Login_ Pages. The 'Select all' drop-down menu alows us to select recipes by _Category/Chef/Servings size/My Recipes._
+
+- **Category** shows only the category you choose.
+- **Chef** shows all the different chefs in alphabetical order.
+- **Serving** shows the recipes in order of serving size from smallest to largest.
+- **My Recipes** shows a collection of recipes the user has uploaded.
 
 #### **All Recipes**
 
-This is the first page we get to see, All the recipes uploaded by the users will be seen here. The Structure of the page is Card based with a 'snap' shot of the details and a web based image of the dish. The order will be in newest first by default.
-The design of this is made for browsing, to be scaned over with looking for dinner tonight. Once the recipe is chosen, then "Lets Chow" button will bring you to the Recipe page.
+All Recipes is the first page we get to see, All the recipes uploaded by the users are seen here. The page is "Card" based with a 'snap' shot of the details and a web-based image of the dish. The order is newest first by default.
+The design of this is made for browsing, to be scanned over when looking for dinner tonight. Once the recipe is selected, the "Lets Chow" button brings you to the Recipe page.
 
+Spelling checked to here
+
+<p align="center">
+<img src=""wireframes>
+</p>
 #### **Recipe**
 
-The recipe page is a center block with all the details of the recipe.
-The name and a short description and the same piture.
+The recipe page is a center block format with all the details of the recipe.
+The name with a short description and dish image.
 Here you will find all the details you will need to make the dish.
 A list of all the Ingreadients and Cooking instruction neatly laid out and easy to read.
 It is from here you will be given the option to edit or delete a recipe. Only if you are the uploader of the recipe.
@@ -111,9 +117,12 @@ All the input will have to be used to add a recipe, there is form validation.
 
 #### **Edit Recipe**
 
-#### **Contact Us**
+The Edit page is a copy of the add recipe page with a few exception.
+All the inputs have been filled with the values to the recipe so the user only has to change what they want to change. The entire form dont not have to be re-filed.
 
 #### **About**
+
+The About page has a center block format with a heading and and information about Chow and HotPoint.
 
 ---
 
@@ -131,18 +140,22 @@ All the input will have to be used to add a recipe, there is form validation.
 
 ## Technologies
 
-- [Visual Studio Code](https://code.visualstudio.com/)
+---
+
 - [HTML5](https://en.wikipedia.org/wiki/HTML)
 - [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
 - [jQuery](https://code.jquery.com/)
-- [EmailJs](https://www.emailjs.com/)
+- [Visual Studio Code](https://code.visualstudio.com/)
+
+##### Third-Party Tools
+
 - [GitHub](https://github.com/)
+- [Figma](https://www.figma.com/)
 - [Slack](https://slack.com/intl/en-ie/)
 - [Website Responsive Testing](https://responsivetesttool.com)
 - [W3 Validator](https://validator.w3.org/nu/)
 - [Gmail](https://www.gmail.com/)
 - [TinyPNG](https://tinypng.com/)
-- [GTmetrix](gtmetrix.com)
 - [Google Fonts](https://fonts.google.com/)
 - [CSSMatric](https://cssmatic.com/)
 
