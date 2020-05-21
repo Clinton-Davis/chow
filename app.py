@@ -31,7 +31,7 @@ All Recipe (Home Route)
 @app.route('/')
 @app.route('/all_recipe')
 def all_recipe():
-  today =  datetime.datetime.now().strftime('%d/%m/%y')
+  today =  datetime.datetime.now().strftime('%d/%m/%y - %H:%M')
   #If there is a user logged: Username is printed in the Nav
   if 'username' in session:
     #Puts the resipe in order Newest to oldest
@@ -232,7 +232,7 @@ def login():
                         login_user['password']):
           session['username'] = request.form['username'] 
           session['logged_in'] = True 
-          if login_user['email'] == "clintongadavis@gmail.com":
+          if login_user['email'] == os.getenv("LOGIN"):
             admin = True
             flash('Welcome Back ' + session['username'] + ' You are now Logged In as Admin', 'success') 
             return redirect(url_for('admin'))  
@@ -243,18 +243,6 @@ def login():
         return render_template('login_page.html') 
   return render_template('login_page.html') 
   
-@app.route('/admin')
-def admin():
-  today =  datetime.datetime.now()
-  messages = mongo.db.email_inbox.find().sort("_id", -1)
-  return render_template('admin.html',  
-                         admin=admin, today=today, messages=messages)
-
-@app.route('/delete_message/<message_id>')
-def delete_message(message_id):
-  oldmail = mongo.db.email_inbox.find_one({'_id': ObjectId(message_id)})
-  message = mongo.db.oldmail.remove({'_id': ObjectId(message_id)}), True
-  return redirect(url_for('admin'))
 
 
 """Add Recipe Route:

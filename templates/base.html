@@ -141,12 +141,12 @@
           <a class="text-white" title="Add Your Own Recipe" href="{{url_for('add_recipe')}}">Add Recipe</a>
         </li>
         <li>
-          <a class="text-white" title="Get In Touch with Us" href="{{url_for('contact_email')}}">Contact Us</a>
+          <a class="text-white" title="Get In Touch with Us" href="mailto:clintongadavis@gmail.com?Subject=Chow Message"">Contact Us</a>
         </li>
 
         {% if session['logged_in'] == True %}
         <li>
-          <a class="text-white" title="Logout" href="{{url_for('logout')}}">Logout</a>
+          <a class=" text-white" title="Logout" href="{{url_for('logout')}}">Logout</a>
         </li>
         {% else %}
         <li>
