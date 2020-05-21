@@ -123,48 +123,8 @@ Renders About Template """
 def about():
   return render_template('about.html')
 
-"""
-Contact Email Routes 
-  1. Checks to see it its a POST Reuest: - False:-Render template Return Out 
-  2. True- create Varaibles for Emailers Name/address/message
-  3. Create Viarable for the time of submission
-  4. Inserts Emailers name/address/message/submission time- into email_inbox collection
-  5. Line 81/82 Creating a Subject and Text Varaibles for the email
-  6. Creating the message Variable and formating to emails
-  7. Define Server and Port (gmails and Port 587)
-  8. Start email Server
-  9. Login into admin email address
-  10. Login to admin email and email user, with message
-  11. Quit Server
-  12. Return to all_recipes and Return out"""
-@app.route('/contact_email', methods=['POST','GET'])
-def contact_email():
-  if request.method == 'POST':                        #1
-    name = request.form.get("name")                   #2
-    email_address = request.form.get("email_address") #2
-    user_message = request.form.get("user_message")   #2
-    message_time = datetime.datetime.now()            #3
-    new_emails = mongo.db.email_inbox                 #4
-    new_emails.insert({
-      'name' : name,
-      'email' : email_address,
-      'msg' : user_message,
-      'sub_time': message_time
-    })
-    #Dealing wih the emailing
-    SUBJECT = "Regarding your Message to Chow"
-    TEXT = "Hello " + name + "\n" + "Thank you for getting in touch, Your message is logged and we will be in touch with you soon.\nThank you, and have a good Day." + "\n" + "Chow"  
-    message = 'Subject: {}\n\n{}' .format(SUBJECT, TEXT)        #6
-    server = smtplib.SMTP("smtp.gmail.com", 587)                #7
-    server.starttls()                                           #8
-    server.login(os.getenv("LOGIN"), os.getenv("PASSWORD"))     #9
-    server.sendmail(os.getenv("LOGIN"), email_address, message) #10
-    server.quit()                                               #11
-    flash("Thank you " + name + " for getting in touch, Your email has been sent",'success')
-    return redirect(url_for('all_recipe'))                      #12
-  return render_template('contact.html')                        #1
- 
-  
+
+
 """
 Deatiled Recipe page
    1. Finds the id of the recipe required 
