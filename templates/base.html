@@ -50,7 +50,12 @@
           <a class="ripple-surface nav-link" title="Login and Register" href="{{url_for('login')}}">Login</a>
           {% endif %}
         </li>
-
+        <li class="nav-item">
+          <form action="{{url_for('search')}}" method="POST" class="form-inline my-2 my-lg-0">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="search_text">
+            <button class="ripple-surface btn btn-outline-light btn-sm" type="submit">Search</button>
+          </form>
+        </li>
         <form action="{{url_for('category')}}" method="POST">
           <div class="input-group">
             <select class="custom-select" id="categorySearch" aria-label="category_search"
@@ -77,6 +82,7 @@
             </div>
           </div>
         </form>
+
       </ul>
     </div>
     {% block Head %}

@@ -1,7 +1,7 @@
 import os
 import datetime
 import bcrypt
-import smtplib
+import re
 from flask import Flask, redirect, render_template, flash, url_for, request, session, abort
 from flask_pymongo import PyMongo
 from flask_ckeditor import CKEditor
@@ -43,7 +43,20 @@ def all_recipe():
   return render_template("all_recipes.html",
                          recipes=mongo.db.recipes.find().sort("_id", -1))
   
-  
+
+
+@app.route('/search', methods=['POST'])
+def search():
+    """Route for full text search bar"""
+    
+    search_text = request.form.get('search_text')
+    if  search_text == None:
+      return redirect('all_recipe')
+    recipes = list(mongo.db.recipes.find({"recipe_name": {"$regex": f'.*{search_text}.*'}}))
+    return render_template('result.html', recipes=recipes)
+
+
+
 """
 Category Route
     1. Creates variable for collection

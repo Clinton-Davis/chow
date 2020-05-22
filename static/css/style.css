@@ -194,6 +194,15 @@ hr {
   border: var(--obb);
 }
 
+.results {
+  text-align: center;
+  background-color: var(--cbg);
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
 
 
 @media (max-width: 540px) {
