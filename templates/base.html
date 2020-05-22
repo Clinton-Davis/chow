@@ -34,33 +34,11 @@
         </li>
         {% else %}
         {% endif %}
-        <li class="nav-item">
-          <a class="ripple-surface nav-link" title="Home/Refresh" href="{{url_for('all_recipe')}}">All Recipes</a>
-        </li>
-        <li class="nav-item">
-          <a class="ripple-surface nav-link" href="{{url_for('add_recipe')}}">Add Recipe</a>
-        </li>
-        <li class="nav-item">
-          <a class="ripple-surface nav-link" title="More About Chow by HotPoint" href="{{url_for('about')}}">About</a>
-        </li>
-        <li class="nav-item">
-          {% if session['logged_in'] == True %}
-          <a class="ripple-surface nav-link" title="Logout" href="{{url_for('logout')}}">Logout</a>
-          {% else %}
-          <a class="ripple-surface nav-link" title="Login and Register" href="{{url_for('login')}}">Login</a>
-          {% endif %}
-        </li>
-        <li class="nav-item">
-          <form action="{{url_for('search')}}" method="POST" class="form-inline my-2 my-lg-0">
-            <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="search_text">
-            <button class="ripple-surface btn btn-outline-light btn-sm" type="submit">Search</button>
-          </form>
-        </li>
         <form action="{{url_for('category')}}" method="POST">
           <div class="input-group">
-            <select class="custom-select" id="categorySearch" aria-label="category_search"
+            <select class=" form-control form-control-sm custom-select" id="categorySearch" aria-label="category_search"
               title="Select by: Catogery/Chef/Servings/ Default Newest to Oldest" name="category_search">
-              <option value="#" disabled selected>Select All:</option>
+              <option value="#" disabled selected>Select All</option>
               <option value="Veggie">Veggie</option>
               <option value="Fish">Fish</option>
               <option value="Beef">Beef</option>
@@ -82,6 +60,30 @@
             </div>
           </div>
         </form>
+        <li class="nav-item">
+          <a class="ripple-surface nav-link" title="Home/Refresh" href="{{url_for('all_recipe')}}">All Recipes</a>
+        </li>
+        <li class="nav-item">
+          <a class="ripple-surface nav-link" href="{{url_for('add_recipe')}}">Add Recipe</a>
+        </li>
+        <li class="nav-item">
+          <a class="ripple-surface nav-link" title="More About Chow by HotPoint" href="{{url_for('about')}}">About</a>
+        </li>
+        <li class="nav-item">
+          {% if session['logged_in'] == True %}
+          <a class="ripple-surface nav-link" title="Logout" href="{{url_for('logout')}}">Logout</a>
+          {% else %}
+          <a class="ripple-surface nav-link" title="Login and Register" href="{{url_for('login')}}">Login</a>
+          {% endif %}
+        </li>
+        <li class="nav-item">
+          <form action="{{url_for('search')}}" method="POST" class="form-inline my-2 my-lg-0">
+            <input class="form-control form-control-sm" type="search" placeholder="Search" aria-label="Search"
+              name="search_text">
+            <button class="ripple-surface btn btn-outline-light btn-sm" type="submit">Search</button>
+          </form>
+        </li>
+
 
       </ul>
     </div>

@@ -121,7 +121,7 @@ hr {
     flex-basis: auto;
 
     justify-content: flex-end;
-    padding-top: 30px;
+    padding-top: 50px;
   }
 }
 
@@ -173,6 +173,8 @@ hr {
 
 .input-group>.custom-select {
   max-width: 10em;
+  height: 2em;
+  padding: 0px 1.125em;
 }
 
 .loggedIn {
@@ -194,14 +196,10 @@ hr {
   border: var(--obb);
 }
 
-.results {
-  text-align: center;
-  background-color: var(--cbg);
-  border-radius: 15px;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  -ms-border-radius: 15px;
-  -o-border-radius: 15px;
+.form-inline .form-control {
+
+  width: 10em;
+
 }
 
 
