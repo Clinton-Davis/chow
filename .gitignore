@@ -1,4 +1,5 @@
 env.py
 SiteNotes
 yoda notes.txt
-_pycache_
+__pycache__
+venv

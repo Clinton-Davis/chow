@@ -10,12 +10,7 @@ added rel="noopener" for sercity
 
 ---
 
-[![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](http://shields.io/)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
-[![Generic badge](https://img.shields.io/badge/jQuery-3.5.1-blue.svg)](https://shields.io/)
-[![Python 3.8](https://img.shields.io/badge/Python-3.8.2-blue.svg)](https://www.python.org/downloads/release/python-360/)
-[![Generic badge](https://img.shields.io/badge/MongoDB-Atles-s.svg)](https://shields.io/)
-[![Generic badge](https://img.shields.io/badge/Flask-1.1.2-lightgrey.svg)](https://shields.io/)
+[![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](http://shields.io/) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity) [![Python 3.8](https://img.shields.io/badge/Python-3.8.2-blue.svg)](https://www.python.org/downloads/release/python-360/) [![Generic badge](https://img.shields.io/badge/MongoDB-Atles-s.svg)](https://shields.io/) [![Generic badge](https://img.shields.io/badge/Flask-1.1.2-lightgrey.svg)](https://shields.io/)
 
 ## Demo
 
@@ -33,16 +28,15 @@ added rel="noopener" for sercity
 
 1. [**UX**](#ux)
 2. [**Scope**](#scope)
-3. [**Structure**](#structure)
-4. [**Wireframe Mockups**](#wireframes)
-5. [**Surface**](#surface)
-6. [**Technologies**](#technologies)
-7. [**Functions and Features**](#features)
-8. [**Testing**](#testing)
-9. [**Bugs**](#bugs)
-10. [**Deployment**](#deployment)
-11. [**Credits**](#credits)
-12. [**Acknowledgements**](#acknowledgements)
+3. [**Structure and Wireframe Mockups**](#structure)
+4. [**Surface**](#surface)
+5. [**Technologies**](#technologies)
+6. [**Functions and Features**](#features)
+7. [**Testing**](#testing)
+8. [**Bugs**](#bugs)
+9. [**Deployment**](#deployment)
+10. [**Credits**](#credits)
+11. [**Acknowledgements**](#acknowledgements)
 
 ---
 
@@ -99,9 +93,19 @@ The design of this is made for browsing, to be scanned over when looking for din
 
 Spelling checked to here
 
+<details>
+<summary>All Recipes Wireframes</summary>
+
 <p align="center">
-<img src=""wireframes>
+<img src="static/wireframes/all_recipe_desk.png">
 </p>
+<p align="center">
+<img src="static/wireframes/all_recipe_moble.png">
+</p>
+</details>
+
+---
+
 #### **Recipe**
 
 The recipe page is a center block format with all the details of the recipe.
@@ -110,29 +114,83 @@ Here you will find all the details you will need to make the dish.
 A list of all the Ingreadients and Cooking instruction neatly laid out and easy to read.
 It is from here you will be given the option to edit or delete a recipe. Only if you are the uploader of the recipe.
 
+<details>
+<summary>Recipes Wireframes</summary>
+
+<p align="center">
+<img src="static/wireframes/recipe_desk.png">
+</p>
+<p align="center">
+<img src="static/wireframes/recipe_moble.png">
+</p>
+</details>
+
+---
+
 #### **Add Recipe**
 
 This page is of a form formate has all the inputs you will need to upload a great recipe. We have incorperated a text editor called [CKEditor](https://ckeditor.com/) to help with keeping it very neat and ordered.
 All the input will have to be used to add a recipe, there is form validation.
+
+<details>
+<summary>Add Recipes Wireframes</summary>
+
+<p align="center">
+<img src="static/wireframes/add_recipe_desk.png">
+</p>
+<p align="center">
+<img src="static/wireframes/add_recipe_mobile.png">
+</p>
+</details>
+
+---
 
 #### **Edit Recipe**
 
 The Edit page is a copy of the add recipe page with a few exception.
 All the inputs have been filled with the values to the recipe so the user only has to change what they want to change. The entire form dont not have to be re-filed.
 
+<details>
+<summary>Add Recipes Wireframes</summary>
+
+<p align="center">
+<img src="static/wireframes/add_recipe_desk.png">
+</p>
+<p align="center">
+<img src="static/wireframes/add_recipe_mobile.png">
+</p>
+</details>
+
+---
+
 #### **About**
 
 The About page has a center block format with a heading and and information about Chow and HotPoint.
 
----
+<details>
+<summary>About Page Wireframes</summary>
 
-<a name="wireframes"></a>
-
-#### Wireframe Mockups
+<p align="center">
+<img src="static/wireframes/about_desk.png">
+</p>
+</details>
 
 ---
 
 ## Surface
+
+#### Fonts
+
+The main font or body font is <a href="https://fonts.google.com/specimen/Montserrat?query=montserrat">Montserrat</a> The Secondary or Heading font is <a href="https://fonts.google.com/specimen/Lobster?query=lob">Lobster</a>and for the HotPoint Logo is <a href="https://fonts.google.com/specimen/Baloo+Chettan+2?query=Baloo">Baloo Chetten 2</a>
+
+#### Colour Sceams
+
+- ![#e9d9ca](https://placehold.it/15/e9d9ca/000000?text=+) `rgb(233, 217, 202)` - Primary-(Jumbo)
+- ![#72080b](https://placehold.it/15/72080b/000000?text=+) `rbg(114, 8, 11)` - Secondary (Header and Footer)
+- ![#ba9d81](https://placehold.it/15/ba9d81/000000?text=+) `rgb(186, 157, 129)` - Supplementary colour 1
+- ![#5c493e](https://placehold.it/15/5c493e/000000?text=+) `rgb(92, 73, 62)` - Supplementary colour 2
+- ![#bdac52](https://placehold.it/15/bdac52/000000?text=+) `rgb(189, 172, 82)` - Supplementary colour 3
+  The supplementary colours are part of the background image
 
 ---
 

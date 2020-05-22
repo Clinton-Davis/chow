@@ -210,6 +210,12 @@ hr {
     height: 1.25em;
     margin-top: 10px;
   }
+
+  ol,
+  ul {
+    margin-left: -45px;
+  }
+
 }
 
 /* All-Recipes */
@@ -515,4 +521,5 @@ hr {
 .footer-sm {
   padding: 0.5em;
   margin: -1em;
+
 }
