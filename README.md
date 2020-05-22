@@ -223,6 +223,14 @@ The main font or body font is <a href="https://fonts.google.com/specimen/Montser
 
 ## Features
 
+Footer login disapears if user is login in
+My Recipes is only avaible if login in
+can only delete or edit recipes if correct user is loggin
+can search for name of recipe
+can add recipe
+can delete recipe
+can select by catogery/chef/serving/
+
 ### Features Left to Implement
 
 ---
