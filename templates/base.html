@@ -28,9 +28,9 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav .mr-auto">
-        {% if admin == True %}
+        {% if session['logged_in'] == True  %}
         <li class="nav-item">
-          <a class="ripple-surface nav-link" href="{{url_for('admin')}}">Admin</a>
+          <a class="ripple-surface nav-link" href="{{url_for('myrecipes')}}">My Recipes</a>
         </li>
         {% else %}
         {% endif %}
@@ -49,9 +49,6 @@
               <option value="Bread">Breads</option>
               <option value="chef">Chefs</option>
               <option value="servings">Servings</option>
-              {% if session['logged_in'] == True %}
-              <option value="myrecipes">My Recipes</option>
-              {% else %} {% endif %}
             </select>
             <div class="input-group-append">
               <button type="submit" class="ripple-surface btn btn-outline-light btn-sm">
@@ -60,9 +57,7 @@
             </div>
           </div>
         </form>
-        <li class="nav-item">
-          <a class="ripple-surface nav-link" title="Home/Refresh" href="{{url_for('all_recipe')}}">All Recipes</a>
-        </li>
+
         <li class="nav-item">
           <a class="ripple-surface nav-link" href="{{url_for('add_recipe')}}">Add Recipe</a>
         </li>
@@ -120,6 +115,8 @@
       <h6 class="copyRight">CopyRight© 2020</h6>
     </div>
     <!--Footer Login / uses same routes as login page-->
+    {% if session['logged_in'] == True  %}
+    {% else %}
     <form method="POST" class="footer-form" action="{{ url_for('login') }}">
       <div class="form-group">
         <label id="footer-log-lable" for="loginEmail" class="w hf">Login</label>
@@ -137,6 +134,7 @@
         Login
       </button>
     </form>
+    {% endif %}
     <div class="feet">
       <ul>
         <li>
