@@ -190,11 +190,11 @@ def login():
       if login_user:
         if bcrypt.checkpw(request.form['userPassword'].encode('utf-8'), 
                         login_user['password']):
-          session['username'] = request.form['username'] 
+          session['username'] = request.form['username'] #email
           session['logged_in'] = True 
           flash('Welcome Back ' + session['username'] + ' You are now Logged In', 'success') 
           return redirect(url_for('all_recipe'))    
-        flash('That is an Inalid Username or Password', 'warning') 
+        flash('That is an Inalid Username or Password', 'warning')  
         return render_template('login_page.html') 
   return render_template('login_page.html') 
   
