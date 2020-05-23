@@ -181,16 +181,55 @@ The About page has a center block format with a heading and and information abou
 
 #### Fonts
 
-The main font or body font is <a href="https://fonts.google.com/specimen/Montserrat?query=montserrat">Montserrat</a> The Secondary or Heading font is <a href="https://fonts.google.com/specimen/Lobster?query=lob">Lobster</a>and for the HotPoint Logo is <a href="https://fonts.google.com/specimen/Baloo+Chettan+2?query=Baloo">Baloo Chetten 2</a>
+- [Montserrat](https://fonts.google.com/specimen/Montserrat?query=montserrat) - Primary Font
+- [Lobster](https://fonts.google.com/specimen/Lobster?query=lob) - Secondary Font
+- [Baloo Chetten 2](https://fonts.google.com/specimen/Baloo+Chettan+2?query=Baloo) - Supplementary Font
 
-#### Colour Sceams
+The primary font <a href="https://fonts.google.com/specimen/Montserrat?query=montserrat">Montserrat</a> is in the body of all pages. I chose it because of its readability and accessibly. It complements the secondary font.
+The Secondary is <a href="https://fonts.google.com/specimen/Lobster?query=lob">Lobster</a> is in the Heading and buttons, It is a big font with a very open face, has a good readability and fits the look we wanted.
+The supplementary font <a href="https://fonts.google.com/specimen/Baloo+Chettan+2?query=Baloo">Baloo Chetten 2</a> is the clients logo font, this is used when every the clients logo is used.
+The backup font "Sans-Serif" is the most popular backup in case there is a loading issue the web page always have a font.
+
+---
+
+#### Colour Scheme
 
 - ![#e9d9ca](https://placehold.it/15/e9d9ca/000000?text=+) `rgb(233, 217, 202)` - Primary-(Jumbo)
 - ![#72080b](https://placehold.it/15/72080b/000000?text=+) `rbg(114, 8, 11)` - Secondary (Header and Footer)
 - ![#ba9d81](https://placehold.it/15/ba9d81/000000?text=+) `rgb(186, 157, 129)` - Supplementary colour 1
 - ![#5c493e](https://placehold.it/15/5c493e/000000?text=+) `rgb(92, 73, 62)` - Supplementary colour 2
 - ![#bdac52](https://placehold.it/15/bdac52/000000?text=+) `rgb(189, 172, 82)` - Supplementary colour 3
-  The supplementary colours are part of the background image
+
+The Colour scheme we went for is earthy natural colours. The supplementary colours ![#ba9d81](https://placehold.it/15/ba9d81/000000?text=+) ![#5c493e](https://placehold.it/15/5c493e/000000?text=+) ![#bdac52](https://placehold.it/15/bdac52/000000?text=+) is a mix of colours used in the background image that is throughout the site. The secondary colour ![#72080b](https://placehold.it/15/72080b/000000?text=+) is used for the Header/Navigation and the footer, The colour itself is from a picture of wooden floors that have a deep red varnish and the picture was colour saturated and contrast sharpened to give it a look we whereafter.
+Primary colour ![#e9d9ca](https://placehold.it/15/e9d9ca/000000?text=+) is a soft natural almost skin colour, it contrasts nicely with the text and is used through the site as a background colour,
+
+---
+
+#### Images
+
+Images are used extensively in the site. The images we have chosen for the site are themed the same are the colour work well together.
+
+The background image is of a country kitchen and has lovely soft colours. A light filter had it fit in the background and not take away from the main content of the webpage.
+
+<details>
+<summary>BackGround Image</summary>
+
+<p align="center">
+<img src="static/images/overexposed-andy-chilton.png">
+</p>
+</details>
+
+---
+
+The Header and footer image is of a wooden floor has been adjusted to give it a deep red colour, The colour complement the background image.
+
+<details>
+<summary>Header and Footer Image</summary>
+
+<p align="center">
+<img src="static/images/wood-Dark-luca-ruegg-crop.jpg">
+</p>
+</details>
 
 ---
 
@@ -226,7 +265,7 @@ The main font or body font is <a href="https://fonts.google.com/specimen/Montser
 Footer login disapears if user is login in
 My Recipes is only avaible if login in
 can only delete or edit recipes if correct user is loggin
-can search for name of recipe
+can search for name of recipe caps insentive
 can add recipe
 can delete recipe
 can select by catogery/chef/serving/
