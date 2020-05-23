@@ -381,6 +381,16 @@ hr {
   border-color: rgb(128, 128, 128);
 }
 
+#edit-btn {
+  color: rgb(45, 216, 54);
+  border: 1px solid rgb(50, 248, 60);
+}
+
+#delete-btn {
+  color: rgb(248, 50, 50);
+  border: 1px solid rgb(248, 50, 50);
+}
+
 .ripple-surface {
   display: inline-block;
   position: relative;
