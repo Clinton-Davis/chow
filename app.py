@@ -8,8 +8,7 @@ from flask_ckeditor import CKEditor
 from bson.objectid import ObjectId
 from os import path
 if path.exists("env.py"):
-  import env 
-
+    import env 
 
 app = Flask(__name__)
 
@@ -21,27 +20,28 @@ app.config["SECRET_KEY"] = os.urandom(24)
 mongo = PyMongo(app)
 CKEditor(app)
 
-""" 
-All Recipe (Home Route)
-    1. Get today datetime in string formate (for future features)
-    2. check to see if user is in sessions
-       True: - renders template and passes session user to session_name 
-              todays string and sorts the collection in order newest to oldest
-        False: - renders template with out session or date and still orders the collection the same way"""
+
 @app.route('/')
 @app.route('/all_recipe')
 def all_recipe():
-  today =  datetime.datetime.now().strftime('%d/%m/%y - %H:%M')
+  """ 
+    1. Get today datetime in string formate (for future features)
+    2. check to see if user is in sessions
+      True: - renders template and passes session user to session_name 
+              todays string and sorts the collection in order newest to oldest
+      False: -renders template with out session or 
+              date and still orders the collection the same way"""
+  today =  datetime.datetime.now().strftime('%d/%B/%Y - %H:%M')
   #If there is a user logged: Username is printed in the Nav
   if 'username' in session:
     #Puts the resipe in order Newest to oldest
     return  render_template("all_recipes.html", 
-                            session_name=session['username'], 
-                            today=today,
-                            recipes=mongo.db.recipes.find().sort("_id", -1)) 
+    session_name=session['username'], 
+    today=today,
+    recipes=mongo.db.recipes.find().sort("_id", -1)) 
   #Puts the resipe in order Newest to oldest but with out the login username
   return render_template("all_recipes.html",
-                         recipes=mongo.db.recipes.find().sort("_id", -1))
+    recipes=mongo.db.recipes.find().sort("_id", -1))
   
 
 
@@ -57,8 +57,10 @@ def search():
 
 
 
-"""
-Category Route
+
+@app.route('/category', methods=['POST','GET'])   
+def category():
+  """
     1. Creates variable for collection
     2. Creats a variable for get.form
     3. checks to see if any category has been chosen
@@ -72,8 +74,6 @@ Category Route
     8. True render template all recipes with username and recipe quary
         with category order from newest to oldest
        """
-@app.route('/category', methods=['POST','GET'])   
-def category():
   recipes = mongo.db.recipes
   cat_search =  request.form.get ('category_search')
   if  cat_search == None:
@@ -88,82 +88,81 @@ def category():
   if 'username' in session:
     #This displays the categorys choisen by user
       return  render_template("all_recipes.html", 
-                            session_name=session['username'],
-                            recipes=recipes.find({'category': cat_search}).sort([('category', -1),("_id", -1)]))
+      session_name=session['username'],
+      recipes=recipes.find({'category': cat_search}).sort([('category', -1),("_id", -1)]))
   return  render_template("all_recipes.html", 
-                          recipes=recipes.find({'category': cat_search}).sort([('category', -1),("_id", -1)]))
+  recipes=recipes.find({'category': cat_search}).sort([('category', -1),("_id", -1)]))
 
 
-"""
- Chefs Route
-    finds all the chef and orders them alphabeticailly """
 @app.route('/chef')
 def chef():
+  """
+    Finds all the chef and orders them alphabeticailly """
   if 'username' in session:
     return  render_template("all_recipes.html", 
-                            session_name=session['username'], 
-                            recipes=mongo.db.recipes.find().sort("chef", 1)) 
+    session_name=session['username'], 
+    recipes=mongo.db.recipes.find().sort("chef", 1)) 
   return render_template("all_recipes.html",
-                         recipes=mongo.db.recipes.find().sort("chef", 1))
+  recipes=mongo.db.recipes.find().sort("chef", 1))
 
-"""
- Servings Route
-    finds all the recipes serving size and orders them in ascending """
+
 @app.route('/servings')
 def servings():
+  """
+  Finds all the recipes serving size and orders them in ascending """
   if 'username' in session:
     return  render_template("all_recipes.html", 
-                            session_name=session['username'], 
-                            recipes=mongo.db.recipes.find().sort("servings", 1)) 
+     session_name=session['username'], 
+     recipes=mongo.db.recipes.find().sort("servings", 1)) 
   return render_template("all_recipes.html",
-                         recipes=mongo.db.recipes.find().sort("servings", 1))
+   recipes=mongo.db.recipes.find().sort("servings", 1))
 
   
-"""
-My recipes 
-    Finds all the recipes that the user has posted"""
+
 @app.route('/myrecipes')
 def myrecipes():
-   session_name = session['username']
-   return  render_template("all_recipes.html", 
-                            session_name=session['username'], 
-                            recipes=mongo.db.recipes.find({'username': session_name }))
-  
+  """
+  Finds all the recipes that the user has posted"""
+  session_name = session['username']
+  return  render_template("all_recipes.html", 
+    session_name=session['username'], 
+    recipes=mongo.db.recipes.find({'username': session_name }))
+    
    
-"""
-Renders About Template """
+
 @app.route('/about')
 def about():
+  """
+  Renders About Template """
   return render_template('about.html')
 
 
 
-"""
-Deatiled Recipe page
+
+@app.route('/recipe/<recipe_id>')
+def recipe(recipe_id):
+  """
    1. Finds the id of the recipe required 
    2. Check to see if user is in session, If does this because there is a if statment in the HTML
       to check if user is the owner of the recipe, If the user is the ower, the Edit/Delete buttons are
       avaible to them"""
-@app.route('/recipe/<recipe_id>')
-def recipe(recipe_id):
   recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})  
   if 'username' in session:
     return render_template('recipe.html',session_name=session['username'], recipe=recipe)
   return render_template('recipe.html', recipe=recipe)
   
 
-"""
-Registering route 
-  1. Checks to see if method is POST: if False-Render Template for Register 
-  2. True:- Create mongo collection Variable
-  3. Create time variable
-  4. Check collection to see if the email already exists
-  5. If False:-Flash message and redirect about to registration page
-  6. Ture:- Hash password and insert into collection
-  7. Create Session from form username
-  8.Flash message with session name and redirect to all_recipes return out"""
 @app.route('/register', methods=['POST', 'GET'])
 def register():
+    """
+    1. Checks to see if method is POST: if False-Render Template for Register 
+    2. True:- Create mongo collection Variable
+    3. Create time variable
+    4. Check collection to see if the email already exists
+    5. If False:-Flash message and redirect about to registration page
+    6. Ture:- Hash password and insert into collection
+    7. Create Session from form username
+    8.Flash message with session name and redirect to all_recipes return out"""
     if request.method == 'POST':                                              
        users = mongo.db.users                                                 
        time = datetime.datetime.now()                                         
@@ -186,26 +185,27 @@ def register():
 
 
 
-"""Login Route:
+
+@app.route('/login', methods=['POST','GET'])
+def login():
+  """
   1. Checks to see if its a post: True-Contine: False-Render Login template.
   2. Create Users var as mongo collection
   3. create login_user and find the email and request form email.
   4. check to see if login_user hashed password matches the saved hashed password.
       If False: flash message and redirect back to login page: return out
-      If Ture: create session wih request form username
+      If Ture: create session username with login in user name from regristration
   5. create session login to True
   6. flash success message and redirect to all recipes """
-@app.route('/login', methods=['POST','GET'])
-def login():
   if request.method == 'POST': 
       users = mongo.db.users   
       login_user = users.find_one({'email': request.form['userEmail']}) 
       if login_user:
         if bcrypt.checkpw(request.form['userPassword'].encode('utf-8'), 
                         login_user['password']):
-          session['username'] = request.form['username'] #email
+          session['username'] = login_user['name'] 
           session['logged_in'] = True 
-          flash('Welcome Back ' + session['username'] + ' You are now Logged In', 'success') 
+         # flash('Welcome Back ' + session['username'] + ' You are now Logged In', 'success') 
           return redirect(url_for('all_recipe'))    
         flash('That is an Inalid Username or Password', 'warning')  
         return render_template('login_page.html') 
@@ -213,15 +213,16 @@ def login():
   
 
 
-"""Add Recipe Route:
+
+@app.route('/add_recipe',methods=['POST','GET'])
+def add_recipe():
+  """
   1. Gets todays date: convets into string(day/month/year)(subject to change in the future)
      and in iso formate
   2. If User is in session: False:-redirect to Login: Returns out. 
      True: check to see if method is POST: False:-Renders template for adding recipe: returns out
   3. Create variable for collection and Inserts from form.
   4. Flashes success message and  Redirects to all_recipe """  
-@app.route('/add_recipe',methods=['POST','GET'])
-def add_recipe():
   today_string = datetime.datetime.now().strftime('%d/%m/%y')
   today_iso = datetime.datetime.now()
   if 'username' in session:
@@ -250,14 +251,15 @@ def add_recipe():
 
  
 
-"""Delete Recipe Route:
+ 
+@app.route('/delete_recipe/<recipe_id>')
+def delete_recipe(recipe_id):
+  """
   1. If User is in session: True:-continue to get ID / False:-redirect to Login: Returns out.
   2. Get's the ID of the recipe
   3. If session name matches the user that posted the recipe:
       True:-removes recipe with ID and redirects to all_recipes
-      False:-redirect to Login: Returns out."""  
-@app.route('/delete_recipe/<recipe_id>')
-def delete_recipe(recipe_id):
+      False:-redirect to Login: Returns out.""" 
   if 'username' in session:
     recipes = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
     if session['username'] == recipes['username']:
@@ -270,19 +272,20 @@ def delete_recipe(recipe_id):
     
        
     
-"""Edit Recipe Route:
-  1. If User is in session: True:-continue to get ID / False:-redirect to Login: return out.
-  2. Get's the ID of the recipe
-  3. If session name matches the user that posted the recipe: True:-Check to see if method is POST #4
-      Flase:- Render edit_recipe template: return out
-  4.  If method is POST create recipes variable and update recipe, Flash Success
-      redirect to all_recipe: return out"""
+
 @app.route('/edit_recipe/<recipe_id>', methods=['POST','GET'])
 def edit_recipe(recipe_id): 
-    if 'username' in session: #1
-          recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}) #2
-          if session['username'] == recipe['username']: #3
-              if request.method == 'POST': #4
+    """
+    1. If User is in session: True:-continue to get ID / False:-redirect to Login: return out.
+    2. Get's the ID of the recipe
+    3. If session name matches the user that posted the recipe: True:-Check to see if method is POST #4
+        Flase:- Render edit_recipe template: return out
+    4.  If method is POST create recipes variable and update recipe, Flash Success
+        redirect to all_recipe: return out"""
+    if 'username' in session: 
+          recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)}) 
+          if session['username'] == recipe['username']: 
+              if request.method == 'POST': 
                  recipes = mongo.db.recipes
                  recipes.update({'_id': ObjectId(recipe_id)},                          
                   {'username' : request.form.get('username'),
@@ -299,28 +302,29 @@ def edit_recipe(recipe_id):
                   'update_iso' : datetime.datetime.now() })  
                  flash(' You have Successfully Updated Your Recipe', 'success')
                  return redirect(url_for('all_recipe', recipe=recipe))
-              return render_template('edit_recipe.html',session_name=session['username'], recipe=recipe)#3      
+              return render_template('edit_recipe.html',session_name=session['username'], recipe=recipe)     
     flash('Sorry! You have to Login First', 'danger')
-    return redirect(url_for('login_page')) #1
+    return redirect(url_for('login_page')) 
 
 
 
-"""LogOut Route 
-  1. changes sessions to none
-  2. makes the Loggin_in = False"""
+
 @app.route('/logout')
 def logout():
-   # remove the username from the session if it's there
+    """
+    1. changes sessions to none
+    2. makes the Loggin_in = False"""
     session.pop('username', None)
     session['logged_in'] = False
     return redirect(url_for('all_recipe'))
   
 
-"""Error Handerling
-  If we get a 404 or 500 error the users
-  is redirected to the error page. """
+
 @app.errorhandler(404)
 def page_not_found(error):
+  """
+  If we get a 404 or 500 error the users
+  is redirected to the error page. """
   app.logger.info(f'Page not found: {request.url}')
   return render_template('404.html', error=error)
 
@@ -329,8 +333,7 @@ def page_not_found(error):
   app.logger.info(f'Server Error: {request.url}')
   return render_template('500.html', error=error)
   
-  
-  
+
 if __name__ == "__main__":
     app.run(host=os.environ.get('IP'),
             port=(os.environ.get('PORT')),
