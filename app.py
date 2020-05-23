@@ -48,13 +48,14 @@ def all_recipe():
 @app.route('/search', methods=['POST'])
 def search():
     """Route for full text search bar"""
-    
+     
     search_text = request.form.get('search_text')
     if  search_text == None:
       return redirect('all_recipe')
     recipes = list(mongo.db.recipes.find({"recipe_name": {"$regex": f'.*{search_text}.*'}}))
-    return render_template('result.html', recipes=recipes)
-
+    if 'username' in session:
+      return render_template('result.html', recipes=recipes, session_name=session['username'])
+    return render_template('result.html', recipes=recipes,)
 
 
 
