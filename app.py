@@ -52,7 +52,7 @@ def search():
     search_text = request.form.get('search_text')
     if  search_text == None:
       return redirect('public/all_recipe')
-    recipes = list(mongo.db.recipes.find({"recipe_name": {"$regex": f'.*{search_text}.*'}}))
+    recipes = list(mongo.db.recipes.find({"recipe_name": {"$regex": f'.*{search_text}.*', '$options':'i'}}))
     if 'username' in session:
       return render_template('public/result.html', recipes=recipes, session_name=session['username'])
     return render_template('public/result.html', recipes=recipes,)
