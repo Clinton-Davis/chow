@@ -31,7 +31,7 @@ added rel="noopener" for sercity
 3. [**Structure and Wireframe Mockups**](#structure)
 4. [**Surface**](#surface)
 5. [**Technologies**](#technologies)
-6. [**Functions and Features**](#features)
+6. [**Features**](#features)
 7. [**Testing**](#testing)
 8. [**Bugs**](#bugs)
 9. [**Deployment**](#deployment)
@@ -85,11 +85,11 @@ There are five main pages, two error handing pages and one 'Base' page. Because 
 In the section of the head, On the left hand side you see the Logo. It is made with two parts. The Chow is clickable and will refresh the page for you. The second part, is the HotPoint logo wich is also clickable and will direct you to the Hot Point web page.
 On the left of that are the navigate. Here are the direct link to _catergory drop down menu / Add Recipe / About / Login / Search bar_.
 
-**Catergory drop down menu**
+_**Catergory drop down menu**_: Is a list of catergorys to choose from.
 
-- All the _**Categories**_ are shown here, when clicked, only the recipes in that catergory will be shown
-- _**Chefs**_ (Aurthers of the recipes)This will show all the different chefs in alphabetical order.
-- _**Serving**_ shows the recipes in order of serving size from smallest to largest.
+- _**Categories**_ When clicked, only the recipes in that catergory will be shown. When Click with out a category selected. A list of all the recipes will be shown in order from newest to oldest.
+- _**Chefs**_ (Aurthers of the recipes)This will show all the Chefs in alphabetical order.
+- _**Serving**_ This will show the recipes in order of serving size from smallest to largest.
 
 _**Add Recipe**_: This will redirct you to the add recipe page if you are login in, other wise if will redirct you to the login in page, if the user has not registered with Chow before, ther is a link to do so in the login page.
 
@@ -279,9 +279,24 @@ The Header and footer image is of a wooden floor has been adjusted to give it a 
 
 ## Features
 
-A this is a web page that has the potential to get very large, we added some features to get the user get what they are looking.
+**Key Features:**
 
--
+- Registortion: anyone can registor to use Chow. The email, username and password is required.
+- Password Encryption: users passwords are secure as they are never sorted in the data base, We use a python libary called [Bcrypt](https://bcrypt-generator.com/) to encrypt the password. We store only the encrypted password. Even if the data base is hacked the password can not be stolen.
+- No Duplicate users. We use the email address to check users login, as emails by nature are unique.
+
+- Dynamic login/logout menu items. In the navigation header and footer the menu item login and logout changes dynamicly if a user is logged in, or logout.
+
+- Footer login. There is a handy login section in the footer. That is also dynamicly hidden if user is logged in.
+
+- Only a logged in user may upload a new recipe.
+- Only the user that has uploeaded the recipe may delete it, this is done in two way. By checking to see if the usernam is the same as the uploaser name, and hiding the delete and edit button if not loggin in.
+- Contact Us menu item in the footer will open up the users defalut email client with a reloaded email and subject.
+
+* Catogery Selet Button. This feature let the user narrow down the list of recipes to choise from.
+* Search Bar. We implemented a search bar to help the user pinpoint a recipe they are after. This works with the name of recipe in question. If there are mulitiple results, a list will be shone.
+* Add Recipe. A logged in use may add a recipe to Chow
+*
 
 Footer login disapears if user is login in
 My Recipes is only avaible if login in, and only appears if user login in
