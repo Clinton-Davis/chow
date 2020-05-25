@@ -26,7 +26,7 @@ CKEditor(app)
 def all_recipe():
     """
     1. Get today datetime in string formate (for future features)
-    2. check to see if user is in sessions
+    2. checks to see if user is in sessions if
     True: - renders template and passes session user to session_name
             todays string and sorts the collection in order newest to oldest
     False: -renders template with out session or
@@ -47,15 +47,15 @@ def all_recipe():
 @app.route('/search', methods=['POST'])
 def search():
     """
-    1. Create a variable 'search_text' from form
-    2. is search_text is empty redirect to all recipes
-    3. Create variable 'recipes' that is a list of all the items fond
+    1. Create a variable 'search_text' from form,
+    2. if the search_text is empty and clicked
+        you get redirect to all recipes.
+    3. Creates variable 'recipes' than lists all fond items
         in the 'recipe_name'
     4. using the $regex operator to match words with option 'i'
         this means the search is case-insensitive.
-    5. check to see if use in session is True add username to session name and
-        send recipes to results.html is false send just results
-    """
+    5. checks to see if use in session is True add username to session name and
+        send recipes to results.html is false send just results"""
 
     search_text = request.form.get('search_text')
     if search_text is None:

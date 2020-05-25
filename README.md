@@ -6,7 +6,7 @@
 
 added rel="noopener" for sercity
 
-**Chow by Hot Point** is a Web based Cook Book That allows anyone to upload arecipe and share it with the world.
+**Chow by Hot Point** is a Web based Cook Book That allows anyone to upload a recipe and share it with the world.
 
 ---
 
@@ -77,21 +77,38 @@ The Client HotPoint, has a wide range of products that cover all things a house 
 
 ## Structure
 
-There are five main pages, two error handing pages and one 'Base' page. Because we are using [Flask](<https://en.wikipedia.org/wiki/Flask_(web_framework)>) we are able to utlise the [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/) templating lanuguage. Therefore the 'Base' page is the same in all pages in the site. [Boostrap](https://getbootstrap.com/) framework alows the Navigation header and footer to be fully responsive.
+There are five main pages, two error handing pages and one 'Base' page. Because we are using [Flask](<https://en.wikipedia.org/wiki/Flask_(web_framework)>) we are able to utlise the [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/) templating lanuguage. Therefore the 'Base' page is the same in all pages in the site. This is the reason it contains the Navigation and the footer. [Boostrap](https://getbootstrap.com/) framework alows the Navigation header and footer to be fully responsive.
 
-In the Navigation section of the head, you can navigate to the _All recipe / Add Recipe / About / Login_ Pages. The 'Select all' drop-down menu alows us to select recipes by _Category/Chef/Servings size/My Recipes._
+---
 
-- **Category** shows only the category you choose.
-- **Chef** shows all the different chefs in alphabetical order.
-- **Serving** shows the recipes in order of serving size from smallest to largest.
-- **My Recipes** shows a collection of recipes the user has uploaded.
+####**Navigation**
+In the section of the head, On the left hand side you see the Logo. It is made with two parts. The Chow is clickable and will refresh the page for you. The second part, is the HotPoint logo wich is also clickable and will direct you to the Hot Point web page.
+On the left of that are the navigate. Here are the direct link to _catergory drop down menu / Add Recipe / About / Login / Search bar_.
+
+**Catergory drop down menu**
+
+- All the _**Categories**_ are shown here, when clicked, only the recipes in that catergory will be shown
+- _**Chefs**_ (Aurthers of the recipes)This will show all the different chefs in alphabetical order.
+- _**Serving**_ shows the recipes in order of serving size from smallest to largest.
+
+_**Add Recipe**_: This will redirct you to the add recipe page if you are login in, other wise if will redirct you to the login in page, if the user has not registered with Chow before, ther is a link to do so in the login page.
+
+_**About**_: Click on this will send the user to a page with a discription of the Chow and HotPoint. There are two button, Go Back or learn more.
+
+- Go Back - will bring you back to Chow main page
+
+- Learn More - Will redirct you to Hot Points main web page
+
+_**Login**_ : Here you will be redircted to the Login/Registration page. Its a simple form where the user email and password are required.
+
+_**Registration**_: Is the same as the Login form but with a Nick name / Username input. Once the username has been added it can not be change.
+
+---
 
 #### **All Recipes**
 
 All Recipes is the first page we get to see, All the recipes uploaded by the users are seen here. The page is "Card" based with a 'snap' shot of the details and a web-based image of the dish. The order is newest first by default.
 The design of this is made for browsing, to be scanned over when looking for dinner tonight. Once the recipe is selected, the "Lets Chow" button brings you to the Recipe page.
-
-Spelling checked to here
 
 <details>
 <summary>All Recipes Wireframes</summary>
@@ -262,6 +279,10 @@ The Header and footer image is of a wooden floor has been adjusted to give it a 
 
 ## Features
 
+A this is a web page that has the potential to get very large, we added some features to get the user get what they are looking.
+
+-
+
 Footer login disapears if user is login in
 My Recipes is only avaible if login in, and only appears if user login in
 can only delete or edit recipes if correct user is loggin
@@ -278,9 +299,6 @@ have the ripple efect to know when user has clicked
 <a name="testing"></a>
 
 ## Testing
-
-<br>
-- I used [GTmetrix](https://gtmetrix.com) to test how fast the site loaded [Report](https://github.com/Clinton-Davis/CapeTowns_Best_Bits/blob/master/sundries/GTmetrix-report-.pdf)<br>
 
 - I sent it to the Slack Comunity for Feedback.
 - Then I started the Media Query Test and all the Presets in Chrome and Firefox Development tools.
