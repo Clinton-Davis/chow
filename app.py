@@ -47,12 +47,23 @@ def all_recipe():
 
 @app.route('/search', methods=['POST'])
 def search():
-    """Route for full text search bar"""
-     
+    """
+    1. Create a variable 'search_text' from form
+    2. is search_text is empty redirect to all recipes
+    3. Create variable 'recipes' that is a list of all the items fond
+        in the 'recipe_name'
+    4. using the $regex operator to match words with option 'i'
+        this means the search is case-insensitive.
+    5. check to see if use in session is True add username to session name and
+        send recipes to results.html is false send just results 
+    """
+    
     search_text = request.form.get('search_text')
     if  search_text == None:
       return redirect('public/all_recipe')
-    recipes = list(mongo.db.recipes.find({"recipe_name": {"$regex": f'.*{search_text}.*', '$options':'i'}}))
+    recipes = list(mongo.db.recipes.find({
+      "recipe_name": {"$regex": f'.*{search_text}.*', '$options':'i'}
+      }))
     if 'username' in session:
       return render_template('public/result.html', recipes=recipes, session_name=session['username'])
     return render_template('public/result.html', recipes=recipes,)
