@@ -41,7 +41,6 @@ body {
   background-attachment: fixed;
   -webkit-background-attachment: fixed;
   -moz-background-attachment: fixed;
-
 }
 
 /* Alt Picture*/
@@ -113,17 +112,6 @@ hr {
 }
 
 /* -=-=-NAVBAR*/
-@media (min-width: 992px) {
-  .navbar-expand-lg .navbar-collapse {
-    display: -ms-flexbox !important;
-    display: flex !important;
-    -ms-flex-preferred-size: auto;
-    flex-basis: auto;
-
-    justify-content: flex-end;
-    padding-top: 50px;
-  }
-}
 
 #navHead {
   font-size: 5rem;
@@ -181,6 +169,7 @@ hr {
   padding: 0px 1.125em;
 }
 
+/*Welcome username in navbar*/
 .loggedIn {
   color: var(--white);
   margin-left: auto;
@@ -200,41 +189,18 @@ hr {
   border: var(--obb);
 }
 
+/*Search Bar size*/
 .form-inline .form-control {
-
   width: 10em;
-
 }
 
-
-@media (max-width: 540px) {
-  .jumbotron {
-    width: 98%;
-  }
-
-  #navHead {
-    font-size: 3rem;
-  }
-
-  .navbar-toggler-icon {
-    width: 1.25em;
-    height: 1.25em;
-    margin-top: 10px;
-  }
-
-  ol,
-  ul {
-    margin-left: -45px;
-  }
-
-}
 
 /* All-Recipes */
 .recipeContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  min-height: 60vh;
+  min-height: 70vh;
   margin-top: 2em;
 }
 
@@ -295,7 +261,6 @@ hr {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-
 }
 
 .ad-img-box {
@@ -319,21 +284,10 @@ hr {
   justify-content: space-evenly;
 }
 
-
 .hero-sub {
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-@media (max-width: 768px) {
-  .hero {
-    flex-direction: column;
-  }
-
-  .footer {
-    flex-direction: column;
-  }
 }
 
 .recipe-container {
@@ -422,7 +376,7 @@ hr {
   }
 }
 
-/* Background image for non image recipes*/
+/* Background image for non imaged recipes*/
 .dish_image {
   background-image: url(../images/chow-replacement.jpg);
   background-position: center center;
@@ -543,4 +497,49 @@ hr {
   padding: 0.5em;
   margin: -1em;
 
+}
+
+
+/*Media Quaries*/
+@media (max-width: 540px) {
+  .jumbotron {
+    width: 98%;
+  }
+
+  #navHead {
+    font-size: 3rem;
+  }
+
+  .navbar-toggler-icon {
+    width: 1.25em;
+    height: 1.25em;
+    margin-top: 10px;
+  }
+
+  ol,
+  ul {
+    margin-left: -45px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+  }
+
+  .footer {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-collapse {
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+
+    justify-content: flex-end;
+    padding-top: 50px;
+  }
 }
