@@ -149,7 +149,7 @@
 
         {% if session['logged_in'] == True %}
         <li>
-          <a class=" text-white" title="Logout" href="{{url_for('logout')}}">Logout</a>
+          <a class=" text-white" title="Logout" href="{{url_for('logout')}}">Logout&nbsp;{{session_name}}</a>
         </li>
         {% else %}
         <li>
