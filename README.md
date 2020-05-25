@@ -263,12 +263,13 @@ The Header and footer image is of a wooden floor has been adjusted to give it a 
 ## Features
 
 Footer login disapears if user is login in
-My Recipes is only avaible if login in
+My Recipes is only avaible if login in, and only appears if user login in
 can only delete or edit recipes if correct user is loggin
 can search for name of recipe caps insentive
 can add recipe
 can delete recipe
 can select by catogery/chef/serving/
+have the ripple efect to know when user has clicked
 
 ### Features Left to Implement
 
