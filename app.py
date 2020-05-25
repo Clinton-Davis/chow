@@ -35,12 +35,12 @@ def all_recipe():
   #If there is a user logged: Username is printed in the Nav
   if 'username' in session:
     #Puts the resipe in order Newest to oldest
-    return  render_template("all_recipes.html", 
+    return  render_template("public/all_recipes.html", 
     session_name=session['username'], 
     today=today,
     recipes=mongo.db.recipes.find().sort("_id", -1)) 
   #Puts the resipe in order Newest to oldest but with out the login username
-  return render_template("all_recipes.html",
+  return render_template("public/all_recipes.html",
     recipes=mongo.db.recipes.find().sort("_id", -1))
   
 
@@ -51,11 +51,11 @@ def search():
      
     search_text = request.form.get('search_text')
     if  search_text == None:
-      return redirect('all_recipe')
+      return redirect('public/all_recipe')
     recipes = list(mongo.db.recipes.find({"recipe_name": {"$regex": f'.*{search_text}.*'}}))
     if 'username' in session:
-      return render_template('result.html', recipes=recipes, session_name=session['username'])
-    return render_template('result.html', recipes=recipes,)
+      return render_template('public/result.html', recipes=recipes, session_name=session['username'])
+    return render_template('public/result.html', recipes=recipes,)
 
 
 
@@ -88,10 +88,10 @@ def category():
     return redirect('servings')
   if 'username' in session:
     #This displays the categorys choisen by user
-      return  render_template("all_recipes.html", 
+      return  render_template("public/all_recipes.html", 
       session_name=session['username'],
       recipes=recipes.find({'category': cat_search}).sort([('category', -1),("_id", -1)]))
-  return  render_template("all_recipes.html", 
+  return  render_template("public/all_recipes.html", 
   recipes=recipes.find({'category': cat_search}).sort([('category', -1),("_id", -1)]))
 
 
@@ -100,10 +100,10 @@ def chef():
   """
     Finds all the chef and orders them alphabeticailly """
   if 'username' in session:
-    return  render_template("all_recipes.html", 
+    return  render_template("public/all_recipes.html", 
     session_name=session['username'], 
     recipes=mongo.db.recipes.find().sort("chef", 1)) 
-  return render_template("all_recipes.html",
+  return render_template("public/all_recipes.html",
   recipes=mongo.db.recipes.find().sort("chef", 1))
 
 
@@ -112,10 +112,10 @@ def servings():
   """
   Finds all the recipes serving size and orders them in ascending """
   if 'username' in session:
-    return  render_template("all_recipes.html", 
+    return  render_template("public/all_recipes.html", 
      session_name=session['username'], 
      recipes=mongo.db.recipes.find().sort("servings", 1)) 
-  return render_template("all_recipes.html",
+  return render_template("public/all_recipes.html",
    recipes=mongo.db.recipes.find().sort("servings", 1))
 
   
@@ -125,7 +125,7 @@ def myrecipes():
   """
   Finds all the recipes that the user has posted"""
   session_name = session['username']
-  return  render_template("all_recipes.html", 
+  return  render_template("public/all_recipes.html", 
     session_name=session['username'], 
     recipes=mongo.db.recipes.find({'username': session_name }))
     
@@ -135,7 +135,7 @@ def myrecipes():
 def about():
   """
   Renders About Template """
-  return render_template('about.html')
+  return render_template('public/about.html')
 
 
 
@@ -149,8 +149,8 @@ def recipe(recipe_id):
       avaible to them"""
   recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})  
   if 'username' in session:
-    return render_template('recipe.html',session_name=session['username'], recipe=recipe)
-  return render_template('recipe.html', recipe=recipe)
+    return render_template('public/recipe.html',session_name=session['username'], recipe=recipe)
+  return render_template('public/recipe.html', recipe=recipe)
   
 
 @app.route('/register', methods=['POST', 'GET'])
@@ -181,8 +181,8 @@ def register():
                 flash('Hello ' + session['username'] + ' You have be successfull registered and are login In', 'success')
                 return redirect(url_for('all_recipe',))                         
        flash('That email already exists, Check the spelling', 'warning')       
-       return render_template('register.html')  
-    return render_template('register.html')                                    
+       return render_template('login_reg/register.html')  
+    return render_template('login_reg/register.html')                                    
 
 
 
@@ -209,8 +209,8 @@ def login():
          # flash('Welcome Back ' + session['username'] + ' You are now Logged In', 'success') 
           return redirect(url_for('all_recipe'))    
         flash('That is an Inalid Username or Password', 'warning')  
-        return render_template('login_page.html') 
-  return render_template('login_page.html') 
+        return render_template('login_reg/login_page.html') 
+  return render_template('login_reg/login_page.html') 
   
 
 
@@ -245,7 +245,7 @@ def add_recipe():
           
           flash('You have Successfully Added a Recipe', 'success')
           return redirect(url_for('all_recipe'))
-      return  render_template("add_recipe.html", session_name=session['username'])
+      return  render_template("public/add_recipe.html", session_name=session['username'])
   flash('You Need to be Logged In to Add a New Recipe', 'warning')
   return redirect(url_for('login'))
 
@@ -303,7 +303,7 @@ def edit_recipe(recipe_id):
                   'update_iso' : datetime.datetime.now() })  
                  flash(' You have Successfully Updated Your Recipe', 'success')
                  return redirect(url_for('all_recipe', recipe=recipe))
-              return render_template('edit_recipe.html',session_name=session['username'], recipe=recipe)     
+              return render_template('public/edit_recipe.html',session_name=session['username'], recipe=recipe)     
     flash('Sorry! You have to Login First', 'danger')
     return redirect(url_for('login_page')) 
 
@@ -327,12 +327,12 @@ def page_not_found(error):
   If we get a 404 or 500 error the users
   is redirected to the error page. """
   app.logger.info(f'Page not found: {request.url}')
-  return render_template('404.html', error=error)
+  return render_template('errors/404.html', error=error)
 
 @app.errorhandler(500)
 def page_not_found(error):
   app.logger.info(f'Server Error: {request.url}')
-  return render_template('500.html', error=error)
+  return render_template('errors/500.html', error=error)
   
 
 if __name__ == "__main__":
