@@ -18,10 +18,12 @@
 </head>
 <header>
   <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="https://www.hotpoint.ie/" target="_blank"><span id="navHead" title="HotPoint.ie"
-        class="hf fs">Chow</span>
+    <div class="navbar-brand">
+      <a href="{{url_for('all_recipe')}}" target="_blank"><span id="navHead" title="HotPoint.ie"
+          class="hf fs">Chow</span></a>
       <span class="bf w">by</span>
-      <span class="hotpoint w">HotPoint</span></a>
+      <a href="https://www.hotpoint.ie/" target="_blank"><span class="hotpoint w">HotPoint</span></a>
+    </div>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
