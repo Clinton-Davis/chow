@@ -19,10 +19,11 @@
 <header>
   <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
     <div class="navbar-brand">
-      <a href="{{url_for('all_recipe')}}" target="_blank"><span id="navHead" title="HotPoint.ie"
+      <a href="{{url_for('all_recipe')}}" target="_blank"><span id="navHead" title="Refresh Chow"
           class="hf fs">Chow</span></a>
       <span class="bf w">by</span>
-      <a href="https://www.hotpoint.ie/" target="_blank"><span class="hotpoint w">HotPoint</span></a>
+      <a href="https://www.hotpoint.ie/" target="_blank" title="HotPoint.ie"><span
+          class="hotpoint w">HotPoint</span></a>
     </div>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -58,7 +59,7 @@
         </form>
         {% if session['logged_in'] == True  %}
         <li class="nav-item">
-          <a class="ripple-surface nav-link" href="{{url_for('myrecipes')}}">My Recipes</a>
+          <a class="ripple-surface nav-link" href="{{url_for('myrecipes')}}" title="List your recipes">My Recipes</a>
         </li>
         {% else %}
         {% endif %}
@@ -77,7 +78,7 @@
         </li>
         <li class="nav-item">
           <form action="{{url_for('search')}}" method="POST" class="form-inline my-2 my-lg-0">
-            <input class="form-control form-control-sm" type="search" placeholder="Search" aria-label="Search"
+            <input class="form-control form-control-sm" type="search" placeholder="Recipe Name" aria-label="Search"
               name="search_text">
             <button class="ripple-surface btn btn-outline-light btn-sm" type="submit">Search</button>
           </form>
