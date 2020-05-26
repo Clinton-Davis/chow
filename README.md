@@ -260,19 +260,19 @@ The Header and footer image is of a wooden floor has been adjusted to give it a 
 
 ---
 
-- [HTML5](https://en.wikipedia.org/wiki/HTML)
-- [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
-- [jQuery](https://code.jquery.com/)
-- [Visual Studio Code](https://code.visualstudio.com/)
+- [HTML 5](https://en.wikipedia.org/wiki/HTML), [CSS 3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets), [Python 3.8](https://code.jquery.com/) ~ core languages used
+- [jQuery 3.5](https://code.jquery.com/)
+-
+- [Flask 1.1.2](https://flask-doc.readthedocs.io/en/latest/#)
 
 ##### Third-Party Tools
 
+- [Visual Studio Code](https://code.visualstudio.com/)
 - [GitHub](https://github.com/)
 - [Figma](https://www.figma.com/)
 - [Slack](https://slack.com/intl/en-ie/)
 - [Website Responsive Testing](https://responsivetesttool.com)
 - [W3 Validator](https://validator.w3.org/nu/)
-- [Gmail](https://www.gmail.com/)
 - [TinyPNG](https://tinypng.com/)
 - [Google Fonts](https://fonts.google.com/)
 - [CSSMatric](https://cssmatic.com/)
