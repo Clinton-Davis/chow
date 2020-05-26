@@ -332,30 +332,22 @@ The Header and footer image is of a wooden floor has been adjusted to give it a 
 
 ## Testing
 
-The first phase of testing is a step by step basis. As I implemented a new code I would run the app on my local host with debugger on. If the app loaded I tested it on Chrome Developer tools.
+The first phase of testing is a step by step basis. As I implemented a new code I would run the app on my local host with debugger on. If any of the Flask Route did not work the debugger would catch them.
+If the app loaded I tested it on Chrome and Firefox Developer tools.
 
-I tested HTML with w3 Validator. The only errors I got where from the [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/) template as are not aroud
-I tested CSS with w3 Validator. I got a few warning and errors with CSS Variables
-
+I tested HTML with w3 Validator. I got illegal character from [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/) templates. They are acceatable errors as Flask needs the templates to connect through out the site.
+I tested CSS with w3 Validator. I only got errors with CSS Variables. The reason I use variables in the :root is if the client need to change a 'Font' or 'Background colour', We only have to change it in one place the :root, that changes it everywhere on the site.
 These errors are an ongoing issue with w3, They are valid, but not recognised by W3.
-CSS variables ("custom properties"), a widely supported and crucial feature.
-The reason I used them is: If I want to change the font s or colours in the future, I would have to change the variables in question for the entire site.
+CSS variables ("custom properties"), a widely supported and crucial feature.[CSS-Validator issues 111](https://github.com/w3c/css-validator/issues/111)
 
 After all the JavaScript was completed, I ran through the code to make sure it was working and smoothly as possible.
 
-Once all the elements were in place and working, I went through all the destinations one by one made sure all the ID's and Google Maps API were all working correctly.
+I tested all the link to make sure they all worked as intented.
+I tested the CRUD capabilities to make sure they all worked
+I tested
+I tested the contact us link to ensure the correct email and subject would be preloaded.
 
-I tested the contact us page to ensure the form linked to the emailjs API and email response is working correctly.
-
-I tested the form for form validation, making sure it displayed an error if a input fields was left blank.
-
-I tested the validation of the email input, to make sure a email address was entered.
-
-I tested the refresh speed to see how fast the page loaded from cached and uncached browsers.
-
-I used the speed variables available on Chrome developers Tools, Slow 3G / Fast 3G / Online. With each speed, I test performance on Image loading time, HTML and CSS loading time, JavaScript and JQaury CDN. Cached and uncached memory.
-
-I used GTmetrix to test how fast the site loaded Report
+I tested the forms for form validation, making sure it displayed an error if a input fields did not meet cirteria or left blank.
 
 I sent it to the Slack Comunity for Feedback.
 
