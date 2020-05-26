@@ -225,8 +225,8 @@ def login():
                               login_user['password']):
                 session['username'] = login_user['name']
                 session['logged_in'] = True
-                flash('Welcome Back ' + session['username'] +
-                      ' You are now Logged In', 'success')
+                flash('Welcome Back ' +
+                      session['username'] + ' You are now Logged In', 'success')
                 return redirect(url_for('all_recipe'))
             flash('That is an Inalid Username or Password', 'warning')
             return render_template('login_reg/login_page.html')
