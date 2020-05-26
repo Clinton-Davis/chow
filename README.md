@@ -332,27 +332,28 @@ The Header and footer image is of a wooden floor has been adjusted to give it a 
 
 ## Testing
 
-The first phase of testing is a step by step basis. As I implemented a new code I would run the app on my local host with debugger on. If any of the Flask Route did not work the debugger would catch them.
-If the app loaded I tested it on Chrome and Firefox Developer tools.
+- The first phase of testing is a step by step basis. As I implemented a new code I would run the app on my local host with debugger on. If any of the Flask Route did not work the debugger would catch them.
 
-I tested HTML with w3 Validator. I got illegal character from [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/) templates. They are acceatable errors as Flask needs the templates to connect through out the site.
-I tested CSS with w3 Validator. I only got errors with CSS Variables. The reason I use variables in the :root is if the client need to change a 'Font' or 'Background colour', We only have to change it in one place the :root, that changes it everywhere on the site.
-These errors are an ongoing issue with w3, They are valid, but not recognised by W3.
-CSS variables ("custom properties"), a widely supported and crucial feature.[CSS-Validator issues 111](https://github.com/w3c/css-validator/issues/111)
+- If the app loaded I tested it on Chrome and Firefox Developer tools.
 
-After all the JavaScript was completed, I ran through the code to make sure it was working and smoothly as possible.
+- I tested HTML with w3 Validator. I got illegal character from [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/) templates. They are acceatable errors as Flask needs the templates to connect through out the site.
+- I tested CSS with w3 Validator. I only got errors with CSS Variables. The reason I use variables in the :root is if the client need to change a 'Font' or 'Background colour', We only have to change it in one place the :root, that changes it everywhere on the site.
+- These errors are an ongoing issue with w3, They are valid, but not recognised by W3.
+- CSS variables ("custom properties"), a widely supported and crucial feature.[CSS-Validator issues 111](https://github.com/w3c/css-validator/issues/111)
 
-I tested all the link to make sure they all worked as intented.
-I tested the CRUD capabilities to make sure they all worked
-I tested regerstration and login route.
+- After all the JavaScript was completed, I ran through the code to make sure it was working and smoothly as possible.
 
-I tested the contact us link to ensure the correct email and subject would be preloaded.
+- I tested all the link to make sure they all worked as intented.
+- I tested the CRUD capabilities to make sure they all worked
+- I tested regerstration and login route.
 
-I tested the forms for form validation, making sure it displayed an error if a input fields did not meet cirteria or left blank.
+- I tested the contact us link to ensure the correct email and subject would be preloaded.
 
-I sent it to the Slack Comunity for Feedback.
+- I tested the forms for form validation, making sure it displayed an error if a input fields did not meet cirteria or left blank.
 
-Then I started the Media Query Test and all the Presets in Chrome and Firefox Development tools.
+- I sent it to the Slack Comunity for Feedback.
+
+- Then I started the Media Query Test and all the Presets in Chrome and Firefox Development tools.
 
 - Below is a list of devices I tested on with [Website Responsive Testing](responsivetesttool.com).
 
@@ -418,7 +419,19 @@ Then I started the Media Query Test and all the Presets in Chrome and Firefox De
 
 ## Bugs :beetle:
 
----
+**Being able to login with dirrereant username.**
+The first way I had it set up was, on regerstration the username / email and password where loged to the database. When the user login in again, only the email was checked for duplets. The problem I had was the user could login with the right email and password but wrong username.
+Upone adding a new recipe, the recipes are tagged with the username from session. Meaning if the user logged in with a differant username but correct email and password, they could be loggin but not edit/delete there recipe.
+My first fix was to add the username input on the login page and have the username from the form checked with the username from the database. But this adds another input is not good UX
+
+- To fixed this bug was I took away the option for the user to get the username wrong on login. Once the email and passwords are check, sessions is created using the stored username. Fixing the UX problem at the same time.
+
+```python
+login_user = users.find_one({'email': request.form['userEmail']})
+session['username'] = login_user['name']
+session['logged_in'] = True
+
+```
 
 <a name="deployment"></a>
 
@@ -519,11 +532,6 @@ Features:
 Register
 login
 you can browes the menus with out logging in but if you want to add/delet/edit a recpie you have to first login.
-
-fonts
-family=Baloo+Bhaina+2:wght@500;600&
-family=Lobster&
-family=Montserrat:ital,wght@0,400;0,600;1,400
 
 media:
 Placeholder food image: Photo by Lily Banse on Unsplash
