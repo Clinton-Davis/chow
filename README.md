@@ -81,7 +81,8 @@ There are five main pages, two error handing pages and one 'Base' page. Because 
 
 ---
 
-####**Navigation**
+#### **Navigation**
+
 In the section of the head, On the left hand side you see the Logo. It is made with two parts. The Chow is clickable and will refresh the page for you. The second part, is the HotPoint logo wich is also clickable and will direct you to the Hot Point web page.
 On the left of that are the navigate. Here are the direct link to _catergory drop down menu / Add Recipe / About / Login / Search bar_.
 
