@@ -433,6 +433,24 @@ session['logged_in'] = True
 
 ```
 
+**Case Sensitivity**
+In my testing I fond that users are use capital letter when emtering there emails addressess, this causes a issue if we need to use there emails later on.
+
+- I used the `.lower()` method to keep all email in lower case
+
+**Search Bar case sensitivity**
+I had a bug with the search bar not being able to pick out the words in a search, because `$regex` looks for a identical match making it case sensitive.
+
+- My fix was to add the optinal `$options` to the query, using the `'i'` makes it case-insensitive.
+
+```python
+recipes = list(mongo.db.recipes.find({
+        "recipe_name": {"$regex": f'.*{search_text}.*', '$options': 'i'}}))
+
+```
+
+chefs and servings and catogerys
+
 <a name="deployment"></a>
 
 ## Deployment
