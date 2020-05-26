@@ -16,10 +16,6 @@
 
 ---
 
-![mulityscreenImg](https://github.com/Clinton-Davis/CapeTowns_Best_Bits/blob/master/sundries/smartmockups_CTBB80.png)
-
----
-
 <a name="toc"></a>
 
 ## Table of Contents
