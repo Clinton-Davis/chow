@@ -4,7 +4,7 @@
   <!--Cycles throug all the recipes-->
   {% for recipe in recipes %}
 
-  <div class="card" style="width: 18rem;">
+  <div class="card">
     <img src="{{recipe.dish_image}}" class="dish_image card-img-top" alt="{{recipe.recipe_name}}">
     <div class="card-body container">
 
@@ -57,8 +57,8 @@
     </div>
     <!--Card Container END-->
     <!--This link will take you to a recipe page with all the recipes details-->
-    <a href="{{ url_for('recipe', recipe_id=recipe._id ) }}" id="card-btn" title="Get Recipe Deatils"
-      class="ripple-surface btn btn-primary chf">Lets
+    <a href="{{ url_for('recipe', recipe_id=recipe._id ) }}" title="Get Recipe Deatils"
+      class="ripple-surface card-btn btn btn-primary chf">Lets
       Chow!</a>
   </div>
 

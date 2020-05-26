@@ -50,7 +50,7 @@ My directive was to make an on line cookbook that users could find and share rec
 
 1. I would like to be able to look up recipes I like from the Chefs I like.
 
-2. I would like to have all the recipes I like in one place.
+2. I would like to have all of my recipes I like in one place.
 
 3. I would also like to be able to edit them if I like on the app.
 
@@ -77,7 +77,7 @@ The Client HotPoint, has a wide range of products that cover all things a house 
 
 ## Structure
 
-There are five main pages, two error handing pages and one 'Base' page. Because we are using [Flask](<https://en.wikipedia.org/wiki/Flask_(web_framework)>) we are able to utlise the [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/) templating lanuguage. Therefore the 'Base' page is the same in all pages in the site. This is the reason it contains the Navigation and the footer. [Boostrap](https://getbootstrap.com/) framework alows the Navigation header and footer to be fully responsive.
+There are five main pages, two error handing pages and one 'Base' page. Because we are using [Flask](<https://en.wikipedia.org/wiki/Flask_(web_framework)>) we are able to utlise the [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/) templating lanuguage. Therefore the 'Base' page is the same in all pages in the site. This is the reason it contains the Navigation and the footer. [Boostrap](https://getbootstrap.com/) framework allows the website to be fully responsive.
 
 ---
 
@@ -103,11 +103,20 @@ _**Login**_ : Here you will be redircted to the Login/Registration page. Its a s
 
 _**Registration**_: Is the same as the Login form but with a Nick name / Username input. Once the username has been added it can not be change.
 
+<details>
+<summary>Navigation</summary>
+
+<p align="center">
+<img src="static/wireframes/nav-bar.png">
+</p>
+
+</details>
+
 ---
 
 #### **All Recipes**
 
-All Recipes is the first page we get to see, All the recipes uploaded by the users are seen here. The page is "Card" based with a 'snap' shot of the details and a web-based image of the dish. The order is newest first by default.
+All recipes is the first page we get to see, All the recipes uploaded by the users are seen here. The page is "Card" based with a 'snap' shot of the details and a web-based image of the dish. The order is newest first by default.
 The design of this is made for browsing, to be scanned over when looking for dinner tonight. Once the recipe is selected, the "Lets Chow" button brings you to the Recipe page.
 
 <details>
@@ -224,9 +233,9 @@ Primary colour ![#e9d9ca](https://placehold.it/15/e9d9ca/000000?text=+) is a sof
 
 #### Images
 
-Images are used extensively in the site. The images we have chosen for the site are themed the same are the colour work well together.
+Images are used extensively in the site. The pictures we have chosen for the site are themed the same are the colour work well together.
 
-The background image is of a country kitchen and has lovely soft colours. A light filter had it fit in the background and not take away from the main content of the webpage.
+The background image has lovely soft colours. A light filter had it fit in the background and not take away from the main content of the webpage.
 
 <details>
 <summary>BackGround Image</summary>
@@ -238,7 +247,7 @@ The background image is of a country kitchen and has lovely soft colours. A ligh
 
 ---
 
-The Header and footer image is of a wooden floor has been adjusted to give it a deep red colour, The colour complement the background image.
+The Header and footer image is of a wooden floor has been adjusted to give it a deep red colour. The colour complement the background image.
 
 <details>
 <summary>Header and Footer Image</summary>
@@ -279,35 +288,43 @@ The Header and footer image is of a wooden floor has been adjusted to give it a 
 
 ## Features
 
-**Key Features:**
+- **Registration:**
+  Anyone can register to use Chow. The email, username and password are required.
 
-- Registortion: anyone can registor to use Chow. The email, username and password is required.
-- Password Encryption: users passwords are secure as they are never sorted in the data base, We use a python libary called [Bcrypt](https://bcrypt-generator.com/) to encrypt the password. We store only the encrypted password. Even if the data base is hacked the password can not be stolen.
-- No Duplicate users. We use the email address to check users login, as emails by nature are unique.
+- **Password Encryption:**
+  Users passwords are secure as they are not sorted in the database, We use a python library called [Bcrypt](https://bcrypt-generator.com/) to encrypt the password. We store only the encrypted password. Even if the database gets hacked, the password can not be stolen.
 
-- Dynamic login/logout menu items. In the navigation header and footer the menu item login and logout changes dynamicly if a user is logged in, or logout.
+- **No Duplicate users:**
+  We use the email address to check users login, as emails by nature are unique.
 
-- Footer login. There is a handy login section in the footer. That is also dynamicly hidden if user is logged in.
+- **Dynamic login/logout menu items:**
+  In the navigation header and footer the menu item login and logout changes dynamically if a user is logged in, or out.
 
-- Only a logged in user may upload a new recipe.
-- Only the user that has uploeaded the recipe may delete it, this is done in two way. By checking to see if the usernam is the same as the uploaser name, and hiding the delete and edit button if not loggin in.
-- Contact Us menu item in the footer will open up the users defalut email client with a reloaded email and subject.
+- **Footer login:**
+  There is a handy login section in the footer. That is also dynamically hidden if the user is logged in.
 
-* Catogery Selet Button. This feature let the user narrow down the list of recipes to choise from.
-* Search Bar. We implemented a search bar to help the user pinpoint a recipe they are after. This works with the name of recipe in question. If there are mulitiple results, a list will be shone.
-* Add Recipe. A logged in use may add a recipe to Chow
-*
+- **User Only CRUD:**
 
-Footer login disapears if user is login in
-My Recipes is only avaible if login in, and only appears if user login in
-can only delete or edit recipes if correct user is loggin
-can search for name of recipe caps insentive
-can add recipe
-can delete recipe
-can select by catogery/chef/serving/
-have the ripple efect to know when user has clicked
+  - Only a logged-in user may upload a new recipe.
 
-### Features Left to Implement
+  - Only the user that has uploaded the recipe may edit or delete it, and this is done by:
+
+    - By checking to see if the username is the same as the username of the uploader.
+    - Hiding the 'Delete' and 'Edit' button if they don't match.
+
+* **Category Select Button:**
+  This lets the user narrow down the list of recipes to browse.
+
+* **Search Bar:**
+  We implemented a search bar to help the user pinpoint a recipe they are after. This works with the name of the recipe. If there are multiple results, a list is shone.
+
+### Future Features
+
+- **A user profile page:** A section that has all the user details
+- **A star rating system:** So if you tried the recipe and liked it you could star rate it to the best-rated recipes would be listed first.
+- **A comments section in the recipes:** A comment section to leave advice or idea to future users.
+- **A users favourite section:** To mark as favours tag so the users may keep a list of all the recipes they enjoyed and want to keep in there profile.
+- **A cloud-based image library:** The user may upload there own images. That gets stored in the cloud-based library. That optimizes the images and speeds up the loading time.
 
 ---
 
@@ -315,9 +332,36 @@ have the ripple efect to know when user has clicked
 
 ## Testing
 
-- I sent it to the Slack Comunity for Feedback.
-- Then I started the Media Query Test and all the Presets in Chrome and Firefox Development tools.
-- Below is a list of devices I tested on with [Website Responsive Testing](Toolresponsivetesttool.com).
+The first phase of testing is a step by step basis. As I implemented a new code I would run the app on my local host with debugger on. If the app loaded I tested it on Chrome Developer tools.
+
+I tested HTML with w3 Validator. The only errors I got where from the [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/) template as are not aroud
+I tested CSS with w3 Validator. I got a few warning and errors with CSS Variables
+
+These errors are an ongoing issue with w3, They are valid, but not recognised by W3.
+CSS variables ("custom properties"), a widely supported and crucial feature.
+The reason I used them is: If I want to change the font s or colours in the future, I would have to change the variables in question for the entire site.
+
+After all the JavaScript was completed, I ran through the code to make sure it was working and smoothly as possible.
+
+Once all the elements were in place and working, I went through all the destinations one by one made sure all the ID's and Google Maps API were all working correctly.
+
+I tested the contact us page to ensure the form linked to the emailjs API and email response is working correctly.
+
+I tested the form for form validation, making sure it displayed an error if a input fields was left blank.
+
+I tested the validation of the email input, to make sure a email address was entered.
+
+I tested the refresh speed to see how fast the page loaded from cached and uncached browsers.
+
+I used the speed variables available on Chrome developers Tools, Slow 3G / Fast 3G / Online. With each speed, I test performance on Image loading time, HTML and CSS loading time, JavaScript and JQaury CDN. Cached and uncached memory.
+
+I used GTmetrix to test how fast the site loaded Report
+
+I sent it to the Slack Comunity for Feedback.
+
+Then I started the Media Query Test and all the Presets in Chrome and Firefox Development tools.
+
+- Below is a list of devices I tested on with [Website Responsive Testing](responsivetesttool.com).
 
  <details>
 <summary>Moblies</summary> 
