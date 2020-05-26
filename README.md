@@ -344,7 +344,8 @@ After all the JavaScript was completed, I ran through the code to make sure it w
 
 I tested all the link to make sure they all worked as intented.
 I tested the CRUD capabilities to make sure they all worked
-I tested
+I tested regerstration and login route.
+
 I tested the contact us link to ensure the correct email and subject would be preloaded.
 
 I tested the forms for form validation, making sure it displayed an error if a input fields did not meet cirteria or left blank.
