@@ -346,6 +346,7 @@ hr {
   border: 1px solid rgb(248, 50, 50);
 }
 
+/* Ripple effect */
 .ripple-surface {
   display: inline-block;
   position: relative;

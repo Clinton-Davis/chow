@@ -4,8 +4,6 @@
 
 ---
 
-added rel="noopener" for sercity
-
 **Chow by Hot Point** is a Web based Cook Book That allows anyone to upload a recipe and share it with the world.
 
 ---
