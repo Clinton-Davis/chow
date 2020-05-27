@@ -93,21 +93,20 @@ def category():
 
     if cat_search == "chef":
         return redirect('chef')
-    elif cat_search == "myrecipes":
-        return redirect('myrecipes')
     elif cat_search == "servings":
         return redirect('servings')
-    if 'username' in session:
-        # This displays the categorys choisen by user
+    else:
+        if 'username' in session:
+            # This displays the categorys choisen by user
+            return render_template("public/all_recipes.html",
+                                   session_name=session['username'],
+                                   recipes=recipes.find({
+                                       'category': cat_search}).sort([(
+                                           'category', -1), ("_id", -1)]))
         return render_template("public/all_recipes.html",
-                               session_name=session['username'],
                                recipes=recipes.find({
                                    'category': cat_search}).sort([(
                                        'category', -1), ("_id", -1)]))
-    return render_template("public/all_recipes.html",
-                           recipes=recipes.find({
-                               'category': cat_search}).sort([(
-                                   'category', -1), ("_id", -1)]))
 
 
 @app.route('/chef')

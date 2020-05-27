@@ -4,7 +4,7 @@
 
 ---
 
-**Chow by Hot Point** is a Web based Cook Book That allows anyone to upload a recipe and share it with the world.
+> **Chow by Hot Point** is a Web based Cook Book That allows anyone to upload a recipe and share it with the world.
 
 ---
 
@@ -168,8 +168,8 @@ All the input will have to be used to add a recipe, there is form validation.
 
 #### **Edit Recipe**
 
-The Edit page is a copy of the add recipe page with a few exception.
-All the inputs have been filled with the values to the recipe so the user only has to change what they want to change. The entire form dont not have to be re-filed.
+The Edit page is a copy of the 'Add Recipe' page with a few exceptions.
+The inputs are filled with the values of the recipe. So the user only has to change what they want to change. The entire form does not have to be re-filed.
 
 <details>
 <summary>Add Recipes Wireframes</summary>
@@ -186,7 +186,7 @@ All the inputs have been filled with the values to the recipe so the user only h
 
 #### **About**
 
-The About page has a center block format with a heading and and information about Chow and HotPoint.
+The About page has a centre block format with a heading and information about Chow and HotPoint.
 
 <details>
 <summary>About Page Wireframes</summary>
@@ -222,7 +222,7 @@ The backup font "Sans-Serif" is the most popular backup in case there is a loadi
 - ![#bdac52](https://placehold.it/15/bdac52/000000?text=+) `rgb(189, 172, 82)` - Supplementary colour 3
 
 The Colour scheme we went for is earthy natural colours. The supplementary colours ![#ba9d81](https://placehold.it/15/ba9d81/000000?text=+) ![#5c493e](https://placehold.it/15/5c493e/000000?text=+) ![#bdac52](https://placehold.it/15/bdac52/000000?text=+) is a mix of colours used in the background image that is throughout the site. The secondary colour ![#72080b](https://placehold.it/15/72080b/000000?text=+) is used for the Header/Navigation and the footer, The colour itself is from a picture of wooden floors that have a deep red varnish and the picture was colour saturated and contrast sharpened to give it a look we whereafter.
-Primary colour ![#e9d9ca](https://placehold.it/15/e9d9ca/000000?text=+) is a soft natural almost skin colour, it contrasts nicely with the text and is used through the site as a background colour,
+Primary colour ![#e9d9ca](https://placehold.it/15/e9d9ca/000000?text=+) is a soft natural almost skin colour, it contrasts nicely with the text and is used through the site as a background colour.
 
 ---
 
@@ -260,22 +260,34 @@ The Header and footer image is of a wooden floor has been adjusted to give it a 
 
 ---
 
-- [HTML 5](https://en.wikipedia.org/wiki/HTML), [CSS 3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets), [Python 3.8](https://code.jquery.com/) ~ core languages used
-- [jQuery 3.5](https://code.jquery.com/)
--
-- [Flask 1.1.2](https://flask-doc.readthedocs.io/en/latest/#)
+##### Core Languages, Frameworks, Editors
+
+- [HTML 5](https://en.wikipedia.org/wiki/HTML) ~ Markup language designed to be displayed in a web browser.
+- [CSS 3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) ~ Style sheet language used for describing the presentation of a document in HTML.
+- [Python 3.8](https://code.jquery.com/) ~ Hight-level, general-purpose programming language.
+- [jQuery 3.5](https://code.jquery.com/) ~ lightweight JavaScript library.
+
+- [Flask 1.1.2](https://flask-doc.readthedocs.io/en/latest/#) ~ Micro web framework.
+
+- [Bootstrap 4.5](https://getbootstrap.com/) ~ Design and customize responsive mobile-first sites.
+
+- [Visual Studio Code](https://code.visualstudio.com/) ~ Code editor redefined and optimized for building and debugging modern web and cloud applecations.
+- [Heroku](https://heroku.com) ~ A cloud based platform as a service enabling deployment of CRUD applications
 
 ##### Third-Party Tools
 
-- [Visual Studio Code](https://code.visualstudio.com/)
-- [GitHub](https://github.com/)
-- [Figma](https://www.figma.com/)
-- [Slack](https://slack.com/intl/en-ie/)
-- [Website Responsive Testing](https://responsivetesttool.com)
-- [W3 Validator](https://validator.w3.org/nu/)
-- [TinyPNG](https://tinypng.com/)
-- [Google Fonts](https://fonts.google.com/)
-- [CSSMatric](https://cssmatic.com/)
+- [Icons - Materialize](https://materializecss.com/icons.html) ~ Material Design icons
+- [GitHub](https://github.com/) ~ Distributed version control and source code management (SCM) functionality of Git, plus its own features.
+- [Git](https://git-scm.com/) ~ Distributed version control system
+- [Figma](https://www.figma.com/) ~ A digital design and prototyping tool. It is a UI and UX design application that you can use it to create websites, apps.
+- [Slack](https://slack.com/intl/en-ie/) ~ A workspaces allow you to organize communications by channels for group discussions and allows for private messages to share information.
+- [Website Responsive Testing](https://responsivetesttool.com) ~ A means of testing the website or URL from different devices.
+- [Pep8online](http://pep8online.com/) ~ PEP 8 is a online Python style guide. It's a set of rules for how to format your Python code.
+- [W3 Validator](https://validator.w3.org/nu/) ~ The Markup Validation Service.
+- [W3C CSS Validation](https://jigsaw.w3.org/css-validator/) ~ A CSS validator checks your Cascading Style Sheets to make sure that they comply with the CSS standards set by the W3 Consortium.
+- [TinyPNG](https://tinypng.com/) ~ A smart lossy compression techniques to reduce the file size of your PNG files.
+- [Google Fonts](https://fonts.google.com/) ~ A library free licensed font families, an interactive web directory for browsing the library.
+- [CSSMatric](https://cssmatic.com/) ~ Automatically generates the code and shows you the effects in real time.
 
 ---
 
@@ -307,11 +319,11 @@ The Header and footer image is of a wooden floor has been adjusted to give it a 
     - By checking to see if the username is the same as the username of the uploader.
     - Hiding the 'Delete' and 'Edit' button if they don't match.
 
-* **Category Select Button:**
-  This lets the user narrow down the list of recipes to browse.
+- **Category Select Button:**
+  Lets the user narrow down the list of recipes to browse.
 
-* **Search Bar:**
-  We implemented a search bar to help the user pinpoint a recipe they are after. This works with the name of the recipe. If there are multiple results, a list is shone.
+- **Search Bar:**
+  We implemented a search bar to help the user pinpoint a recipe they are looking for. The search uses the name of the recipe. If there are multiple results, a list is shone.
 
 ### Future Features
 
@@ -327,30 +339,30 @@ The Header and footer image is of a wooden floor has been adjusted to give it a 
 
 ## Testing
 
-- The first phase of testing is a step by step basis. As I implemented a new code I would run the app on my local host with debugger on. If any of the Flask Route did not work the debugger would catch them.
+- The first phase of testing is a step by step basis. As I implemented a new code, I would run the app on my localhost with the debugger on. If any of the Flask routes did not work, the debugger would catch them.
 
-- If the app loaded I tested it on Chrome and Firefox Developer tools.
+- If the routes loaded, I tested them on Chrome and Firefox Developer Tools.
 
-- I tested HTML with w3 Validator. I got illegal character from [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/) templates. They are acceatable errors as Flask needs the templates to connect through out the site.
-- I tested CSS with w3 Validator. I only got errors with CSS Variables. The reason I use variables in the :root is if the client need to change a 'Font' or 'Background colour', We only have to change it in one place the :root, that changes it everywhere on the site.
-- These errors are an ongoing issue with w3, They are valid, but not recognised by W3.
-- CSS variables ("custom properties"), a widely supported and crucial feature.[CSS-Validator issues 111](https://github.com/w3c/css-validator/issues/111)
+- I tested HTML with w3 Validator. I got an illegal character from [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/) templates. They are acceptable errors as Flask needs the templates to connect throughout the site.
 
-- After all the JavaScript was completed, I ran through the code to make sure it was working and smoothly as possible.
+- I tested CSS with W3 CSS Validator. I only got errors with CSS Variables. The reason I use variables in the `:root`, is if the client needs to change a 'Font' or a 'Background colour', We only have to change it in one place, the `:root`, that changes it everywhere on the site.
+- These errors are an ongoing issue with W3, They are valid, but not recognised by W3. '[CSS variables ("custom properties"), a widely supported and crucial feature.CSS-Validator issues 111](https://github.com/w3c/css-validator/issues/111)'
 
-- I tested all the link to make sure they all worked as intented.
-- I tested the CRUD capabilities to make sure they all worked
-- I tested regerstration and login route.
+- After the [jQuery](https://code.jquery.com/) was completed, I ran through the code to make sure it was working.
 
-- I tested the contact us link to ensure the correct email and subject would be preloaded.
+- I tested all the link to make sure they all worked as intended.
 
-- I tested the forms for form validation, making sure it displayed an error if a input fields did not meet cirteria or left blank.
+- I tested the CRUD capabilities to make sure they all worked.
+
+- I tested the registration and login route.
+
+- I tested the 'Contact Us' link to ensure the correct email and subject are preloaded into the user email client.
+
+- I tested the forms for form validation, making sure it displayed the Error message if input fields do not meet criteria.
 
 - I sent it to the Slack Comunity for Feedback.
 
-- Then I started the Media Query Test and all the Presets in Chrome and Firefox Development tools.
-
-- Below is a list of devices I tested on with [Website Responsive Testing](responsivetesttool.com).
+- I run the application through [Website Responsive Testing](https://responsivetesttool.com) to make sure it is responsive. Below is a list of devices:
 
  <details>
 <summary>Moblies</summary> 
@@ -414,12 +426,12 @@ The Header and footer image is of a wooden floor has been adjusted to give it a 
 
 ## Bugs :beetle:
 
-**Being able to login with dirrereant username.**
-The first way I had it set up was, on regerstration the username / email and password where loged to the database. When the user login in again, only the email was checked for duplets. The problem I had was the user could login with the right email and password but wrong username.
-Upone adding a new recipe, the recipes are tagged with the username from session. Meaning if the user logged in with a differant username but correct email and password, they could be loggin but not edit/delete there recipe.
-My first fix was to add the username input on the login page and have the username from the form checked with the username from the database. But this adds another input is not good UX
+**Being able to login with a different username.**
+The first way I had it set up was, on registration the username/email and password got logged to the database. When the user login in again, only the email was checked for duplets. The problem I had was the user could log in with the right email and password but wrong username.
+Upon adding a new recipe, the recipes get tagged with the username from `Sessions`, which means if the user logged in with a different username but correct email and password, they could be logged in but not edit/delete their recipe.
+My first fix was to add the username input on the login page and have the username from the form checked with the username from the database. But this adds another input is not good UX.
 
-- To fixed this bug was I took away the option for the user to get the username wrong on login. Once the email and passwords are check, sessions is created using the stored username. Fixing the UX problem at the same time.
+> To fix this bug, I took away the option for the user to get the username wrong on login. Once the email and passwords get checked, `Sessions` is created using the stored username. Fixing the UX problem at the same time.
 
 ```python
 login_user = users.find_one({'email': request.form['userEmail']})
@@ -429,14 +441,14 @@ session['logged_in'] = True
 ```
 
 **Case Sensitivity**
-In my testing I fond that users are use capital letter when emtering there emails addressess, this causes a issue if we need to use there emails later on.
+In my testing, I found that users are using capital letter when entering their emails addresses, this causes an issue if we need to use their emails later on.
 
-- I used the `.lower()` method to keep all email in lower case
+> I used the `.lower()` method to keep all email in lower case
 
 **Search Bar case sensitivity**
-I had a bug with the search bar not being able to pick out the words in a search, because `$regex` looks for a identical match making it case sensitive.
+I had a bug with the search bar not being able to pick out the words in a search, because `$regex` looks for identical matchmaking it case sensitive.
 
-- My fix was to add the optinal `$options` to the query, using the `'i'` makes it case-insensitive.
+> My fix was to add the optional `$options` to the query, using the `'i'` makes it case-insensitive.
 
 ```python
 recipes = list(mongo.db.recipes.find({
@@ -444,7 +456,19 @@ recipes = list(mongo.db.recipes.find({
 
 ```
 
-chefs and servings and catogerys
+:point_left:
+I had a issue with using `<a>`(hyperlink tags) in the catogerys drop down menu in the Nav Bar, becuase it uses `href`. The only way to get it into flask is with [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/) `{{url_for}}` and could not pass through a `value` for each item. `<a>` Do not support the `value` atereboot. I would have to make a differant route for every catogery listed. I wanted to include 'Chefs and Servings' into the drop down menu. Giveing the user a couple more sorting options.
+
+> I decided to go with a form drop down menu with a `select` and `options`. this way I would only need 3 route: one for the catogerys, one for 'Chefs', and one Servings.
+> To get the Chefs and Sevings I used a `if` statment to check if 'chef' or 'servings' where selected, and sent to the right route. The `else` of the statment would go to the 'catorgerys' route.
+
+```python
+if cat_search == "chef":
+   return redirect('chef')
+elif cat_search == "servings":
+   return redirect('servings')
+
+```
 
 <a name="deployment"></a>
 
