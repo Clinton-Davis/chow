@@ -4,7 +4,7 @@
 
 ---
 
-> **Chow by Hot Point** is a Web based Cook Book That allows anyone to upload a recipe and share it with the world.
+> **Chow by HotPoint** is a Web based Cook Book That allows anyone to upload a recipe and share it with the world.
 
 ---
 
@@ -15,8 +15,6 @@
 [![Generic badge](https://img.shields.io/badge/live_Demo-Here-<>.svg)](https://chow-flask-mongodb.herokuapp.com/all_recipe)
 
 ---
-
-<a name="toc"></a>
 
 ## Table of Contents
 
@@ -29,12 +27,9 @@
 7. [**Testing**](#testing)
 8. [**Bugs**](#bugs)
 9. [**Deployment**](#deployment)
-10. [**Credits**](#credits)
-11. [**Acknowledgements**](#acknowledgements)
+10. [**Credits & Acknowledgements**](#credits)
 
 ---
-
-<a name="ux"></a>
 
 ## UX
 
@@ -52,11 +47,9 @@ My directive was to make an on line cookbook that users could find and share rec
 
 ---
 
-<a name="scope"></a>
+[Back to Top](#table-of-contents)
 
 ## Scope
-
----
 
 **Chow by HotPoint** is a web-based cookbook that lets the public browse and uses recipes that users have uploaded. Anyone can choose a recipe and get a list of ingredients and cooking instruction. If the public would like to contribute to the collection, they would have to become a user.
 To become a user, you would have to register. Once registered, you would be able to use the service. The user can keep a collection of there own with full editing or delete capabilities.
@@ -67,7 +60,7 @@ The Client HotPoint, has a wide range of products that cover all things a house 
 
 ---
 
-<a name="structure"></a>
+[Back to Top](#table-of-contents)
 
 ## Structure
 
@@ -198,6 +191,8 @@ The About page has a centre block format with a heading and information about Ch
 
 ---
 
+[Back to Top](#table-of-contents)
+
 ## Surface
 
 #### Fonts
@@ -254,11 +249,9 @@ The Header and footer image is of a wooden floor has been adjusted to give it a 
 
 ---
 
-<a name="technologies"></a>
+[Back to Top](#table-of-contents)
 
 ## Technologies
-
----
 
 ##### Core Languages, Frameworks, Editors
 
@@ -276,6 +269,8 @@ The Header and footer image is of a wooden floor has been adjusted to give it a 
 
 ##### Third-Party Tools
 
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) ~ MongoDB Atlas is the global cloud database service for modern applications.
+
 - [Icons - Materialize](https://materializecss.com/icons.html) ~ Material Design icons
 - [GitHub](https://github.com/) ~ Distributed version control and source code management (SCM) functionality of Git, plus its own features.
 - [Git](https://git-scm.com/) ~ Distributed version control system
@@ -291,7 +286,7 @@ The Header and footer image is of a wooden floor has been adjusted to give it a 
 
 ---
 
-<a name="features"></a>
+[Back to Top](#table-of-contents)
 
 ## Features
 
@@ -335,7 +330,7 @@ The Header and footer image is of a wooden floor has been adjusted to give it a 
 
 ---
 
-<a name="testing"></a>
+[Back to Top](#table-of-contents)
 
 ## Testing
 
@@ -422,9 +417,9 @@ The Header and footer image is of a wooden floor has been adjusted to give it a 
 
 ---
 
-<a name="bugs"></a>
+[Back to Top](#table-of-contents)
 
-## Bugs :beetle:
+## Bugs
 
 **Being able to login with a different username.**
 The first way I had it set up was, on registration the username/email and password got logged to the database. When the user login in again, only the email was checked for duplets. The problem I had was the user could log in with the right email and password but wrong username.
@@ -456,11 +451,11 @@ recipes = list(mongo.db.recipes.find({
 
 ```
 
-:point_left:
-I had a issue with using `<a>`(hyperlink tags) in the catogerys drop down menu in the Nav Bar, becuase it uses `href`. The only way to get it into flask is with [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/) `{{url_for}}` and could not pass through a `value` for each item. `<a>` Do not support the `value` atereboot. I would have to make a differant route for every catogery listed. I wanted to include 'Chefs and Servings' into the drop down menu. Giveing the user a couple more sorting options.
+**Category Drop-Down Menu**
+I had an issue with using `<a>`(hyperlink tags) in the category drop-down menu in the Navigation bar because it uses `href`. The only way to get it into flask is with [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/) `{{url_for}}` and could not pass through a `value` for each item. `<a>` Do not support the `value` attribute. I would have to take a different route for every category listed. I wanted to include 'Chefs and Servings' into the drop-down menu. Giving the user a couple more sorting options.
 
-> I decided to go with a form drop down menu with a `select` and `options`. this way I would only need 3 route: one for the catogerys, one for 'Chefs', and one Servings.
-> To get the Chefs and Sevings I used a `if` statment to check if 'chef' or 'servings' where selected, and sent to the right route. The `else` of the statment would go to the 'catorgerys' route.
+> I decided to go with a form drop-down menu with a `select` and `options`. This way I would only need 3 route: one for the category, one for 'Chefs', and one for Servings.
+> To check if Chefs and Servings were selected. I used an `if` statement to select to the right route. The `else` of the statement would go to the category's route.
 
 ```python
 if cat_search == "chef":
@@ -470,7 +465,14 @@ elif cat_search == "servings":
 
 ```
 
-<a name="deployment"></a>
+**Rendering HTML tags instead of plain text**
+I issue I had with using the [CKEditor](https://ckeditor.com/) is that it uses HTML to keep the structure you have used when editing text in it. When recalling the edited text back to be displayed. it was rendering the HTML with tags and not plain text.
+
+> My fix was to use the {{  |safe }} in the Jinja2 template.
+
+---
+
+[Back to Top](#table-of-contents)
 
 ## Deployment
 
@@ -480,25 +482,39 @@ Heroku is a container-based cloud Platform as a Service (PaaS). I used it becaus
 
 ### To deploy on Heroku
 
-1. Open Heroku.  
-   The Heroku CLI requires Git, the popular version control system. If you don’t already have Git installed, complete the following before proceeding: - [Git installation](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) - [First-time Git setup](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup)
+<details>
+<summary>Heroku Deployment Steps</summary>
+<br>
+<ol>
+<li> Open Heroku.  
+   The Heroku CLI requires Git, the popular version control system. If you don’t already have Git installed, complete the following before proceeding: - [Git installation](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) - [First-time Git setup](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup)</li>
 
-2. Install the Heroku Command Line Interface (CLI). You use the CLI to manage and scale your applications, provision add-ons, view your application logs, and run your application locally.
+<li> Install the Heroku Command Line Interface (CLI). You use the CLI to manage and scale your applications, provision add-ons, view your application logs, and run your application locally.</li>
 
-3. Create an account and navigate to dashdashboard.
-   Click on the _New_ buttun.
-   Click - _Create New App_.
+<li> Create an account and navigate to dash dashboard.
+   Click on the _New_ button.
+   Click - _Create New App_.</li>
 
-4. Create a corresponding app name that we will use to deploy our application. The apps _name_ must be _unique._.
-   Pick a server location what is closest to you.
+<li> Create a corresponding app name that we use to deploy our application. The apps _name_ must be _unique._.</li>
+<li> Pick a server location what is closest to you.</li>
 
-5. In your Terminal. Navigate to you directory using the cd(filename)
+<li> In your Terminal. Navigate to you directory using.</li>
+<li> Login to Heroku using the Terminal `$ heroku login`</li>
 
+<li> Create a requirements.txt file: `$ pip3 freeze --local > requirements.txt.`</li>
+
+<li> Create Procfile: `$ echo web: python app.py > Procfile`</li>
+
+<li> Add files to Git: `$ git add .` then `git commit -m 'Added reuirements.txt and Procfile'`</li>
+
+<li> Push to Heroku: `$ git push heroku master`</li>
+<li> Go back to Heroku dashboard and click on the apps name, then on the 'settings' Tab.</li>
+<li> Specify our IP and our port using the 'Reveal Config Vars'</li>
 </ol>
 </details>
-<br>
+
 <details>
-<summary>Clone to a work station
+<summary>Clone to a work station</summary>
 <br>
 <ol>
 <li>On GitHub, navigate to the main page of the repository.</li>
@@ -514,76 +530,33 @@ Heroku is a container-based cloud Platform as a Service (PaaS). I used it becaus
 
 ---
 
-<a name="Credits"></a>
+[Back to Top](#table-of-contents)
 
 ## Credits
 
-##### Design:
+##### Code Tutorials
 
-The concept and design by Clinton Davis
-
-##### Content
-
-The destinations websites supply the information on the destinations, with some additional information by Google Maps and Lonely Planet guide books.<br>
-90% of the code for the Google Maps API supplied by Google Maps Documentation.<br>
-Weather API code inspired by Code Ins Star wars API from code Star Wars project.
+- [Julian Nash](https://www.youtube.com/channel/UC5_oFcBFlawLcFCBmU7oNZA) ~ YouTube
+- [Pretty Printed](https://www.youtube.com/channel/UC-QDfvrRIDB6F0bIO4I4HkQ) ~ YouTube
+- John Elder ~ [Codemy](https://codemy.com/about/)
+- Febin George ~ [Udemy](https://www.udemy.com/)
+- Anthony Ngene ~ Code Institute ~ Mentor
+- Leonardo Monteiro Fernandes ~ [Ripple Effect](https://medium.com/@leonardo.monteiro.fernandes/css-techniques-for-material-ripple-effect-3f0ece3062a0)
 
 ##### Media
 
-#####[Shutterstock](https://www.shutterstock.com/home)
-[CC licences](https://en.wikipedia.org/wiki/Creative_Commons_license) or paid Standard licences.
+[Unsplash](https://unsplash.com/) ~ The internet’s source of freely-usable images.
 
-- Aerial view of Cape peninsula, Cape Town, South Africa [wolffpower](https://www.shutterstock.com/image-photo/aerial-view-cape-peninsula-town-south-635476499)<br>
-- Sunny background, blue sky with white clouds By [cobalt88](https://www.shutterstock.com/image-photo/sunny-background-blue-sky-white-clouds-1431741758)<br>
-- Intense sunset with silver lining and cloud on the orange sky By [C_Atta](https://www.shutterstock.com/image-photo/gorgeous-panorama-scenic-strong-sunrise-silver-1018650376)
-- Blue ocean waves By [Photo Junction](https://www.shutterstock.com/image-photo/blue-ocean-waves-1166741512)
-
-All destination images have been supplied by Google Maps or their own webpages.
-
-<a name="acknowledgements"></a>
-
-### Acknowledgements
-
-I would like to Thank Anthony Ngene, my mentor, for help with my coding and inspiring me. <br>
-For the use of code and knowledge.
-
-- [YouTube - Kevin Powell](https://www.youtube.com/user/KepowOb) for code snippets and know how.<br>
-- [YouTube - Dev Ed](https://www.youtube.com/channel/UClb90NQQcskPUGDIXsQEz5Q) for code snippets and know how
-- [dcode](https://www.youtube.com/channel/UCjX0FtIZBBVD3YoCcxnDC4g) for help with MutationObserver in JavaScript.
-- [Scrimba - The Responsive Web Design Bootcamp](https://scrimba.com/)
-- [Google Maps Platform Documentation](https://developers.google.com/maps/documentation/javascript/tutorial) for a lot of help with getting it to work.
-- [CSS-Tricks](https://css-tricks.com/) website for good ideas and work arounds.<br>
-- [W3Schools](https://www.w3schools.com/) for code snippets and documentation with [Creating Modal,](https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp) and general research on HTML CSS and JavaScript.
-- [CSSMatric](https://cssmatic.com/) for Box Shadow Generator and Gradient Generator <br>
-- [GitHub](https://github.com/) for documentation on how to [How to Clone Repository](https://bit.ly/32Emdbc).
-- [Google Fonts](https://fonts.google.com/) for fonts.
-- [Slack](https://slack.com/intl/en-ie/) community for Testing / Encouragement / Code Snippets and pointers.<br>
+- [Luca Ruegg](https://unsplash.com/s/photos/luca-ruegg)
+- [Andy Chilton](https://unsplash.com/s/photos/andy-chilton)
 
 ---
 
-[Back to top ](#toc)
+#### Acknowledgements and Special Thanks
 
-## MS3
+To everyone in Slack, especially how helped me figure the Virtual Environment. My Mentor Anthony Ngene, for pushing me.
+Thank you.
 
-Features:
-Register
-login
-you can browes the menus with out logging in but if you want to add/delet/edit a recpie you have to first login.
+###### <i>Disclaimer: This project was created for educational use only as part of the Code Institute Full Stack Software Development Course for Milestone 3!</i>
 
-media:
-Placeholder food image: Photo by Lily Banse on Unsplash
-
-BUGS
-Not Rendering html fix using the safe filter |
-not getting the sessins to show on each page
-
-Ripple:
-https://medium.com/@leonardo.monteiro.fernandes/css-techniques-for-material-ripple-effect-3f0ece3062a0
-
-Pretty Printed
-https://www.youtube.com/channel/UC-QDfvrRIDB6F0bIO4I4HkQ
-
-Getting into Vertial env
-$ source venv/Scripts/activate
-Run app
-$ python app.py
+[Back to Top](#table-of-contents)
