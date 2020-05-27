@@ -1,6 +1,6 @@
 # Chow by HotPoint
 
-## Data Centric Development - Code institute
+## <i> Data Centric Development - Code institute
 
 ---
 
