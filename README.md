@@ -4,7 +4,7 @@
 
 ---
 
-> **Chow by HotPoint** is a Web based Cook Book That allows anyone to upload a recipe and share it with the world.
+> **Chow by HotPoint** is a Web based cook book that allows anyone to upload a recipe and share it with the world.
 
 ---
 
@@ -33,17 +33,17 @@
 
 ## UX
 
-My directive was to make an on line cookbook that users could find and share recipes, at the same time promote the Hotpoint brand. All the tools nedded to cook all the recipes the user can get from HotPoint.
+My directive was to make an online cookbook that users could find and share recipes, at the same time promoting the Hotpoint brand. The main focus is on 'recipes' and associating Chow and Hotpoint with good food. Hotpoint wants Chow to have a warm, cosy, country kitchen feel. Some pictures of there products, where possible. But selling is not the main focus.
 
 ### User Stories
 
-1. I would like to be able to look up recipes I like from the Chefs I like.
+1. I would like to be able to look up recipes from my favourite chefs.
 
-2. I would like to have all of my recipes I like in one place.
+2. I would like to have all of my recipes in one place.
 
-3. I would also like to be able to edit them if I like on the app.
+3. I would also like to be able to edit them if on the app.
 
-4. I would like to have my friends and family share our recipe we like so we can all enjoy them.
+4. I would like to have my friends and family share our recipies we like so we can all enjoy them.
 
 ---
 
@@ -51,12 +51,12 @@ My directive was to make an on line cookbook that users could find and share rec
 
 ## Scope
 
-**Chow by HotPoint** is a web-based cookbook that lets the public browse and uses recipes that users have uploaded. Anyone can choose a recipe and get a list of ingredients and cooking instruction. If the public would like to contribute to the collection, they would have to become a user.
-To become a user, you would have to register. Once registered, you would be able to use the service. The user can keep a collection of there own with full editing or delete capabilities.
+**Chow by HotPoint** is a web-based cookbook that allows the public to browse through user uploaded recipies. Anyone can choose a recipe and get a list of ingredients and cooking instruction. If the public would like to contribute to the collection, they would have to become a user.
+To become a user, you would have to register. Once registered, the user can keep a collection of their own with full editing or delete capabilities.
 
-The web app is made using [Python](https://www.python.org/)and [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) as the main logical languages [Flask](<https://en.wikipedia.org/wiki/Flask_(web_framework)>) and [Boostrap](https://getbootstrap.com/) Frameworks with [Mongodb](https://www.mongodb.com/) Altes for the database.
+The web app is made using [Python](https://www.python.org/) and [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) as the main logical languages [Flask](<https://en.wikipedia.org/wiki/Flask_(web_framework)>) and [Boostrap](https://getbootstrap.com/) Frameworks with [Mongodb Altas](https://www.mongodb.com/) for the database.
 
-The Client HotPoint, has a wide range of products that cover all things a house should have, As the heart of every home is the kitchen. Here is there focus on Chow. The logo is in the main title, On every page. Pictures of the products have been strategically placed throughout the site, with links to their website.
+The client, HotPoint, has a wide range of products that cover all things a house should have. At the heart of every home is the kitchen. This is 'Chows' focus. The logo "Chow by Hotpoint" is the main title. It will be on every page. Pictures of the products will be strategically placed throughout the site, with links to their main product selling website.
 
 ---
 
@@ -70,22 +70,22 @@ There are five main pages, two error handing pages and one 'Base' page. Because 
 
 #### **Navigation**
 
-In the section of the head, On the left hand side you see the Logo. It is made with two parts. The Chow is clickable and will refresh the page for you. The second part, is the HotPoint logo wich is also clickable and will direct you to the Hot Point web page.
-On the left of that are the navigate. Here are the direct link to _catergory drop down menu / Add Recipe / About / Login / Search bar_.
+On the left hand side you see the Logo. It is made with two parts. The 'Chow' image and the 'HotPoint' logo. The 'Chow' image is clickable and will refresh the page. The 'HotPoint' logo is also clickable and will redirect you to the Hot Point web page.
+On the right are the navigate buttons. _Catergory drop down menu / Add Recipe / About / Login / Search bar_.
 
-_**Catergory drop down menu**_: Is a list of catergorys to choose from.
+_**Catergory drop down menu**_: Is a list of catergories to choose from.
 
-- _**Categories**_ When clicked, only the recipes in that catergory will be shown. When Click with out a category selected. A list of all the recipes will be shown in order from newest to oldest.
-- _**Chefs**_ (Aurthers of the recipes)This will show all the Chefs in alphabetical order.
-- _**Serving**_ This will show the recipes in order of serving size from smallest to largest.
+- _**Categories**_ Only the recipes in that catergory will be shown. If no category is selected, a list of all the recipes will be shown in order from newest to oldest.
+- _**Chefs**_ (Authors of the recipes)This will show all the chefs in alphabetical order.
+- _**Serving**_: This will show the recipes in order of serving size from smallest to largest.
 
-_**Add Recipe**_: This will redirct you to the add recipe page if you are login in, other wise if will redirct you to the login in page, if the user has not registered with Chow before, ther is a link to do so in the login page.
+_**Add Recipe**_: This will redirct you to the add recipe page if you are logged in, other wise if will redirct you to the login in page. If the user has not registered with Chow before, there is a link to do so in the login page.
 
-_**About**_: Click on this will send the user to a page with a discription of the Chow and HotPoint. There are two button, Go Back or learn more.
+_**About**_: This will send the user to a page with a description of Chow and HotPoint. There are two button, 'Go Back' or 'Learn More'.
 
 - Go Back - will bring you back to Chow main page
 
-- Learn More - Will redirct you to Hot Points main web page
+- Learn More - Will redirct you to Hot Point's main web page
 
 _**Login**_ : Here you will be redircted to the Login/Registration page. Its a simple form where the user email and password are required.
 
@@ -104,7 +104,7 @@ _**Registration**_: Is the same as the Login form but with a Nick name / Usernam
 
 #### **All Recipes**
 
-All recipes is the first page we get to see, All the recipes uploaded by the users are seen here. The page is "Card" based with a 'snap' shot of the details and a web-based image of the dish. The order is newest first by default.
+All Recipes is the first page we get to see, all the recipes uploaded by the users are seen here. The page is "Card" based with a 'snap shot' of the details and a web-based image of the dish. The order is newest first by default.
 The design of this is made for browsing, to be scanned over when looking for dinner tonight. Once the recipe is selected, the "Lets Chow" button brings you to the Recipe page.
 
 <details>
@@ -122,11 +122,11 @@ The design of this is made for browsing, to be scanned over when looking for din
 
 #### **Recipe**
 
-The recipe page is a center block format with all the details of the recipe.
-The name with a short description and dish image.
-Here you will find all the details you will need to make the dish.
-A list of all the Ingreadients and Cooking instruction neatly laid out and easy to read.
-It is from here you will be given the option to edit or delete a recipe. Only if you are the uploader of the recipe.
+The recipe page is a center block format with all the details of the recipe,
+the name with a short description and dish image.
+Here you will find all the details you will need to make the dish,
+a list of all the Ingredients and cooking instructions neatly laid out and easy to read.
+It is from here you will be given the option to edit or delete a recipe. If you are the uploader of the recipe.
 
 <details>
 <summary>Recipes Wireframes</summary>
@@ -143,8 +143,8 @@ It is from here you will be given the option to edit or delete a recipe. Only if
 
 #### **Add Recipe**
 
-This page is of a form formate has all the inputs you will need to upload a great recipe. We have incorperated a text editor called [CKEditor](https://ckeditor.com/) to help with keeping it very neat and ordered.
-All the input will have to be used to add a recipe, there is form validation.
+This page is a form formate it has all the inputs you will need to upload a recipe. We have incorporated a text editor called [CKEditor](https://ckeditor.com/) to help with keeping it very neat and ordered.
+All the input will have to be used to add a recipe; there is form validation.
 
 <details>
 <summary>Add Recipes Wireframes</summary>
@@ -162,7 +162,7 @@ All the input will have to be used to add a recipe, there is form validation.
 #### **Edit Recipe**
 
 The Edit page is a copy of the 'Add Recipe' page with a few exceptions.
-The inputs are filled with the values of the recipe. So the user only has to change what they want to change. The entire form does not have to be re-filed.
+The inputs are filled with the values of the recipe. So the user only has to change what they want to change. The entire form does not have to be refilled.
 
 <details>
 <summary>Add Recipes Wireframes</summary>
