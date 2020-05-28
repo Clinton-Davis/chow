@@ -33,7 +33,7 @@
 
 ## UX
 
-My directive was to make an online cookbook that users could find and share recipes, at the same time promoting the Hotpoint brand. The main focus is on 'recipes' and associating Chow and Hotpoint with good food. Hotpoint wants Chow to have a warm, cosy, country kitchen feel. Some pictures of there products, where possible. But selling is not the main focus.
+My directive was to make an online cookbook that users could find and share recipes, at the same time promoting the Hotpoint brand. The main focus is on 'recipes' and associating Chow and Hotpoint with good food. Hotpoint wants Chow to have a warm, cosy, country kitchen feel. Some pictures of their products, where possible. But selling is not the main focus.
 
 ### User Stories
 
@@ -56,7 +56,7 @@ To become a user, you would have to register. Once registered, the user can keep
 
 The web app is made using [Python](https://www.python.org/) and [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) as the main logical languages [Flask](<https://en.wikipedia.org/wiki/Flask_(web_framework)>) and [Boostrap](https://getbootstrap.com/) Frameworks with [Mongodb Altas](https://www.mongodb.com/) for the database.
 
-The client, HotPoint, has a wide range of products that cover all things a house should have. At the heart of every home is the kitchen. This is 'Chows' focus. The logo "Chow by Hotpoint" is the main title. It will be on every page. Pictures of the products will be strategically placed throughout the site, with links to their main product selling website.
+The client, HotPoint, has a wide range of products that cover all things a house should have. At the heart of every home is the kitchen. This is 'Chows' focus. The logo "Chow by Hotpoint" is the main title. It will be on every page. Pictures of the products will be strategically placed throughout the site, with links to HotPoint's main product website.
 
 ---
 
@@ -64,32 +64,32 @@ The client, HotPoint, has a wide range of products that cover all things a house
 
 ## Structure
 
-There are five main pages, two error handing pages and one 'Base' page. Because we are using [Flask](<https://en.wikipedia.org/wiki/Flask_(web_framework)>) we are able to utlise the [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/) templating lanuguage. Therefore the 'Base' page is the same in all pages in the site. This is the reason it contains the Navigation and the footer. [Boostrap](https://getbootstrap.com/) framework allows the website to be fully responsive.
+There are five main pages, two error handling pages and one 'Base' page. Using [Flask](<https://en.wikipedia.org/wiki/Flask_(web_framework)>) we are able to utlise the [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/) templating lanuguage. Therefore the 'Base' page is the same in all pages on the site. This is the reason it contains the Navigation and the footer. [Boostrap](https://getbootstrap.com/) framework allows the website to be fully responsive.
 
 ---
 
 #### **Navigation**
 
-On the left hand side you see the Logo. It is made with two parts. The 'Chow' image and the 'HotPoint' logo. The 'Chow' image is clickable and will refresh the page. The 'HotPoint' logo is also clickable and will redirect you to the Hot Point web page.
-On the right are the navigate buttons. _Catergory drop down menu / Add Recipe / About / Login / Search bar_.
+On the left hand side you see the Logo. It is made with two parts. The 'Chow' image and the 'HotPoint' logo. The 'Chow' image is clickable and will refresh the page. The 'HotPoint' logo is also clickable and will redirect you to the Hot Point web site.
+On the right are the navigate buttons. _Category drop down menu / Add Recipe / About / Login / Search bar_.
 
-_**Catergory drop down menu**_: Is a list of catergories to choose from.
+_**Category drop down menu**_: Is a list of categories to choose from.
 
-- _**Categories**_ Only the recipes in that catergory will be shown. If no category is selected, a list of all the recipes will be shown in order from newest to oldest.
+- _**Categories**_ Only the recipes in that category will be shown. If no category is selected, a list of all the recipes will be shown in order from newest to oldest.
 - _**Chefs**_ (Authors of the recipes)This will show all the chefs in alphabetical order.
 - _**Serving**_: This will show the recipes in order of serving size from smallest to largest.
 
 _**Add Recipe**_: This will redirct you to the add recipe page if you are logged in, other wise if will redirct you to the login in page. If the user has not registered with Chow before, there is a link to do so in the login page.
 
-_**About**_: This will send the user to a page with a description of Chow and HotPoint. There are two button, 'Go Back' or 'Learn More'.
+_**About**_: This will send the user to a page with a description of Chow and HotPoint. There are two buttons, 'Go Back' or 'Learn More'.
 
 - Go Back - will bring you back to Chow main page
 
-- Learn More - Will redirct you to Hot Point's main web page
+- Learn More - will redirct you to Hot Point's main web site
 
 _**Login**_ : Here you will be redircted to the Login/Registration page. Its a simple form where the user email and password are required.
 
-_**Registration**_: Is the same as the Login form but with a Nick name / Username input. Once the username has been added it can not be change.
+_**Registration**_: Is the same as the Login form but with a Nick name / Username input. Once the username has been added it can not be changed.
 
 <details>
 <summary>Navigation</summary>
@@ -125,7 +125,7 @@ The design of this is made for browsing, to be scanned over when looking for din
 The recipe page is a center block format with all the details of the recipe,
 the name with a short description and dish image.
 Here you will find all the details you will need to make the dish,
-a list of all the Ingredients and cooking instructions neatly laid out and easy to read.
+a list of all the ingredients and cooking instructions neatly laid out and easy to read.
 It is from here you will be given the option to edit or delete a recipe. If you are the uploader of the recipe.
 
 <details>
@@ -202,7 +202,7 @@ The About page has a centre block format with a heading and information about Ch
 - [Baloo Chetten 2](https://fonts.google.com/specimen/Baloo+Chettan+2?query=Baloo) - Supplementary Font
 
 The primary font <a href="https://fonts.google.com/specimen/Montserrat?query=montserrat">Montserrat</a> is in the body of all pages. I chose it because of its readability and accessibility. It complements the secondary font.
-The Secondary is <a href="https://fonts.google.com/specimen/Lobster?query=lob">Lobster</a> is in the Heading and buttons, It is a big font with a very open face, has a good readability and fits the look we wanted.
+The Secondary is <a href="https://fonts.google.com/specimen/Lobster?query=lob">Lobster</a> is in the Heading and buttons, it is a big font with a very open face, has good readability and fits the look we wanted.
 The supplementary font <a href="https://fonts.google.com/specimen/Baloo+Chettan+2?query=Baloo">Baloo Chetten 2</a> is the clients logo font.
 The backup font "Sans-Serif" is the most popular backup in case there is a loading issue the web page always has a font.
 
@@ -216,8 +216,8 @@ The backup font "Sans-Serif" is the most popular backup in case there is a loadi
 - ![#5c493e](https://placehold.it/15/5c493e/000000?text=+) `rgb(92, 73, 62)` - Supplementary colour 2
 - ![#bdac52](https://placehold.it/15/bdac52/000000?text=+) `rgb(189, 172, 82)` - Supplementary colour 3
 
-The Colour scheme has earthy natural colours. The supplementary colours ![#ba9d81](https://placehold.it/15/ba9d81/000000?text=+) ![#5c493e](https://placehold.it/15/5c493e/000000?text=+) ![#bdac52](https://placehold.it/15/bdac52/000000?text=+) are a mix of colours used in the background image that is throughout. The secondary colour ![#72080b](https://placehold.it/15/72080b/000000?text=+) is used for the Header/Navigation and the footer, the colour itself is from a picture of wooden floorboards that have had a deep red varnish and the picture was colour saturated and contrast sharpened to give it a look we whereafter.
-Primary colour ![#e9d9ca](https://placehold.it/15/e9d9ca/000000?text=+) is a soft natural almost skin colour, it contrasts nicely with the text and is used as a background colour.
+The Colour scheme has earthy natural colours. The supplementary colours ![#ba9d81](https://placehold.it/15/ba9d81/000000?text=+) ![#5c493e](https://placehold.it/15/5c493e/000000?text=+) ![#bdac52](https://placehold.it/15/bdac52/000000?text=+) are a mix of colours used in the background image that is throughout. The secondary colour ![#72080b](https://placehold.it/15/72080b/000000?text=+) is used for the Header/Navigation and the footer, the colour itself is from a picture of wooden floorboards that have had a deep red varnish and the picture was colour saturated and contrast sharpened to give it a look we were after.
+Primary colour ![#e9d9ca](https://placehold.it/15/e9d9ca/000000?text=+) is a soft neutral colour. It contrasts nicely with the text and is used as a background colour.
 
 ---
 
@@ -237,7 +237,7 @@ The background image is a country kitchen. We added a light filter to it, so it 
  
 ---
  
-The Header and footer image of a wooden floor has been adjusted to give it a deep red colour. The colour complements the background image.
+The Header and Footer image of a wooden floor has been adjusted to give it a deep red colour. The colour complements the background image.
  
 <details>
 <summary>Header and Footer Image</summary>
@@ -275,7 +275,7 @@ The Header and footer image of a wooden floor has been adjusted to give it a dee
 - [GitHub](https://github.com/) ~ Distributed version control and source code management (SCM) functionality of Git, plus its own features.
 - [Git](https://git-scm.com/) ~ Distributed version control system
 - [Figma](https://www.figma.com/) ~ A digital design and prototyping tool. It is a UI and UX design application that you can use to create websites, apps.
-- [Slack](https://slack.com/intl/en-ie/) ~ A workspaces allow you to organize communications by channels for group discussions and allows for private messages to share information.
+- [Slack](https://slack.com/intl/en-ie/) ~ A workspaces allowing you to organize communications by channels for group discussions and allows for private messages to share information.
 - [Website Responsive Testing](https://responsivetesttool.com) ~ A means of testing the website or URL from different devices.
 - [Pep8online](http://pep8online.com/) ~ PEP 8 is a online Python style guide. It's a set of rules for how to format your Python code.
 - [W3 Validator](https://validator.w3.org/nu/) ~ The Markup Validation Service.
@@ -294,7 +294,7 @@ The Header and footer image of a wooden floor has been adjusted to give it a dee
   Anyone can register to use Chow. Email, username and password are required.
  
 - **Password Encryption:**
-  Users passwords are secure as they are not sorted in the database, We use a python library called [Bcrypt](https://bcrypt-generator.com/) to encrypt the password. We store only the encrypted password. Even if the database gets hacked, the password can not be stolen.
+  Users passwords are secure as they are not stored in the database, We use a Python library called [Bcrypt](https://bcrypt-generator.com/) to encrypt the password. We store only the encrypted password. Even if the database gets hacked, the password can not be stolen.
  
 - **No Duplicate users:**
   We use the email address to check users' login, as emails by nature are unique.
@@ -311,7 +311,7 @@ The Header and footer image of a wooden floor has been adjusted to give it a dee
  
   - Only the user that has uploaded the recipe may edit or delete it, and this is done by:
  
-    - By checking to see if the logged in username is the same as the username that is added to the recipe when uploaded.
+    - Checking to see if the logged in username is the same as the username that is added to the recipe when uploaded.
     - Hiding the 'Delete' and 'Edit' button if the usernames don't match.
  
 - **Category Select Button:**
@@ -325,7 +325,7 @@ The Header and footer image of a wooden floor has been adjusted to give it a dee
 - **A user profile page:** A profile section for the users.
 - **A star rating system:** To be able to sort the recipes from best down.
 - **A comments section in the recipes:** A comment section to leave advice or ideas to future users.
-- **A users favourite section:** To mark as favours tag so the users may keep a list of all the recipes they enjoyed the most and want to keep in their profile.
+- **A users favourite section:** To tag a recipe as favourite so the users may keep a list of all the recipes they enjoyed the most, to keep in their profile.
 - **A cloud-based image library:** The user may upload their own images. That gets stored in the cloud-based library. That optimizes the images and will speed up the loading time.
  
 ---
@@ -338,14 +338,14 @@ The Header and footer image of a wooden floor has been adjusted to give it a dee
  
 - If the routes are loaded, I tested them on Chrome and Firefox Developer Tools.
  
-- I tested HTML with w3 Validator. I got an illegal character from [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/) templates. They are acceptable errors as Flask needs the templates to connect throughout the site.
+- I tested HTML with W3 Validator. I got an illegal character from [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/) templates. They are acceptable errors as Flask needs the templates to connect throughout the site.
  
 - I tested CSS with W3 CSS Validator. I only got errors with CSS Variables. The reason I use variables in the `:root`, is if the client needs to change a 'Font' or a 'Background colour', We only have to change it in one place, the `:root`, that changes it everywhere on the site.
 - These errors are an ongoing issue with W3, They are valid, but not recognised by W3. '[CSS variables ("custom properties"), a widely supported and crucial feature.CSS-Validator issues 111](https://github.com/w3c/css-validator/issues/111)'
  
 - After the [jQuery](https://code.jquery.com/) was completed, I ran through the code to make sure it was working.
  
-- I tested all the links to make sure they all worked as intended.
+- I tested all the links to make sure they worked as intended.
  
 - I tested the CRUD capabilities to make sure they all worked.
  
@@ -355,9 +355,9 @@ The Header and footer image of a wooden floor has been adjusted to give it a dee
  
 - I tested the forms for form validation, making sure it displayed the Error message if input fields do not meet criteria.
  
-- I sent it to the Slack Community for Feedback.
+- I sent it to the Slack community for feedback.
  
-- I run the application through [Website Responsive Testing](https://responsivetesttool.com) to make sure it is responsive. Below is a list of devices:
+- I ran the application through [Website Responsive Testing](https://responsivetesttool.com) to make sure it is responsive. Below is a list of devices:
  
  <details>
 <summary>Mobiles</summary> 
@@ -419,12 +419,12 @@ The Header and footer image of a wooden floor has been adjusted to give it a dee
  
 [Back to Top](#table-of-contents)
  
-## Bugs
+## Bugs 
  
 **Being able to login with a different username.**
-On registration the username/email and password get logged to the database. When the user logged in again, only the email was checked for duplets. The problem was the user could login with the right email and password but wrong username.
+On registration the username/email and password get logged to the database. When the user logged in again, only the email was checked for duplicates. The problem was the user could login with the right email and password but wrong username.
 Upon adding a new recipe, the recipes get tagged with the username from `Sessions`, which means if the user logged in with a different username but correct email and password, they get logged in but not able edit/delete their recipe.
-My first fix was to add the username input on the login page and have the username from the form checked with the username from the database. But this adds another input is not good UX.
+My first fix was to add the username input on the login page and have the username from the form checked with the username from the database. But this adds another input and is not good UX.
  
 > To fix this issue, The user only inputs the username once at registration. At login, once the email and passwords get checked, The `Sessions` is created using the stored username. taking away the need for a username input when logging in.
  
@@ -440,7 +440,7 @@ In my testing, I found that users are using capital letters when entering their 
  
 > I used the `.lower()` method to keep all email in lower case
  
-**Search Bar case sensitivity**
+**Search Bar Case Sensitivity**
 I had a bug with the search bar not being able to pick out the words in a search, because `$regex` looks for identical matchmaking it case sensitive.
  
 > My fix was to add the optional `$options` to the query, using the `'i'` makes it case-insensitive.
@@ -452,7 +452,7 @@ recipes = list(mongo.db.recipes.find({
 ```
  
 **Category Drop-Down Menu**
-I had an issue with using hyperlink tags `<a>` in the category drop-down menu in the Navigation bar because they use `href`. The only way to get the choisen link into flask is with [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/) `{{url_for}}` and can not pass through a `value` for each item. Hyperlink tags do not support the `value` attribute. I would have to take a different route for every category listed. I also wanted to include 'Chefs and Servings' as cotogeries into the drop-down menu. Giving the user a couple more sorting options.
+I had an issue with using hyperlink tags `<a>` in the category drop-down menu because they use `href`. The only way to get the chosen link into [Flask](https://flask-doc.readthedocs.io/en/latest/#) is with [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/) `{{url_for}}` and can not pass through a `value` for each item. Hyperlink tags do not support the `value` attribute. I would have to take a different route for every category listed. I also wanted to include 'Chefs and Servings' as catagories into the drop-down menu. Giving the user additional  sorting options.
  
 > I decided to go with a form. The drop-down menu with the `select` and `options` uses a button and makes a `"POST"` request. This way I would only need 3 routes: one for the category, one for 'Chefs', and one for Servings.
 > To check if Chefs and Servings are selected or not. I used an `if` statement to select the right route. The `else` of the statement would go to the category's route.
