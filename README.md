@@ -483,34 +483,33 @@ Heroku is a container-based cloud Platform as a Service (PaaS). I used it becaus
 
 ### To deploy on Heroku
 
+The Heroku CLI requires Git, the popular version control system. If you don’t already have Git installed, complete the following before proceeding
+
+- [Git installation](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- [First-time Git setup](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup)
+
 <details>
 <summary>Heroku Deployment Steps</summary>
 <br>
 <ol>
-<li> Open Heroku.  
-   The Heroku CLI requires Git, the popular version control system. If you don’t already have Git installed, complete the following before proceeding: - [Git installation](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) - [First-time Git setup](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup)</li>
+<li> Open Heroku.</li>
 <li> Install the Heroku Command Line Interface (CLI). You use the CLI to manage and scale your applications, provision add-ons, view your application logs, and run your application locally.</li>
 <li> Create an account and navigate to dash dashboard.
    Click on the _New_ button.
    Click - _Create New App_.</li>
 <li> Create a corresponding app name that we use to deploy our application. The apps _name_ must be _unique._.</li>
 <li> Pick a server location what is closest to you.</li>
- 
 <li> In your Terminal. Navigate to you directory using.</li>
 <li> Login to Heroku using the Terminal `$ heroku login`</li>
- 
 <li> Create a requirements.txt file: `$ pip3 freeze --local > requirements.txt.`</li>
- 
 <li> Create Procfile: `$ echo web: python app.py > Procfile`</li>
- 
 <li> Add files to Git: `$ git add .` then `git commit -m 'Added reuirements.txt and Procfile'`</li>
- 
 <li> Push to Heroku: `$ git push heroku master`</li>
 <li> Go back to Heroku dashboard and click on the apps name, then on the 'settings' Tab.</li>
 <li> Specify our IP and our port using the 'Reveal Config Vars'</li>
 </ol>
 </details>
- 
+
 <details>
 <summary>Clone to a workstation</summary>
 <br>
@@ -525,10 +524,15 @@ Heroku is a container-based cloud Platform as a Service (PaaS). I used it becaus
 <li>Type ‘’’git clone’’’ and then paste the URL you copied in Step 2.</li><li>Press Enter. Your local Clone will be created.</li>
 </ol>
 </details>
+
 ---
+
 [Back to Top](#table-of-contents)
+
 ## Credits
+
 ##### Code Tutorials
+
 - [Julian Nash](https://www.youtube.com/channel/UC5_oFcBFlawLcFCBmU7oNZA) ~ YouTube
 - [Pretty Printed](https://www.youtube.com/channel/UC-QDfvrRIDB6F0bIO4I4HkQ) ~ YouTube
 - John Elder ~ [Codemy](https://codemy.com/about/)
