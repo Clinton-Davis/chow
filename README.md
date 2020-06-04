@@ -92,7 +92,7 @@ _**Login**_ : Here you will be redircted to the Login/Registration page. Its a s
 _**Registration**_: Is the same as the Login form but with a Nick name / Username input. Once the username has been added it can not be changed.
 
 <details>
-<summary>Navigation</summary>
+<summary>Header Navigation (Click for image)</summary>
 
 <p align="center">
 <img src="static/wireframes/nav-bar.png">
@@ -108,7 +108,7 @@ All Recipes is the first page we get to see, all the recipes uploaded by the use
 The design of this is made for browsing, to be scanned over when looking for dinner tonight. Once the recipe is selected, the "Lets Chow" button brings you to the Recipe page.
 
 <details>
-<summary>All Recipes Wireframes</summary>
+<summary>All Recipes Wireframes (Click for image)</summary>
 
 <p align="center">
 <img src="static/wireframes/all_recipe_desk.png">
@@ -129,7 +129,7 @@ a list of all the ingredients and cooking instructions neatly laid out and easy 
 It is from here you will be given the option to edit or delete a recipe. If you are the uploader of the recipe.
 
 <details>
-<summary>Recipes Wireframes</summary>
+<summary>Recipes Wireframes (Click for image)</summary>
 
 <p align="center">
 <img src="static/wireframes/recipe_desk.png">
@@ -147,7 +147,7 @@ This page is a form formate it has all the inputs you will need to upload a reci
 All the input will have to be used to add a recipe; there is form validation.
 
 <details>
-<summary>Add Recipes Wireframes</summary>
+<summary>Add Recipes Wireframes (Click for image)</summary>
 
 <p align="center">
 <img src="static/wireframes/add_recipe_desk.png">
@@ -165,7 +165,7 @@ The Edit page is a copy of the 'Add Recipe' page with a few exceptions.
 The inputs are filled with the values of the recipe. So the user only has to change what they want to. The entire form does not have to be refilled.
 
 <details>
-<summary>Add Recipes Wireframes</summary>
+<summary>Add Recipes Wireframes (Click for image)</summary>
 
 <p align="center">
 <img src="static/wireframes/add_recipe_desk.png">
@@ -182,10 +182,24 @@ The inputs are filled with the values of the recipe. So the user only has to cha
 The About page has a centre block format with a heading and information about Chow and HotPoint.
 
 <details>
-<summary>About Page Wireframes</summary>
+<summary>About Page Wireframes (Click for image)</summary>
 
 <p align="center">
 <img src="static/wireframes/about_desk.png">
+</p>
+</details>
+
+---
+
+#### **MongoDB Atlas**
+
+Chow is using [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) for the database, MongoDB is a NoSQL cloud bases database, and manages applications more efficiently at scale.
+
+<details>
+<summary>Chow Schema (Click for image)</summary>
+
+<p align="center">
+<img src="static/wireframes/schema.png">
 </p>
 </details>
 
