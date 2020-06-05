@@ -249,6 +249,26 @@ hr {
   border: 5px solid rgba(0, 0, 0, 0.6);
 }
 
+/* Back To-Top-Button*/
+.btt-button {
+  height: 42px;
+  width: 42px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: var(--cbg);
+
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.btt-link {
+  cursor: pointer;
+}
+
 /*Add-Recipe-page*/
 .add-recipys {
   display: flex;
