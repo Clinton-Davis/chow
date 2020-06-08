@@ -29,7 +29,7 @@ html {
   --fs: 1.5rem;
 }
 
-/*=-=-Genral*/
+/*=-=-General*/
 body {
   min-height: 100vh;
   font-family: var(--bf);
@@ -42,8 +42,6 @@ body {
   -webkit-background-attachment: fixed;
   -moz-background-attachment: fixed;
 }
-
-/* Alt Picture*/
 
 a {
   color: rgb(139, 0, 0);
@@ -179,6 +177,11 @@ hr {
   right: 20px;
 }
 
+/*Search Bar size*/
+.form-inline .form-control {
+  width: 10em;
+}
+
 /* Main body Jumbos / Cards / Forms */
 .jumbotron {
   background-color: var(--cbg);
@@ -189,10 +192,7 @@ hr {
   border: var(--obb);
 }
 
-/*Search Bar size*/
-.form-inline .form-control {
-  width: 10em;
-}
+
 
 
 /* All-Recipes */
@@ -228,6 +228,63 @@ hr {
   margin: 0px;
 }
 
+/*Wood Btns*/
+.btn-primary {
+  color: rgb(255, 255, 255);
+  background-image: url(../images/wood-Dark-luca-ruegg-crop.jpg);
+  background-position: center;
+  background-size: contain;
+  border-color: rgb(0, 0, 0);
+  min-height: 2.5em;
+  border: 1px solid rgba(0, 0, 0, 0.61);
+
+  max-width: 300px;
+  box-shadow: var(--shd);
+  -webkit-box-shadow: var(--shd);
+  -moz-box-shadow: var(--shd);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  color: #fff;
+  background-color: rgb(128, 128, 128);
+  border-color: rgb(128, 128, 128);
+}
+
+
+
+/* Ripple effect */
+.ripple-surface {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-surface span {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.685);
+  width: 100px;
+  height: 100px;
+  margin-top: -50px;
+  margin-left: -50px;
+  animation: ripple 1200ms;
+  opacity: 0;
+  -webkit-animation: ripple 1200ms;
+}
+
+@keyframes ripple {
+  from {
+    opacity: 1;
+    transform: scale(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(10);
+  }
+}
+
 #recipe_body {
   height: auto;
 }
@@ -243,7 +300,6 @@ hr {
 
 #recipe_dish_image {
   height: 180px;
-
   width: 275px;
   margin: 0.5em;
   border: 5px solid rgba(0, 0, 0, 0.6);
@@ -257,7 +313,6 @@ hr {
   bottom: 10px;
   right: 10px;
   background-color: var(--cbg);
-
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -267,6 +322,16 @@ hr {
 
 .btt-link {
   cursor: pointer;
+}
+
+/* Background image for non imaged recipes*/
+.dish_image {
+  background-image: url(../images/chow-replacement.jpg);
+  background-position: center center;
+  background-size: cover;
+  border: 5px solid rgba(0, 0, 0, 0.6);
+  height: 160px;
+  width: auto;
 }
 
 /*Add-Recipe-page*/
@@ -333,29 +398,6 @@ hr {
   max-width: 650px;
 }
 
-/*Wood Btns*/
-.btn-primary {
-  color: rgb(255, 255, 255);
-  background-image: url(../images/wood-Dark-luca-ruegg-crop.jpg);
-  background-position: center;
-  background-size: contain;
-  border-color: rgb(0, 0, 0);
-  min-height: 2.5em;
-  border: 1px solid rgba(0, 0, 0, 0.61);
-
-  max-width: 300px;
-  box-shadow: var(--shd);
-  -webkit-box-shadow: var(--shd);
-  -moz-box-shadow: var(--shd);
-}
-
-.btn-primary:hover,
-.btn-primary:focus {
-  color: #fff;
-  background-color: rgb(128, 128, 128);
-  border-color: rgb(128, 128, 128);
-}
-
 #edit-btn {
   color: rgb(45, 216, 54);
   border: 1px solid rgb(50, 248, 60);
@@ -366,47 +408,8 @@ hr {
   border: 1px solid rgb(248, 50, 50);
 }
 
-/* Ripple effect */
-.ripple-surface {
-  display: inline-block;
-  position: relative;
-  overflow: hidden;
-}
 
-.ripple-surface span {
-  position: absolute;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.685);
-  width: 100px;
-  height: 100px;
-  margin-top: -50px;
-  margin-left: -50px;
-  animation: ripple 1200ms;
-  opacity: 0;
-  -webkit-animation: ripple 1200ms;
-}
 
-@keyframes ripple {
-  from {
-    opacity: 1;
-    transform: scale(0);
-  }
-
-  to {
-    opacity: 0;
-    transform: scale(10);
-  }
-}
-
-/* Background image for non imaged recipes*/
-.dish_image {
-  background-image: url(../images/chow-replacement.jpg);
-  background-position: center center;
-  background-size: cover;
-  border: 5px solid rgba(0, 0, 0, 0.6);
-  height: 160px;
-  width: auto;
-}
 
 /*-=-=About-=-*/
 #P-chow {
