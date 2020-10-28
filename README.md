@@ -16,6 +16,10 @@
 
 ---
 
+![muiltyscreenImg](static\images\smartmockups_chow.png)
+
+---
+
 ## Table of Contents
 
 1. [**UX**](#ux)
