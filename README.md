@@ -16,7 +16,7 @@
 
 ---
 
-![muiltyscreenImg](static\images\smartmockups_chow.png)
+![muiltyscreenImg](./static/images/smartmockups_chow.png)
 
 ---
 
@@ -72,7 +72,7 @@ There are five main pages, two error handling pages and one 'Base' page. Using [
 
 ---
 
-#### **Navigation**
+### Navigation
 
 On the left hand side you see the Logo. It is made with two parts. The 'Chow' image and the 'HotPoint' logo. The 'Chow' image is clickable and will refresh the page. The 'HotPoint' logo is also clickable and will redirect you to the Hot Point web site.
 On the right are the navigate buttons. _Category drop down menu / Add Recipe / About / Login / Search bar_.
@@ -98,9 +98,7 @@ _**Registration**_: Is the same as the Login form but with a Nick name / Usernam
 <details>
 <summary>Header Navigation (Click for image)</summary>
 
-<p align="center">
-<img src="static/wireframes/nav-bar.png">
-</p>
+![img](static/wireframes/nav-bar.png)
 
 </details>
 
@@ -114,12 +112,10 @@ The design of this is made for browsing, to be scanned over when looking for din
 <details>
 <summary>All Recipes Wireframes (Click for image)</summary>
 
-<p align="center">
-<img src="static/wireframes/all_recipe_desk.png">
-</p>
-<p align="center">
-<img src="static/wireframes/all_recipe_moble.png">
-</p>
+![img](static/wireframes/all_recipe_desk.png)
+
+![img](static/wireframes/all_recipe_moble.png)
+
 </details>
 
 ---
@@ -135,12 +131,10 @@ It is from here you will be given the option to edit or delete a recipe. If you 
 <details>
 <summary>Recipes Wireframes (Click for image)</summary>
 
-<p align="center">
-<img src="static/wireframes/recipe_desk.png">
-</p>
-<p align="center">
-<img src="static/wireframes/recipe_moble.png">
-</p>
+![img](static/wireframes/recipe_desk.png)
+
+![img] (static/wireframes/recipe_moble.png)
+
 </details>
 
 ---
